@@ -47,18 +47,16 @@ When instructed to use _Byteman_ to halt the application, perform the following 
         For Linux: JBOSS_HOME/bin/standalone.conf 
         For Windows: JBOSS_HOME\bin\standalone.conf.bat
 
-2. **Important**: Make a backup copy of this file before making any modifications.
+2. **Important**: Make a backup copy of this configuration file before making any modifications!
 
-3. The quickstart README file should specify the text you need to append to the server configuration file.
+3. Open the configuration file and append the text specified in the quickstart README instructions to the end of the configuration file. Be sure to replace the `BYTEMAN_HOME` with the path to the Byteman download and the `QUICKSTART_HOME` with the path to the quickstarts. 
 
-4. Open the configuration file and append the text specified by the quickstart to the end of the file. Make sure to replace the file paths with the correct location of your quickstarts and the _Byteman_ download. 
+    The following is an example of of the configuration changes needed for the _jta-crash-rec_ quickstart.
 
-5. The following is an example of of the configuration changes needed for the _jta-crash-rec_ quickstart: 
-
-    For Linux, open the `JBOSS_HOME/bin/standalone.conf` file and append the following line:
+    For Linux:
 
         JAVA_OPTS="-javaagent:/BYTEMAN_HOME/lib/byteman.jar=script:/QUICKSTART_HOME/jta-crash-rec/src/main/scripts/xa.btm ${JAVA_OPTS}" 
-    For Windows, open the `JBOSS_HOME\bin\standalone.conf.bat` file and append the following line:
+    For Windows:
 
         SET "JAVA_OPTS=%JAVA_OPTS% -javaagent:C:\BYTEMAN_HOME\lib\byteman.jar=script:C:\QUICKSTART_HOME\jta-crash-rec\src\main\scripts\xa.btm %JAVA_OPTS%"
 
