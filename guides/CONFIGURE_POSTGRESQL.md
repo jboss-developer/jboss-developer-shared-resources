@@ -1,7 +1,7 @@
-Configure the PostgreSQL Database for Use in the Quickstarts
+Configure the PostgreSQL Database for Use with the Quickstarts
 ===============
 
-Summary: Some of the quickstarts required the PostgreSQL database. This guide describes how to install and configure the database for use with these quickstarts. The instructions here are the minimum required to install PostgreSQL version 9.2. If you install a later version, be sure to modify the version when you issue the commands below. More detailed instructions on how to install, configure, and start PostgreSQL can be found on the Internet.
+Summary: Some of the quickstarts require the PostgreSQL database. This guide describes how to install and configure the database for use with these quickstarts. The instructions here are the minimum required to install PostgreSQL version 9.2. If you install a later version, be sure to modify the version when you issue the commands below. More detailed instructions on how to install, configure, and start PostgreSQL can be found on the Internet.
 
 _Note_: Although the database only needs to be installed once, to help partition each quickstart we recommend using a separate database per quickstart. Where you see `QUICKSTART_DATABASE_NAME`, you should replace that with the name provided in the specific quickstart's README file.
 
@@ -231,6 +231,6 @@ This script removes PostgreSQL from the `datasources` subsystem in the server co
 
 1. If it is running, stop the JBoss EAP server.
 2. Replace the `JBOSS_HOME/standalone/configuration/standalone-full.xml` file with the back-up copy of the file.
-        
-        
+
+[Back to top](#configure-the-postgresql-database-for-use-with-the-quickstarts)
 

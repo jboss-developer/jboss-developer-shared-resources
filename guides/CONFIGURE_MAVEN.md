@@ -8,6 +8,8 @@ Summary: The artifacts and dependencies needed to build and deploy applications 
 
 Some common profiles are defined and may be used in some quickstart POM files. These profiles are described here: [Use of Maven Profiles in POM Files](#use-of-maven-profiles-in-pom-files)
 
+More detailed Maven configuration instructions can be found in the Development Guide for JBoss Enterprise Application Platform located on the Customer Portal at <https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform/>.
+
 
 Configure Maven - For Use With Command Line
 -------------------------------------------
@@ -87,3 +89,4 @@ Profiles are used by Maven to customize the build environment. The `pom.xml` in 
 * The `requires-xts` profile lists quickstarts the require you start the JBoss server using the xts profile.
 * The `non-maven` profile lists quickstarts that do not require Maven, for example, quickstarts that depend on deployment of other quickstarts or those that use other Frameworks such as Forge.
 
+[Back to top](#configure-maven-to-build-and-deploy-the-quickstarts)
