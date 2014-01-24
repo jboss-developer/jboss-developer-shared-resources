@@ -7,7 +7,8 @@ A few of the quickstarts use _Byteman_ to demonstrate distributed transaction pr
 The following sections describe the steps necessary to install, configure, and use _Byteman_ with these quickstarts.
 
 * [Download and Configure Byteman](#download-and-configure-byteman)
-* [Halt the Application Using Byteman](#halt-the-application-using-byteman)
+* [Clear the Transaction ObjectStore](#clear-the-transaction-objectstore)
+* [Use Byteman to Halt the Application](#use-byteman-to-halt-the-application)
 * [Disable the Byteman Script](#disable-the-byteman-script)
 
 
@@ -20,7 +21,21 @@ Download and Configure Byteman
 
         chmod -R o-rwx BYTEMAN_HOME/
 
-Halt the Application Using Byteman
+Clear the Transaction ObjectStore
+-------------------------
+
+Transaction objectstore data remaining from previous tests can prevent _Byteman_ from working properly. You must remove any remaining data before running new _Byteman_ tests.  If you are using the default file based transaction logging store:
+
+1. Open a command prompt and type the following:
+
+        ls $JBOSS_HOME/standalone/data/tx-object-store/ShadowNoFileLockStore/defaultStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/
+2. If this directory exists and contains any files, delete them before starting the server:
+
+        rm -rf $JBOSS_HOME/standalone/data/tx-object-store/ShadowNoFileLockStore/defaultStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/*
+3. On Windows, use the file manager to accomplish the same result.
+
+
+Use Byteman to Halt the Application
 -------------------------------
 
 _NOTE_: The _Byteman_ scripts only work in JTA mode. They do not work in JTS mode. If you have configured the server for a quickstart that uses JTS, you must follow the quickstart instructions to remove the JTS configuration from the JBoss server before making the following changes. Otherwise _Byteman_ will not halt the server. 
@@ -51,7 +66,7 @@ When instructed to use _Byteman_ to halt the application, perform the following 
 Disable the Byteman Script
 ----------------------
  
-When you are done testing the quickstart, replace the configuration file with the backup copy you made in step 2 above to disable _Byteman_.
+When you have completed testing the quickstart, replace the server configuration file with the backup copy you created in step 2 above to disable _Byteman_.
 
 [Back to top](#configure-byteman-for-use-with-the-quickstarts)
 
