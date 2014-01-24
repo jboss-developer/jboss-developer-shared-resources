@@ -109,14 +109,23 @@ markdown_to_html()
    # Process the MarkDown files in the guides directory
    cd $DIR/../guides
    echo "Processing the guides.."
-   guidefiles=`find . -name *.md`
-   for guidefile in $guidefiles
-   do
-      markdown_filename=$guidefile
+
+   for i in *.md; do
+      markdown_filename=$i
       echo "Processing $markdown_filename"
       output_filename=${markdown_filename//.md/.html}
       $DIR/github-flavored-markdown.rb $markdown_filename > $output_filename  
    done
+   
+#   guidefiles=`find . -name *.md`
+#   echo "guidefiles=" $guidefiles
+#   for guidefile in $guidefiles
+#   do
+#      markdown_filename=$guidefile
+#      echo "Processing $markdown_filename"
+#      output_filename=${markdown_filename//.md/.html}
+#      $DIR/github-flavored-markdown.rb $markdown_filename > $output_filename  
+#   done
   
    # Now process the root readme
    cd $DIR/../
