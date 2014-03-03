@@ -38,7 +38,7 @@ Transaction objectstore data remaining from previous tests can prevent _Byteman_
 Use Byteman to Halt the Application
 -------------------------------
 
-_NOTE_: The _Byteman_ scripts only work in JTA mode. They do not work in JTS mode. If you have configured the server for a quickstart that uses JTS, you must follow the quickstart instructions to remove the JTS configuration from the JBoss server before making the following changes. Otherwise _Byteman_ will not halt the server. 
+_NOTE_: The _Byteman_ scripts only work in JTA mode. They do not work in JTS mode. If you have configured the server for a quickstart that uses JTS, you must follow the quickstart instructions to remove the JTS configuration from the JBoss EAP server before making the following changes. Otherwise _Byteman_ will not halt the server. 
 
 When instructed to use _Byteman_ to halt the application, perform the following steps:
  

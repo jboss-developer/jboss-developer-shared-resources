@@ -10,7 +10,7 @@ The following sections describe the steps necessary to install and configure Pos
 * [Download and Install PostgreSQL](#download-and-install-postgresql): Follow the instructions for your operating system to download and install PostgreSQL.
 * [Create a Database User](#create-a-database-user): Create a user for the PostgreSQL database.
 * [Add the PostgreSQL Module to the JBoss EAP server](#add-the-postgresql-module-to-the-jboss-eap-server): Create a JBoss Module for the JBoss EAP server.
-* [Configure the PostgreSQL Driver in the JBoss Server](#configure-the-postgresql-driver-in-the-jboss-server): Add PostgreSQL to the JBoss EAP server configuration.
+* [Configure the PostgreSQL Driver in the JBoss EAP Server](#configure-the-postgresql-driver-in-the-jboss-eap-server): Add PostgreSQL to the JBoss EAP server configuration.
 * [Remove the PostgreSQL Configuration](#remove-the-postgresql-configuration): When you are done testing, remove PostgreSQL from the server configuration.
 
 
@@ -168,10 +168,10 @@ Add the PostgreSQL Module to the JBoss EAP server
             </dependencies>
         </module>
 
-Configure the PostgreSQL Driver in the JBoss Server
+Configure the PostgreSQL Driver in the JBoss EAP Server
 -----------------------------------------------------------
 
-You configure the PostgreSQL driver in the JBoss server by running JBoss CLI commands. For your convenience, the quickstarts batch the commands into a `configure-postgresql.cli` script provided in the root directory of the quickstarts.
+You configure the PostgreSQL driver in the JBoss EAP server by running JBoss CLI commands. For your convenience, the quickstarts batch the commands into a `configure-postgresql.cli` script provided in the root directory of the quickstarts.
 
 ### Run the Script to Configure PostgreSQL 
 
@@ -198,7 +198,7 @@ You should see the following result when you run the script:
 
 #### Review the PostgreSQL Changes to the Server Configuration
 
-If you want to review and understand newly added XML configuration, stop the JBoss server and open the `JBOSS_HOME/standalone/configuration/standalone-full.xml` file. 
+If you want to review and understand newly added XML configuration, stop the JBoss EAP server and open the `JBOSS_HOME/standalone/configuration/standalone-full.xml` file. 
 
 The `postgresql` driver was added to the `<drivers>` section in the `datasources` subsystem of the server configuration file.
 

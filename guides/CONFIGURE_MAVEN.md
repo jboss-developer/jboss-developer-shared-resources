@@ -85,8 +85,8 @@ Profiles are used by Maven to customize the build environment. The `pom.xml` in 
 * The `default` profile defines the list of modules or quickstarts that require nothing but JBoss Enterprise Application Platform.
 * The `requires-postgres` profile lists the quickstarts that require PostgreSQL to be running when the quickstart is deployed.
 * The `complex-dependency` profile lists quickstarts that require manual configuration that can not be automated.
-* The `requires-full` profile lists quickstarts the require you start the JBoss server using the full profile.
-* The `requires-xts` profile lists quickstarts the require you start the JBoss server using the xts profile.
+* The `requires-full` profile lists quickstarts the require you start the JBoss EAP server using the full profile.
+* The `requires-xts` profile lists quickstarts the require you start the JBoss EAP server using the xts profile.
 * The `non-maven` profile lists quickstarts that do not require Maven, for example, quickstarts that depend on deployment of other quickstarts or those that use other Frameworks such as Forge.
 
 [Back to top](#configure-maven-to-build-and-deploy-the-quickstarts)

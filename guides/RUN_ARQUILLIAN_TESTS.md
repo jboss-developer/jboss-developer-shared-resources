@@ -43,7 +43,7 @@ Arquillian's managed container adapter starts the container for you and requires
 
 1. You must first let Arquillian know where to find the JBoss EAP server directory. 
 
-   The simplest approach is to set the `JBOSS_HOME` environment variable to the full path to your JBoss server directory. 
+   The simplest approach is to set the `JBOSS_HOME` environment variable to the full path to your JBoss EAP server directory. 
    
    Alternatively, you can set the path in the `jbossHome` property in the Arquillian configuration file as follows.
     * Open the `src/test/resources/arquillian.xml` file located in the quickstart directory.
