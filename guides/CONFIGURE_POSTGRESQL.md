@@ -153,7 +153,7 @@ Create a Database User
 Add the PostgreSQL Module to the JBoss EAP server
 -------------------------------------------------
 
-1. Create the following directory structure: `JBOSS_HOME/modules/org/postgresql/main`
+1. Create the following directory structure: `JBOSS_HOME/modules/system/layers/base/org/postgresql/main`
 2. Download the JBDC driver from <http://jdbc.postgresql.org/download.html> and copy it into the directory you created in the previous step.
 3. In the same directory, create a file named module.xml. Copy the following contents into the file:
 
