@@ -114,7 +114,7 @@ General Guidelines
 
 * If you create a quickstart that uses a database table, make sure the name you use for the table is unique across all quickstarts. 
 
-* The project must follow the structure used by existing quickstarts such as [numberguess](../../../../jboss-eap-quickstarts/tree/6.3.x-develop/numberguess). A good starting point would be to copy the  `numberguess` project.
+* The project must follow the structure used by existing quickstarts such as [numberguess](https://github.com/jboss-developer/jboss-eap-quickstarts/tree/6.3.x-develop/numberguess). A good starting point would be to copy the  `numberguess` project.
 
 * The sample project should be importable into JBoss Developer Studio/JBoss Tools and be deployable from there.
 

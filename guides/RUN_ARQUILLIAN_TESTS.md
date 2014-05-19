@@ -10,7 +10,7 @@ There are two ways you can run Arquillian tests:
 
 The individual quickstart README should tell you what to expect in the console output and the server log when you run the tests.
 
-_Note:_ If you do not configure the Maven settings as described here, [Configure Maven](../../../blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts), you must pass the configuration setting on every Maven command as follows: ` -s QUICKSTART_HOME/settings.xml`
+_Note:_ If you do not configure the Maven settings as described here, [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts), you must pass the configuration setting on every Maven command as follows: ` -s QUICKSTART_HOME/settings.xml`
 
 Test the Quickstart on a Remote JBoss EAP Server
 -------------------------------------
