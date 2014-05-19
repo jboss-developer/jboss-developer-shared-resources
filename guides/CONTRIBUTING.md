@@ -18,9 +18,9 @@ To contribute to the quickstarts, fork the quickstart repository to your own Git
 
 If you don't have the Git client (`git`), get it from: <http://git-scm.com/>
 
-Here are the steps in detail:
+This document details the steps needed to contribute to the JBoss EAP quickstarts. For other quickstarts, you need to replace the Github repository URL with the correct repository location.
 
-1. [Fork](https://github.com/jboss-developer/jboss-eap-quickstarts/fork_select) the project. This creates a the project in your own Git with the default remote name 'origin'.
+1. [Fork](https://github.com/jboss-developer/jboss-eap-quickstarts/fork) the project. This creates the `jboss-eap-quickstarts` project in your own Git with the default remote name 'origin'.
 
 2. Clone your fork. This creates and populates a directory in your local file system.
 
@@ -114,7 +114,7 @@ General Guidelines
 
 * If you create a quickstart that uses a database table, make sure the name you use for the table is unique across all quickstarts. 
 
-* The project must follow the structure used by existing quickstarts such as [numberguess](https://github.com/jboss-developer/jboss-eap-quickstarts/tree/master/numberguess). A good starting point would be to copy the  `numberguess` project.
+* The project must follow the structure used by existing quickstarts such as [numberguess](../../../../jboss-eap-quickstarts/tree/master/numberguess). A good starting point would be to copy the  `numberguess` project.
 
 * The sample project should be importable into JBoss Developer Studio/JBoss Tools and be deployable from there.
 
