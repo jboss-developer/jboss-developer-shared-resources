@@ -1,8 +1,18 @@
-Quickstarts Contributing Guide
+
+JBoss Developer Contributing Guide
 ==============================
 
-Purpose of the quickstarts
---------------------------
+Join the Mailing list
+---------------------
+
+To monitor and participate in the latest development discussions, join the JBoss developer mailing list here: <https://lists.jboss.org/mailman/listinfo/jbossdeveloper>
+
+
+Contribute a Quickstart
+-----------------------
+
+### Purpose of the quickstarts
+
 
 - To demonstrate Java EE 6 technologies
 
@@ -10,9 +20,7 @@ Purpose of the quickstarts
 
 - To allow examples to be copied by developers and used as the basis for their own projects.
 
-
-Basic Steps
------------
+### Basic Steps
 
 To contribute to the quickstarts, fork the quickstart repository to your own Git, clone your fork, commit your work on topic branches, and make pull requests. 
 
@@ -87,8 +95,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 14. Browse to the <topic-branch-name> branch on your forked Git repository and [open a Pull Request](http://help.github.com/send-pull-requests/). Give it a clear title and description.
 
 
-General Guidelines
-------------------
+### General Guidelines
 
 * The sample project should be formatted using the JBoss AS profiles found at <http://github.com/jboss/ide-config/tree/master/>
 
@@ -140,8 +147,7 @@ General Guidelines
 
 * If possible, create a cheat sheet for the quickstart to guide users and developers through the example. See the [Quickstart Cheat Sheet Contributing Guide](#quickstart-cheat-sheet-contributing-guide) for more information.
 
-Kitchensink variants
---------------------
+### Kitchensink variants
 
   There are multiple quickstarts based on the kitchensink example.  Each showcases different technologies and techniques including pure EE6, JSF, HTML5, and GWT.
 
@@ -160,8 +166,7 @@ Kitchensink variants
 
     If appropriate for the technology the application should expose RESTful endpoints following the example of the original kitchensink quickstart.  This should also include the RESTful links in the member table.
     
-Setup your environment
-----------------------
+### Setup your environment
 
 The quickstart README.md files are converted to HTML using markdown. We recommend using redcarpet, as that is what github uses, but you can use any markdown tool really.
 
@@ -187,8 +192,7 @@ To setup the environment you need to follow these steps.
 
             sudo easy_install pygments
 
-Configure Maven
----------------
+### Configure Maven
 
 If you are working with quickstarts currently under development in the master branch, you need access to artifacts currently under development. The JBoss developer Maven repository, which contains newly staged artifacts, is located at [jboss-developer.github.io](http://jboss-developer.github.io/temp-maven-repo/).
 
@@ -229,229 +233,9 @@ To access these artifacts, do one of the following:
       Then add `<activeProfile>jboss-developer-repository</activeProfile>` to the `<activeProfiles>` section of the file.
 
 _Note: Regardless of the method you choose to configure your Maven settings, you must also delete the existing `${user.home}/.m2/repository/`._
-  
-
-License Information and Contributor Agreement
----------------------------------------------
-
-  JBoss Developer Framework is licensed under the Apache License 2.0, as we believe it is one of the most permissive Open Source license. This allows developers to easily make use of the code samples in JBoss Developer Framework. 
-
-  There is no need to sign a contributor agreement to contribute to JBoss Developer Framework. You just need to explicitly license any contribution under the AL 2.0. If you add any new files to JBoss Developer Framework, make sure to add the correct header.
-
-### Java,  Javascript and CSS files 
-
-      /** 
-       * JBoss, Home of Professional Open Source
-       * Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
-       * contributors by the @authors tag. See the copyright.txt in the 
-       * distribution for a full listing of individual contributors.
-       *
-       * Licensed under the Apache License, Version 2.0 (the "License");
-       * you may not use this file except in compliance with the License.
-       * You may obtain a copy of the License at
-       * http://www.apache.org/licenses/LICENSE-2.0
-       * Unless required by applicable law or agreed to in writing, software
-       * distributed under the License is distributed on an "AS IS" BASIS,  
-       * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-       * See the License for the specific language governing permissions and
-       * limitations under the License.
-       */
-
-### HTML, XML, XSD and XHTML files
-
-      <!--
-       JBoss, Home of Professional Open Source
-       Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
-       contributors by the @authors tag. See the copyright.txt in the 
-       distribution for a full listing of individual contributors.
-
-       Licensed under the Apache License, Version 2.0 (the "License");
-       you may not use this file except in compliance with the License.
-       You may obtain a copy of the License at
-       http://www.apache.org/licenses/LICENSE-2.0
-       Unless required by applicable law or agreed to in writing, software
-       distributed under the License is distributed on an "AS IS" BASIS,  
-       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-       See the License for the specific language governing permissions and
-       limitations under the License.
-       -->
-
-### Properties files and Bash Scripts
-
-       # JBoss, Home of Professional Open Source
-       # Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
-       # contributors by the @authors tag. See the copyright.txt in the 
-       # distribution for a full listing of individual contributors.
-       #
-       # Licensed under the Apache License, Version 2.0 (the "License");
-       # you may not use this file except in compliance with the License.
-       # You may obtain a copy of the License at
-       # http://www.apache.org/licenses/LICENSE-2.0
-       # Unless required by applicable law or agreed to in writing, software
-       # distributed under the License is distributed on an "AS IS" BASIS,  
-       # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-       # See the License for the specific language governing permissions and
-       # limitations under the License.
-
-### SQL files
-
-      --
-      -- JBoss, Home of Professional Open Source
-      -- Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
-      -- contributors by the @authors tag. See the copyright.txt in the
-      -- distribution for a full listing of individual contributors.
-      --
-      -- Licensed under the Apache License, Version 2.0 (the "License");
-      -- you may not use this file except in compliance with the License.
-      -- You may obtain a copy of the License at
-      -- http://www.apache.org/licenses/LICENSE-2.0
-      -- Unless required by applicable law or agreed to in writing, software
-      -- distributed under the License is distributed on an "AS IS" BASIS,
-      -- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      -- See the License for the specific language governing permissions and
-      -- limitations under the License.
-      --
-
-### JSP files
-
-      <%--
-      JBoss, Home of Professional Open Source
-      Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
-      contributors by the @authors tag. See the copyright.txt in the
-      distribution for a full listing of individual contributors.
-
-      Licensed under the Apache License, Version 2.0 (the "License");
-      you may not use this file except in compliance with the License.
-      You may obtain a copy of the License at
-      http://www.apache.org/licenses/LICENSE-2.0
-      Unless required by applicable law or agreed to in writing, software
-      distributed under the License is distributed on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      See the License for the specific language governing permissions and
-      limitations under the License.
-      --%>
-      
-
-Quickstart Cheat Sheet Contributing Guide
-==============================
 
 
-Purpose of the Cheat Sheets
---------------------------
-
-- Cheat sheets function as a tutorial and provide a step by step guide through a quickstart. 
-- They provide a way to step through and explain the code in an interactive way.
-- They can provide an in-depth analysis of specific sections of code.
-
-
-Basic Steps to Create a Cheat Sheet
------------
-
-You can create a cheat sheet using the Eclipse Wizard or you can copy and modify an existing cheat sheet from another quickstart. This section describes how to create a cheat sheet using the Eclipse wizard.
-
-_Note: Be sure your project folder is located outside of the Eclipse workspace before you begin this process._
-
-1.  Import your quickstart into JBoss Developer Studio (JDBS)
-    1.  From the menu, choose `File` --> `Import` --> `Maven` --> `Existing Maven Projects`, then click `Next`.
-    2.  Navigate to your quickstart, select it, then click `OK`.
-    3.  Click `Finish`.
-2.  Create the cheat sheet.
-    1.  Select the imported quickstart project.
-    2.  From the menu, choose `File` --> `New` --> `Other` --> `User Assistance` --> `Cheat Sheet`, then click `Next`.
-    3.  Select the quickstart folder, give it a name 'cheatsheet.xml', and choose `Simple Cheat Sheet`.
-    4.  Click `Finish`. When it prompts you to open the cheatsheet for the quickstart project, click `Yes`.
-3.  Populate the cheatsheet with useful information to help a user understand the quickstart.
-    1.  Expand the `Title` in the content section on the left. 
-    2.  Select the `Title` field and modify it to something useful, for example: `helloworld`
-    3.  Select the `intro` field and add introduction text to the `Body`, for example: `This quickstart demonstrates the use of CDI 1.0 and Servlet 3.0. It is a simple application that can be used to verify the JBoss EAP server is configured and running correctly.`
-    4.  Select `item`, then under `Command`, click `browse` and select 'Get current project' under `Uncategorized`. This adds the following XML to the cheat sheet: 
-    
-            <command 
-            required="true" 
-            returns="currentProject"
-            serialization="org.jboss.tools.project.examples.cheatsheet.getProjectForCheatsheet"/>
-    This command allows you to use the variable `${currentProject}` instead of a hard-coded path name and ensures your cheat sheet will work regardless of the project location.
-         
-    5.  Add an `item` for each file or class you want to describe. 
-        *  This is dependent on the quickstart features you plan to demonstrate.
-        *  Provide a good description.
-        *  Add subitems to describe code sections and provide the line numbers that are referenced.
-4. Test your cheat sheet by opening it in JDBS.
-    1.  Go through each step and make sure the descriptions are valid.
-    2.  Click on each link to make sure it opens the file and highlights the correct lines of code.
-5. When you finish testing the cheat sheet, rename the file from `cheatsheet.xml` to `.cheatsheet.xml` and make sure it is located in the root directory of the quickstart.
-6. Add the `.cheatsheet.xml` file using `git add`, commit the change, push it to your forked repository, and issue a pull.
-7. If your cheat sheet is for the quickstart based on an archetype, it will automatically generate the cheat sheet for the archetype. However, you must add an `<include>.cheatsheet.*</include>` to the fileset for the root directory in the corresponding archetype's `archetype-metadata.xml` file. See the `jboss-javaee6-webapp-archetype` archetype for an example.
-
-
-General Guidelines
-------------------
-
-* If your project folder is located in the Eclipse workspace when you generate your cheat sheet using the Eclipse wizard, it will generate an invalid project name and attempts to open source code will fail. Be sure your project folder is located outside the Eclipse workspace before you begin.
-* The cheat sheet should be created in the root of the quickstart directory and named `.cheatsheet.xml`. Eclipse will not let you name the file with a leading '.', so you will need to rename it after it is created.
-* Make sure you add the 'Get current project' command and use the replaceable `${currentProject}`  value to avoid hard-coding the project path. This ensures that if the quickstart folder is moved, the cheat sheet will work as expected.
-* Do not use the `<action>` tag if it can be avoided. It is more fragile than the `<command>` tag, which uses parameters names instead of indexes.
-* Try to highlight the most important features and code for the quickstart. Pay particular attention to areas that might confuse developers. Cheat sheets require that users execute or skip each step, so you don't want to bore developers with the code that has no impact on the purpose of the quickstart.
-* Make sure `<?xml version="1.0" encoding="UTF-8"?>` is the first line in the `.cheatsheet.xml` file, before the license information. This enables the cheat sheet to open automatically when you import the project into JBoss Developer Studio.
-
-Find Help
-------------------
-
-You can find additional help at the following locations:
-
-* [Eclipse Help: Cheat sheets](http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2Fua_cheatsheet.htm&resultof=%22cheat%22%20%22sheet%22%20)
-* [Recommended Work Flow for Cheat Sheet Development](http://www.eclipse.org/pde/pde-ui/articles/cheat_sheet_dev_workflow/)
-* [Max's cheat sheet example](https://github.com/maxandersen/cheatsheet-helloworld)
-
-
-Copy a Quickstart to Another Repository and Preserve Its History
-==============================
-
-1. In the source repository that currently contains the quickstarts, for example `jboss-eap-quickstarts`, create a branch for each quickstart you want to move. For example:
-
-        git fetch upstream
-        git checkout -b <source_branch_name> upstream/master
-
-2. To extract only one quickstart, in each source branch, run: 
-
-        git filter-branch --subdirectory-filter <quickstart_name> -- --all
-3. The previous step places the quickstart at the root of the tree. You need to create a directory using the quickstart name and move the files under it. To accomplish that task, in each source branch, run:
-    
-        git filter-branch --tree-filter '(ls -A; mkdir <quickstart_name>; echo <quickstart_name>) | xargs mv'
-4. Push each branch up to your own GitHub repository to make merging into the destination repository easy.
-
-        git push <your_remote_source_github> HEAD
-5. Navigate to the target directory that does not yet contain the quickstarts, for example, `jboss-sandbox-quickstarts`. 
-
-6. Add the source GitHub repository as a remote to the local target destination repository.
-
-        git remote add <your_remote_source_github> https://github.com/<your_remote_source_github>/jboss-eap-quickstarts.git
-7. Create a branch, into which you will merge the quickstarts.
-
-        git fetch upstream
-        git checkout -b <target_branch_name> upstream/master 
-8. For each quickstart source branch you want to merge, run:
-
-        git merge -s ours --no-commit <your_remote_source_github>/<source_branch_name>
-        git read-tree --prefix=<quickstart_name> -u <your_remote_source_github>/<source_branch_name>
-        git commit -m "Merge <quickstart_name> to XXX."
-9. Now, rebase out the merges. Run:
- 
-        git rebase upstream/master
-10. This should succeed with no problems as you are merging into new subdirectories.
-
-11. This process leaves your GitHub repository with a lot of unwanted junk in it, so you need to do some cleaning up! Run:
-
-        git gc --prune=all
-12. Now push this branch to your target GitHub:
-
-        git push <your_remote_target_github> HEAD
-13. Verify that it looks correct and send a pull request.
-
-14. Remove the quickstarts from the source repository if they are no longer needed.
-
-Configure Maven on OpenShift
-==============================
+### Configure Maven on OpenShift
 
 If your quickstart needs a Maven repository other than the standard repository configured on OpenShift, you can use the following procedure to configure Maven.
 
@@ -554,4 +338,218 @@ _Note: The following substitution variables are used in these instructions:_
 
         $ git add src/ pom.xml .openshift/action_hooks/pre_build_jbosseap
 7. Issue the `git commit` and `git push` in the usual manner.
+
+### License Information and Contributor Agreement
+
+  JBoss Developer Framework is licensed under the Apache License 2.0, as we believe it is one of the most permissive Open Source license. This allows developers to easily make use of the code samples in JBoss Developer Framework. 
+
+  There is no need to sign a contributor agreement to contribute to JBoss Developer Framework. You just need to explicitly license any contribution under the AL 2.0. If you add any new files to JBoss Developer Framework, make sure to add the correct header.
+
+#### Java,  Javascript and CSS files 
+
+      /** 
+       * JBoss, Home of Professional Open Source
+       * Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+       * contributors by the @authors tag. See the copyright.txt in the 
+       * distribution for a full listing of individual contributors.
+       *
+       * Licensed under the Apache License, Version 2.0 (the "License");
+       * you may not use this file except in compliance with the License.
+       * You may obtain a copy of the License at
+       * http://www.apache.org/licenses/LICENSE-2.0
+       * Unless required by applicable law or agreed to in writing, software
+       * distributed under the License is distributed on an "AS IS" BASIS,  
+       * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       * See the License for the specific language governing permissions and
+       * limitations under the License.
+       */
+
+#### HTML, XML, XSD and XHTML files
+
+      <!--
+       JBoss, Home of Professional Open Source
+       Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+       contributors by the @authors tag. See the copyright.txt in the 
+       distribution for a full listing of individual contributors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,  
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+       -->
+
+#### Properties files and Bash Scripts
+
+       # JBoss, Home of Professional Open Source
+       # Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+       # contributors by the @authors tag. See the copyright.txt in the 
+       # distribution for a full listing of individual contributors.
+       #
+       # Licensed under the Apache License, Version 2.0 (the "License");
+       # you may not use this file except in compliance with the License.
+       # You may obtain a copy of the License at
+       # http://www.apache.org/licenses/LICENSE-2.0
+       # Unless required by applicable law or agreed to in writing, software
+       # distributed under the License is distributed on an "AS IS" BASIS,  
+       # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       # See the License for the specific language governing permissions and
+       # limitations under the License.
+
+#### SQL files
+
+      --
+      -- JBoss, Home of Professional Open Source
+      -- Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+      -- contributors by the @authors tag. See the copyright.txt in the
+      -- distribution for a full listing of individual contributors.
+      --
+      -- Licensed under the Apache License, Version 2.0 (the "License");
+      -- you may not use this file except in compliance with the License.
+      -- You may obtain a copy of the License at
+      -- http://www.apache.org/licenses/LICENSE-2.0
+      -- Unless required by applicable law or agreed to in writing, software
+      -- distributed under the License is distributed on an "AS IS" BASIS,
+      -- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      -- See the License for the specific language governing permissions and
+      -- limitations under the License.
+      --
+
+#### JSP files
+
+      <%--
+      JBoss, Home of Professional Open Source
+      Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
+      contributors by the @authors tag. See the copyright.txt in the
+      distribution for a full listing of individual contributors.
+
+      Licensed under the Apache License, Version 2.0 (the "License");
+      you may not use this file except in compliance with the License.
+      You may obtain a copy of the License at
+      http://www.apache.org/licenses/LICENSE-2.0
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+      --%>
+      
+
+Create a Quickstart 'Cheat Sheet'
+-------------------------------
+
+### Purpose of the Cheat Sheets
+
+- Cheat sheets function as a tutorial and provide a step by step guide through a quickstart. 
+- They provide a way to step through and explain the code in an interactive way.
+- They can provide an in-depth analysis of specific sections of code.
+
+
+### Basic Steps to Create a Cheat Sheet
+
+You can create a cheat sheet using the Eclipse Wizard or you can copy and modify an existing cheat sheet from another quickstart. This section describes how to create a cheat sheet using the Eclipse wizard.
+
+_Note: Be sure your project folder is located outside of the Eclipse workspace before you begin this process._
+
+1.  Import your quickstart into JBoss Developer Studio (JDBS)
+    1.  From the menu, choose `File` --> `Import` --> `Maven` --> `Existing Maven Projects`, then click `Next`.
+    2.  Navigate to your quickstart, select it, then click `OK`.
+    3.  Click `Finish`.
+2.  Create the cheat sheet.
+    1.  Select the imported quickstart project.
+    2.  From the menu, choose `File` --> `New` --> `Other` --> `User Assistance` --> `Cheat Sheet`, then click `Next`.
+    3.  Select the quickstart folder, give it a name 'cheatsheet.xml', and choose `Simple Cheat Sheet`.
+    4.  Click `Finish`. When it prompts you to open the cheatsheet for the quickstart project, click `Yes`.
+3.  Populate the cheatsheet with useful information to help a user understand the quickstart.
+    1.  Expand the `Title` in the content section on the left. 
+    2.  Select the `Title` field and modify it to something useful, for example: `helloworld`
+    3.  Select the `intro` field and add introduction text to the `Body`, for example: `This quickstart demonstrates the use of CDI 1.0 and Servlet 3.0. It is a simple application that can be used to verify the JBoss EAP server is configured and running correctly.`
+    4.  Select `item`, then under `Command`, click `browse` and select 'Get current project' under `Uncategorized`. This adds the following XML to the cheat sheet: 
+    
+            <command 
+            required="true" 
+            returns="currentProject"
+            serialization="org.jboss.tools.project.examples.cheatsheet.getProjectForCheatsheet"/>
+    This command allows you to use the variable `${currentProject}` instead of a hard-coded path name and ensures your cheat sheet will work regardless of the project location.
+         
+    5.  Add an `item` for each file or class you want to describe. 
+        *  This is dependent on the quickstart features you plan to demonstrate.
+        *  Provide a good description.
+        *  Add subitems to describe code sections and provide the line numbers that are referenced.
+4. Test your cheat sheet by opening it in JDBS.
+    1.  Go through each step and make sure the descriptions are valid.
+    2.  Click on each link to make sure it opens the file and highlights the correct lines of code.
+5. When you finish testing the cheat sheet, rename the file from `cheatsheet.xml` to `.cheatsheet.xml` and make sure it is located in the root directory of the quickstart.
+6. Add the `.cheatsheet.xml` file using `git add`, commit the change, push it to your forked repository, and issue a pull.
+7. If your cheat sheet is for the quickstart based on an archetype, it will automatically generate the cheat sheet for the archetype. However, you must add an `<include>.cheatsheet.*</include>` to the fileset for the root directory in the corresponding archetype's `archetype-metadata.xml` file. See the `jboss-javaee6-webapp-archetype` archetype for an example.
+
+
+### General Guidelines
+
+* If your project folder is located in the Eclipse workspace when you generate your cheat sheet using the Eclipse wizard, it will generate an invalid project name and attempts to open source code will fail. Be sure your project folder is located outside the Eclipse workspace before you begin.
+* The cheat sheet should be created in the root of the quickstart directory and named `.cheatsheet.xml`. Eclipse will not let you name the file with a leading '.', so you will need to rename it after it is created.
+* Make sure you add the 'Get current project' command and use the replaceable `${currentProject}`  value to avoid hard-coding the project path. This ensures that if the quickstart folder is moved, the cheat sheet will work as expected.
+* Do not use the `<action>` tag if it can be avoided. It is more fragile than the `<command>` tag, which uses parameters names instead of indexes.
+* Try to highlight the most important features and code for the quickstart. Pay particular attention to areas that might confuse developers. Cheat sheets require that users execute or skip each step, so you don't want to bore developers with the code that has no impact on the purpose of the quickstart.
+* Make sure `<?xml version="1.0" encoding="UTF-8"?>` is the first line in the `.cheatsheet.xml` file, before the license information. This enables the cheat sheet to open automatically when you import the project into JBoss Developer Studio.
+
+### Find Help
+
+You can find additional help about cheat sheets at the following locations:
+
+* [Eclipse Help: Cheat sheets](http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2Fua_cheatsheet.htm&resultof=%22cheat%22%20%22sheet%22%20)
+* [Recommended Work Flow for Cheat Sheet Development](http://www.eclipse.org/pde/pde-ui/articles/cheat_sheet_dev_workflow/)
+* [Max's cheat sheet example](https://github.com/maxandersen/cheatsheet-helloworld)
+
+
+Copy a Quickstart to Another Repository and Preserve Its History
+-----------------------------------------------------------------
+
+1. In the source repository that currently contains the quickstarts, for example `jboss-eap-quickstarts`, create a branch for each quickstart you want to move. For example:
+
+        git fetch upstream
+        git checkout -b <source_branch_name> upstream/master
+
+2. To extract only one quickstart, in each source branch, run: 
+
+        git filter-branch --subdirectory-filter <quickstart_name> -- --all
+3. The previous step places the quickstart at the root of the tree. You need to create a directory using the quickstart name and move the files under it. To accomplish that task, in each source branch, run:
+    
+        git filter-branch --tree-filter '(ls -A; mkdir <quickstart_name>; echo <quickstart_name>) | xargs mv'
+4. Push each branch up to your own GitHub repository to make merging into the destination repository easy.
+
+        git push <your_remote_source_github> HEAD
+5. Navigate to the target directory that does not yet contain the quickstarts, for example, `jboss-sandbox-quickstarts`. 
+
+6. Add the source GitHub repository as a remote to the local target destination repository.
+
+        git remote add <your_remote_source_github> https://github.com/<your_remote_source_github>/jboss-eap-quickstarts.git
+7. Create a branch, into which you will merge the quickstarts.
+
+        git fetch upstream
+        git checkout -b <target_branch_name> upstream/master 
+8. For each quickstart source branch you want to merge, run:
+
+        git merge -s ours --no-commit <your_remote_source_github>/<source_branch_name>
+        git read-tree --prefix=<quickstart_name> -u <your_remote_source_github>/<source_branch_name>
+        git commit -m "Merge <quickstart_name> to XXX."
+9. Now, rebase out the merges. Run:
+ 
+        git rebase upstream/master
+10. This should succeed with no problems as you are merging into new subdirectories.
+
+11. This process leaves your GitHub repository with a lot of unwanted junk in it, so you need to do some cleaning up! Run:
+
+        git gc --prune=all
+12. Now push this branch to your target GitHub:
+
+        git push <your_remote_target_github> HEAD
+13. Verify that it looks correct and send a pull request.
+
+14. Remove the quickstarts from the source repository if they are no longer needed.
+
 
