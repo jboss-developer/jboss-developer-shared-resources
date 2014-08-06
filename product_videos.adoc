@@ -1,0 +1,20 @@
+= Adding videos to albums in vimeo
+Jason Porter <jporter@redhat.com>
+
+If you would like to add a new video to products on the jboss.org product web pages, please follow the instructions below. Adding the video with the below instructions will add it to the Developer Materials section. It may take a few hours for changes to be reflected on the site.
+
+We have new albums in our vimeo account that correspond to each of our supported middleware products. The current videos on our account need to be categorized and placed into the appropriate albums, where applicable.
+
+== Adding videos to albums
+
+. Login to vimeo at https://vimeo.com
++
+NOTE: If you do not have login credentials, please talk to Ray or Andrew
++
+. Navigate to https://vimeo.com/organizer/collections
+. Find the album you wish to add videos
+. Click the `>>` link next to the album name
+. Click the btn:[Settings] button
+. Click the `Videos` link
+. Click the `Add More Videos` link
+. Proceed to add videos by clicking on the `+` icon in the top right of the desired videos.
