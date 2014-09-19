@@ -22,11 +22,11 @@ Contribute a Quickstart
 
 ### Basic Steps
 
-To contribute to the quickstarts, fork the quickstart repository to your own Git, clone your fork, commit your work on topic branches, and make pull requests. 
+To contribute to the quickstarts, fork the quickstart repository to your own Git, clone your fork, checkout code from the latest `-develop` branch, commit your work on topic branches, and submit pull requests back to the latest `-develop` branch. 
 
-If you don't have the Git client (`git`), get it from: <http://git-scm.com/>
+If you don't have the GitHub client (`git`), get it from: <http://git-scm.com/>
 
-This document details the steps needed to contribute to the JBoss EAP quickstarts. For other quickstarts, you need to replace the Github repository URL with the correct repository location.
+This document details the steps needed to contribute to the JBoss EAP quickstarts. For other quickstarts, you need to replace the GitHub repository URL with the correct repository location.
 
 1. [Fork](https://github.com/jboss-developer/jboss-eap-quickstarts/fork) the project. This creates the `jboss-eap-quickstarts` project in your own Git with the default remote name 'origin'.
 
@@ -44,12 +44,17 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
         git fetch upstream
 
-6. Create a new topic branch to contain your new quickstart, features, changes, or fixes using the `git checkout -b  <topic-branch-name> upstream/master` command. If you are fixing a Bugzilla or JIRA, it is a good practice to use the number in the branch name. For new quickstarts or other fixes, try to use a good description for the branch name. For example:
+6. Create a local topic branch to work with your new quickstart, features, changes, or fixes. 
+   * _IMPORTANT:_ Always work with the current developer branch of the quickstart repository. The is the branch that automatically displays in the dropdown when you browse to <https://github.com/jboss-developer/jboss-eap-quickstarts>
+   * Checkout the latest source code from the current `-develop` branch into your own branch using the following syntax:
+   
+            git checkout -b  <topic-branch-name> upstream/<current-development-branch> 
+   * If you are fixing a Bugzilla or JIRA, it is a good practice to use the number in the branch name. For new quickstarts or other fixes, try to use a good description for the branch name. 
+   * The following are examples of Git checkout commands:
 
-        git checkout -b Bz-98765432 upstream/master
-        git checkout -b JDF-9876543 upstream/master
-        git checkout -b add-xyz-quickstart upstream/master
-
+            git checkout -b Bz-98765432 upstream/6.4.x-develop
+            git checkout -b JDF-9876543 upstream/6.4.x-develop
+            git checkout -b add-xyz-quickstart upstream/6.4.x-develop
 7. Contribute new code or make changes to existing files. Make sure that you follow the [General Guidelines](#general-guidelines) below.
 
 8. To verify if your code followed the General Guidelines you can run [QS Tools](http://www.jboss.org/jdf/quickstarts/qstools/) on your project.
@@ -64,7 +69,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
             git add src/
             git add pom.xml
             git add README.md
-   _Note: It is probably best not to add the entire quickstart root folder because you may unintentionally add classes or other target files that should not be in source control._
+   _Note:_ It is probably best not to add the entire quickstart root folder because you may unintentionally add classes or other target files that should not be in source control.
    * If you only modified a few files, use `git add <filename>` for every file you create or change. For example:
 
             git add README.md       
@@ -80,7 +85,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
         git fetch upstream
    * Apply those changes to your branch
    
-        git rebase upstream/master
+        git rebase upstream/<current-development-branch>
    * If anyone has commited changes to files that you have also changed, you may see conflicts. 
    Resolve the conflicted files, add them using `git add`, and continue the rebase:
    
@@ -88,10 +93,10 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
         git rebase --continue
    * If there were conflicts, it is a good idea to test your changes again to make they still work.
         
-13. Push your local topic branch to your github forked repository. This will create a branch on your Git fork repository with the same name as your local topic branch name. 
+13. Push your local topic branch to your GitHub forked repository. This will create a branch on your Git fork repository with the same name as your local topic branch name. 
 
         git push origin HEAD            
-   _Note: The above command assumes your remote repository is named 'origin'. You can verify your forked remote repository name using the command `git remote -v`_.
+   _Note:_ The above command assumes your remote repository is named 'origin'. You can verify your forked remote repository name using the command `git remote -v`.
 14. Browse to the <topic-branch-name> branch on your forked Git repository and [open a Pull Request](http://help.github.com/send-pull-requests/). Give it a clear title and description.
 
 
@@ -168,7 +173,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
     
 ### Setup your environment
 
-The quickstart README.md files are converted to HTML using markdown. We recommend using redcarpet, as that is what github uses, but you can use any markdown tool really.
+The quickstart README.md files are converted to HTML using markdown. We recommend using redcarpet, as that is what GitHub uses, but you can use any markdown tool really.
 
 There are two scripts, `dist/github-flaoured-markdown.rb`, that will convert an indivdual file, and `dist/release-utils.sh -m`, that will convert all the files.
 
@@ -194,7 +199,7 @@ To setup the environment you need to follow these steps.
 
 ### Configure Maven
 
-If you are working with quickstarts currently under development in the master branch, you need access to artifacts currently under development. The JBoss developer Maven repository, which contains newly staged artifacts, is located at [jboss-developer.github.io](http://jboss-developer.github.io/temp-maven-repo/).
+If you are working with quickstarts currently under development in the current development branch, you need access to artifacts currently under development. The JBoss developer Maven repository, which contains newly staged artifacts, is located at [jboss-developer.github.io](http://jboss-developer.github.io/temp-maven-repo/).
 
 To access these artifacts, do one of the following:
 
@@ -232,14 +237,14 @@ To access these artifacts, do one of the following:
 
       Then add `<activeProfile>jboss-developer-repository</activeProfile>` to the `<activeProfiles>` section of the file.
 
-_Note: Regardless of the method you choose to configure your Maven settings, you must also delete the existing `${user.home}/.m2/repository/`._
+_Note:_ Regardless of the method you choose to configure your Maven settings, you should also delete the existing `${user.home}/.m2/repository/`.
 
 
 ### Configure Maven on OpenShift
 
 If your quickstart needs a Maven repository other than the standard repository configured on OpenShift, you can use the following procedure to configure Maven.
 
-_Note: The following substitution variables are used in these instructions:_
+_Note:_ The following substitution variables are used in these instructions:
 
 * `CURRENT_PATH` is the path where you execute the commands. For example `home/jsmith/my-apps`.
 * `YOUR_APP_NAME` is your application name. For example `helloworld`.
@@ -453,7 +458,7 @@ Create a Quickstart 'Cheat Sheet'
 
 You can create a cheat sheet using the Eclipse Wizard or you can copy and modify an existing cheat sheet from another quickstart. This section describes how to create a cheat sheet using the Eclipse wizard.
 
-_Note: Be sure your project folder is located outside of the Eclipse workspace before you begin this process._
+_Note:_ Be sure your project folder is located outside of the Eclipse workspace before you begin this process.
 
 1.  Import your quickstart into JBoss Developer Studio (JDBS)
     1.  From the menu, choose `File` --> `Import` --> `Maven` --> `Existing Maven Projects`, then click `Next`.
@@ -512,7 +517,7 @@ Copy a Quickstart to Another Repository and Preserve Its History
 1. In the source repository that currently contains the quickstarts, for example `jboss-eap-quickstarts`, create a branch for each quickstart you want to move. For example:
 
         git fetch upstream
-        git checkout -b <source_branch_name> upstream/master
+        git checkout -b <source_branch_name> upstream/<current-development-branch>
 
 2. To extract only one quickstart, in each source branch, run: 
 
@@ -531,7 +536,7 @@ Copy a Quickstart to Another Repository and Preserve Its History
 7. Create a branch, into which you will merge the quickstarts.
 
         git fetch upstream
-        git checkout -b <target_branch_name> upstream/master 
+        git checkout -b <target_branch_name> upstream/<current-development-branch> 
 8. For each quickstart source branch you want to merge, run:
 
         git merge -s ours --no-commit <your_remote_source_github>/<source_branch_name>
@@ -539,7 +544,7 @@ Copy a Quickstart to Another Repository and Preserve Its History
         git commit -m "Merge <quickstart_name> to XXX."
 9. Now, rebase out the merges. Run:
  
-        git rebase upstream/master
+        git rebase upstream/<current-development-branch>
 10. This should succeed with no problems as you are merging into new subdirectories.
 
 11. This process leaves your GitHub repository with a lot of unwanted junk in it, so you need to do some cleaning up! Run:
