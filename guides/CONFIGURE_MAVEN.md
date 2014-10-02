@@ -80,7 +80,9 @@ The JBoss EAP Maven repository is now configured for use with JBoss Developer St
 Use of Maven Profiles in POM Files
 ----------------------------------
 
-Profiles are used by Maven to customize the build environment. The `pom.xml` in the root of some quickstart directories may define some of the following profiles:
+Profiles are used by Maven to customize the build environment. The `pom.xml` in the root of some quickstart directories may define some of the following profiles.
+
+_NOTE:_ Some profiles in this list may not be used by some product quickstart projects.
 
 * The `default` profile defines the list of modules or quickstarts that require nothing but JBoss Enterprise Application Platform.
 * The `requires-postgres` profile lists the quickstarts that require PostgreSQL to be running when the quickstart is deployed.
@@ -88,5 +90,6 @@ Profiles are used by Maven to customize the build environment. The `pom.xml` in 
 * The `requires-full` profile lists quickstarts the require you start the JBoss EAP server using the full profile.
 * The `requires-xts` profile lists quickstarts the require you start the JBoss EAP server using the xts profile.
 * The `non-maven` profile lists quickstarts that do not require Maven, for example, quickstarts that depend on deployment of other quickstarts or those that use other Frameworks such as Forge.
+* The `functional-tests` profile lists quickstarts that provide functional tests.
 
 [Back to top](#configure-maven-to-build-and-deploy-the-quickstarts)
