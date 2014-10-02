@@ -22,30 +22,41 @@ Contribute a Quickstart
 
 ### Basic Steps
 
-To contribute to the quickstarts, fork the quickstart repository to your own Git, clone your fork, checkout code from the latest `-develop` branch, commit your work on topic branches, and submit pull requests back to the latest `-develop` branch. 
+To contribute to the quickstarts, fork the quickstart repository to your own Git, clone your fork, checkout code from the latest `-develop` branch, commit your work on topic branches, and submit pull requests back to the latest `-develop` branch.
 
 If you don't have the GitHub client (`git`), get it from: <http://git-scm.com/>
 
 This document details the steps needed to contribute to the JBoss EAP quickstarts. For other quickstarts, you need to replace the GitHub repository URL with the correct repository location.
 
-1. [Fork](https://github.com/jboss-developer/jboss-eap-quickstarts/fork) the project. This creates the `jboss-eap-quickstarts` project in your own Git with the default remote name 'origin'.
+1. Fork the quickstart repository for the appropriate product. This creates the project in your own Git. The following table lists the product quickstart repository URLs and the resulting GitHub URL created by the fork.
 
-2. Clone your fork. This creates and populates a directory in your local file system.
+    | **Product Repository URL** | **Forked Repository URL** |
+    |:-----------|:-----------|
+    | https://github.com/jboss-developer/jboss-eap-quickstarts | https://github.com/YOUR_USER_NAME/jboss-eap-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-wfk-quickstarts | https://github.com/YOUR_USER_NAME/jboss-wfk-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-picketlink-quickstarts | https://github.com/YOUR_USER_NAME/jboss-picketlink-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-portal-quickstarts | https://github.com/YOUR_USER_NAME/jboss-portal-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-jdg-quickstarts | https://github.com/YOUR_USER_NAME/jboss-jdg-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-on-quickstarts | https://github.com/YOUR_USER_NAME/jboss-on-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-mobile-quickstarts | https://github.com/YOUR_USER_NAME/jboss-mobile-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-brms-quickstarts | https://github.com/YOUR_USER_NAME/jboss-brms-quickstarts.git |
 
-        git clone https://github.com/<your-username>/jboss-eap-quickstarts.git
+2. Clone your forked repository. This creates and populates a directory. for example `jboss-eap-quickstart/` on your local file system with the default remote repository name 'origin'.
+   For example:
 
-3. Change to the `jboss-eap-quickstarts` directory.
+        git clone https://github.com/YOUR_USER_NAME/jboss-eap-quickstarts.git
+3. Change to the newly created directory, for example 
 
+        cd jboss-eap-quickstarts/
 4. Add the remote `upstream` repository so you can fetch any changes to the original forked repository.
 
         git remote add upstream https://github.com/jboss-developer/jboss-eap-quickstarts.git
-
 5. Get the latest files from the `upstream` repository.
 
         git fetch upstream
-
 6. Create a local topic branch to work with your new quickstart, features, changes, or fixes. 
-   * _IMPORTANT:_ Always work with the current developer branch of the quickstart repository. The is the branch that automatically displays in the dropdown when you browse to <https://github.com/jboss-developer/jboss-eap-quickstarts>
+
+   * _IMPORTANT:_ Always work with the current developer branch of the quickstart repository. The is the branch that automatically displays in the dropdown when you browse to product quickstart directory, for example: <https://github.com/jboss-developer/jboss-eap-quickstarts>
    * Checkout the latest source code from the current `-develop` branch into your own branch using the following syntax:
    
             git checkout -b  <topic-branch-name> upstream/<current-development-branch> 
