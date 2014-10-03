@@ -137,7 +137,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 * If you create a quickstart that uses a database table, make sure the name you use for the table is unique across all quickstarts. 
 
-* The project must follow the structure used by existing quickstarts such as [numberguess](https://github.com/jboss-developer/jboss-eap-quickstarts/tree/6.3.x/numberguess). A good starting point would be to copy the  `numberguess` project.
+* The project must follow the structure used by existing quickstarts such as [numberguess](https://github.com/jboss-developer/jboss-eap-quickstarts/tree/6.4.x/numberguess). A good starting point would be to copy the  `numberguess` project.
 
 * The sample project should be importable into JBoss Developer Studio/JBoss Tools and be deployable from there.
 
@@ -308,11 +308,11 @@ _Note:_ The following substitution variables are used in these instructions:
     * If it needs to use a local repository, you must upload the repository to OpenShift `file:///${HOME}/app-root/data/` directory, and specify the URL in the `settings.xml` file relative to that location. You must use the `${HOME}` environment variable in the URL. For example:
     
             <profile>
-                <id>jboss-620GA-repository</id>
+                <id>jboss-630GA-repository</id>
                 <repositories>
                     <repository>
-                        <id>jboss-620GA-repository</id>
-                        <url>file:///${HOME}/app-root/data/jboss-eap-6.2.0.GA-maven-repository/</url>
+                        <id>jboss-630GA-repository</id>
+                        <url>file:///${HOME}/app-root/data/jboss-eap-6.3.0.GA-maven-repository/</url>
                         <releases>
                            <enabled>true</enabled>
                         </releases>
@@ -323,8 +323,8 @@ _Note:_ The following substitution variables are used in these instructions:
                 </repositories>
                 <pluginRepositories>
                     <pluginRepository>
-                        <id>jboss-620GA-repository-plugin</id>
-                        <url>file:///${HOME}/app-root/data/jboss-eap-6.2.0.GA-maven-repository/</url>
+                        <id>jboss-630GA-repository</id>
+                        <url>file:///${HOME}/app-root/data/jboss-eap-6.3.0.GA-maven-repository/</url>
                         <releases>
                           <enabled>true</enabled>
                         </releases>
@@ -335,18 +335,18 @@ _Note:_ The following substitution variables are used in these instructions:
                 </pluginRepositories>
             </profile>
             
-            <activeProfile>jboss-620GA-repository</activeProfile>
+            <activeProfile>jboss-630GA-repository</activeProfile>
 3. Upload your `settings.xml` file to the OpenShift application `app-root/data/` directory using the 'SSH to' URL displayed when you created the application. For example:
 
         $ scp <SETTINGS_DIRECTORY>/settings.xml APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com:app-root/data
 4. If you specified a local Maven repository, upload the zip file to the OpenShift application `app-root/data/` directory using the 'SSH to' URL displayed when you created the application. For example:
 
-        $ scp <MAVEN_ZIP_DIRECTORY>/jboss-eap-6.2.0.CR1-maven-repository.zip  APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com:app-root/data
+        $ scp <MAVEN_ZIP_DIRECTORY>/jboss-eap-6.3.0.GA-maven-repository.zip  APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com:app-root/data
     Wait until the upload completes before performing the next step. This takes a very long time!! When the upload process is complete, SSH into the same URL and unzip the Maven repository:
     
         $ ssh APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com
         cd app-root/data
-        unzip jboss-eap-6.2.0.CR1-maven-repository.zip 
+        unzip jboss-eap-6.3.0.GA-maven-repository.zip 
 5. To direct Maven to use the uploaded `settings.xml` file, create a file in the `.openshift/action_hooks/` directory named `pre_build_jbosseap`, containing this line:
 
         export MAVEN_ARGS="clean package -Popenshift -s ${OPENSHIFT_DATA_DIR}settings.xml -DskipTests"
