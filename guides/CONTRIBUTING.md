@@ -2,6 +2,12 @@
 JBoss Developer Contributing Guide
 ==============================
 
+This document contains information targeted for developers who want to contribute to JBoss developer projects.
+
+* [Join the Mailing list](#join-the-mailing-list): Sign up for the JBoss developer mailing list.
+* [Contribute a Quickstart](#contribute-a-quickstart): Find out how to contribute a quickstart.
+* [Create a Quickstart Cheat Sheet](#create-a-quickstart-cheat-sheet): See how to create a 'cheat sheet' for your quickstart.
+
 Join the Mailing list
 ---------------------
 
@@ -40,6 +46,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
     | https://github.com/jboss-developer/jboss-on-quickstarts | https://github.com/YOUR_USER_NAME/jboss-on-quickstarts.git |
     | https://github.com/jboss-developer/jboss-mobile-quickstarts | https://github.com/YOUR_USER_NAME/jboss-mobile-quickstarts.git |
     | https://github.com/jboss-developer/jboss-brms-quickstarts | https://github.com/YOUR_USER_NAME/jboss-brms-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-sandbox-quickstarts | https://github.com/YOUR_USER_NAME/jboss-sandbox-quickstarts.git |
 
 2. Clone your forked repository. This creates and populates a directory. for example `jboss-eap-quickstart/` on your local file system with the default remote repository name 'origin'.
    For example:
@@ -68,7 +75,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
             git checkout -b add-xyz-quickstart upstream/6.4.x-develop
 7. Contribute new code or make changes to existing files. Make sure that you follow the [General Guidelines](#general-guidelines) below.
 
-8. To verify if your code followed the General Guidelines you can run [QS Tools](http://www.jboss.org/jdf/quickstarts/qstools/) on your project.
+8. To verify if your code followed the General Guidelines you can run [QS Tools](http://jboss-developer.github.io/maven-qstools-plugin/) on your project.
    * To run QS Tools, go to your quickstart project root and execute:
    
            mvn -U org.jboss.maven.plugins:maven-qstools-plugin:check
@@ -146,7 +153,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
  - Not inherit from another POM
  - Maven POMs must use the Java EE spec BOM/POM imports
  - The POMs must be commented, with a comment each item in the POM
- - Import the various BOMs, either directly from a project, or from [JBoss BOMs](http://www.jboss.org/jdf/stack/stacks/), to determine version numbers. You should aim to have no dependencies declared directly. If you do, work with the jdf team to get them added to a BOM.
+ - Import the various BOMs, either directly from a project, or from [JBoss BOMs](http://www.jboss.org/developer-materials/#!formats=jbossdeveloper_bom), to determine version numbers. You should aim to have no dependencies declared directly. If you do, work with the jdf team to get them added to a BOM.
  - Use the JBoss AS Maven Plugin to deploy the example
 
 * The sample project must contain a `README.md` file using the `template/README.md` file as a guideline
@@ -161,7 +168,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 * If the quickstart persists to a database, you must use a unique datasource JNDI name and connection URL for the application and for any Arquillian tests that it provides. Do not use the JNDI name `java:jboss/datasources/ExampleDS`. Failure to use unique names can result in a `DuplicateServiceException` when more than one quickstart is deployed to the same server.
 
-* If possible, create a cheat sheet for the quickstart to guide users and developers through the example. See the [Quickstart Cheat Sheet Contributing Guide](#quickstart-cheat-sheet-contributing-guide) for more information.
+* If possible, create a cheat sheet for the quickstart to guide users and developers through the example. See [Create a Quickstart Cheat Sheet](#create-a-quickstart-cheat-sheet) for more information.
 
 ### Kitchensink variants
 
@@ -216,7 +223,7 @@ To access these artifacts, do one of the following:
 
   * You can simply copy the `contributor-settings.xml` located in the root of the quickstart directory to your `${user.home}/.m2/` and rename it to `settings.xml`. 
   
-  * Or, assuming you followed the [Configure Maven](CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts) instructions, you can manually edit the settings and copy the following profile to your `settings.xml` file.
+  * Or, assuming you followed the instructions to [Configure Maven to Build and Deploy the Quickstarts](CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts), you can manually edit the settings and copy the following profile to your `settings.xml` file.
 
         <profile>
             <id>jboss-developer-repository</id>
@@ -455,7 +462,7 @@ _Note:_ The following substitution variables are used in these instructions:
       --%>
       
 
-Create a Quickstart 'Cheat Sheet'
+Create a Quickstart Cheat Sheet
 -------------------------------
 
 ### Purpose of the Cheat Sheets
