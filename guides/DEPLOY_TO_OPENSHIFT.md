@@ -1,5 +1,5 @@
-Build and Deploy the Quickstart - to OpenShift
--------------------------
+Build and Deploy a Quickstart - to OpenShift
+=====================
 
 This guide contains the basic instructions to build and deploy a quickstart to OpenShift.
 

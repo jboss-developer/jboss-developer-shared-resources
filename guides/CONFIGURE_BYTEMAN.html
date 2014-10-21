@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><title>README</title><link href="http://static.jboss.org/ffe/0/www/vendor/redhat/documentation.css" rel="stylesheet"></link><link href="http://static.jboss.org/ffe/0/www/vendor/redhat/pygments.css" rel="stylesheet"></link></head><body>
+<h1><a id="configure-byteman-for-use-with-the-quickstarts" class="anchor" href="#configure-byteman-for-use-with-the-quickstarts"><span class="anchor-icon"></span></a>Configure Byteman for Use with the Quickstarts</h1>
+
+<p>Summary: <em>Byteman</em> is a tool that simplifies tracing and testing of Java programs. It allows you to insert extra Java code into your application, either as it is loaded during JVM startup or after it has already started running. This code can be used to trace what the application is doing and to monitor and debug deployments to be sure it is operating correctly. You can also use <em>Byteman</em> to inject faults or synchronization code when testing your application. </p>
+
+<p>A few of the quickstarts use <em>Byteman</em> to demonstrate distributed transaction processing and crash recovery, for example, to halt an application server in the middle of a distributed transaction to demonstrate crash recovery.</p>
+
+<p>The following sections describe the steps necessary to install, configure, and use <em>Byteman</em> with these quickstarts.</p>
+
+<ul>
+<li><a href="#download-and-configure-byteman">Download and Configure Byteman</a></li>
+<li><a href="#clear-the-transaction-objectstore">Clear the Transaction ObjectStore</a></li>
+<li><a href="#use-byteman-to-halt-the-application">Use Byteman to Halt the Application</a></li>
+<li><a href="#disable-the-byteman-script">Disable the Byteman Script</a></li>
+</ul>
+
+<h2><a id="download-and-configure-byteman" class="anchor" href="#download-and-configure-byteman"><span class="anchor-icon"></span></a>Download and Configure Byteman</h2>
+
+<ol>
+<li>Download <em>Byteman</em> from <a href="http://www.jboss.org/byteman/downloads/">http://www.jboss.org/byteman/downloads/</a></li>
+<li>Extract the ZIP file to a directory of your choice. In the instructions below, we refer to this directory as <code>BYTEMAN_HOME</code>.</li>
+<li><p>By default, the <em>Byteman</em> download provides unrestricted permissions to <code>others</code> which can cause a problem when running Ruby commands for the OpenShift quickstarts. To restrict the permissions to <code>others</code>, open a command prompt and type the following:</p>
+<div class="highlight"><pre><span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="n">o</span><span class="o">-</span><span class="n">rwx</span> <span class="n">BYTEMAN_HOME</span><span class="o">/</span>
+</pre></div></li>
+</ol>
+
+<h2><a id="clear-the-transaction-objectstore" class="anchor" href="#clear-the-transaction-objectstore"><span class="anchor-icon"></span></a>Clear the Transaction ObjectStore</h2>
+
+<p>Transaction objectstore data remaining from previous tests can prevent <em>Byteman</em> from working properly. You must remove any remaining data before running new <em>Byteman</em> tests.  If you are using the default file based transaction logging store:</p>
+
+<ol>
+<li><p>Open a command prompt and type the following:</p>
+<div class="highlight"><pre><span class="n">ls</span> <span class="err">$</span><span class="n">JBOSS_HOME</span><span class="o">/</span><span class="n">standalone</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">tx</span><span class="o">-</span><span class="n">object</span><span class="o">-</span><span class="n">store</span><span class="o">/</span><span class="n">ShadowNoFileLockStore</span><span class="o">/</span><span class="n">defaultStore</span><span class="o">/</span><span class="n">StateManager</span><span class="o">/</span><span class="n">BasicAction</span><span class="o">/</span><span class="n">TwoPhaseCoordinator</span><span class="o">/</span><span class="n">AtomicAction</span><span class="o">/</span>
+</pre></div></li>
+<li><p>If this directory exists and contains any files, delete them before starting the server:</p>
+<div class="highlight"><pre><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="err">$</span><span class="n">JBOSS_HOME</span><span class="o">/</span><span class="n">standalone</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">tx</span><span class="o">-</span><span class="n">object</span><span class="o">-</span><span class="n">store</span><span class="o">/</span><span class="n">ShadowNoFileLockStore</span><span class="o">/</span><span class="n">defaultStore</span><span class="o">/</span><span class="n">StateManager</span><span class="o">/</span><span class="n">BasicAction</span><span class="o">/</span><span class="n">TwoPhaseCoordinator</span><span class="o">/</span><span class="n">AtomicAction</span><span class="o">/*</span>
+</pre></div></li>
+<li><p>On Windows, use the file manager to accomplish the same result.</p></li>
+</ol>
+
+<h2><a id="use-byteman-to-halt-the-application" class="anchor" href="#use-byteman-to-halt-the-application"><span class="anchor-icon"></span></a>Use Byteman to Halt the Application</h2>
+
+<p><em>NOTE</em>: The <em>Byteman</em> scripts only work in JTA mode. They do not work in JTS mode. If you have configured the server for a quickstart that uses JTS, you must follow the quickstart instructions to remove the JTS configuration from the JBoss EAP server before making the following changes. Otherwise <em>Byteman</em> will not halt the server. </p>
+
+<p>When instructed to use <em>Byteman</em> to halt the application, perform the following steps:</p>
+
+<ol>
+<li><p>Find the appropriate configuration file for your operating system in the list below.</p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span> <span class="n">JBOSS_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">standalone</span><span class="p">.</span><span class="n">conf</span> 
+<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">JBOSS_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">standalone</span><span class="p">.</span><span class="n">conf</span><span class="p">.</span><span class="n">bat</span>
+</pre></div></li>
+<li><p><strong>Important</strong>: Make a backup copy of this configuration file before making any modifications!</p></li>
+<li><p>Open the configuration file and append the text specified in the quickstart README instructions to the end of the configuration file. Be sure to replace the <code>BYTEMAN_HOME</code> with the path to the Byteman download and the <code>QUICKSTART_HOME</code> with the path to the quickstarts. </p>
+
+<p>The following is an example of of the configuration changes needed for the <em>jta-crash-rec</em> quickstart.</p>
+
+<p>For Linux:</p>
+<div class="highlight"><pre>JAVA_OPTS=&quot;-javaagent:/BYTEMAN_HOME/lib/byteman.jar=script:/QUICKSTART_HOME/jta-crash-rec/src/main/scripts/xa.btm <span class="cp">${</span><span class="n">JAVA_OPTS</span><span class="cp">}</span>&quot; 
+</pre></div>
+<p>For Windows:</p>
+<div class="highlight"><pre><span class="n">SET</span> <span class="s">&quot;JAVA_OPTS=%JAVA_OPTS% -javaagent:C:\BYTEMAN_HOME\lib</span><span class="se">\b</span><span class="s">yteman.jar=script:C:\QUICKSTART_HOME\jta-crash-rec\src\main\scripts\xa.btm %JAVA_OPTS%&quot;</span>
+</pre></div></li>
+</ol>
+
+<h2><a id="disable-the-byteman-script" class="anchor" href="#disable-the-byteman-script"><span class="anchor-icon"></span></a>Disable the Byteman Script</h2>
+
+<p>When you have completed testing the quickstart, replace the server configuration file with the backup copy you created in step 2 above to disable <em>Byteman</em>.</p>
+
+<p><a href="#configure-byteman-for-use-with-the-quickstarts">Back to top</a></p>
+</body></html>

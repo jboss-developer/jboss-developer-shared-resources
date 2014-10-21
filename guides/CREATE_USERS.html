@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>README</title><link href="http://static.jboss.org/ffe/0/www/vendor/redhat/documentation.css" rel="stylesheet"></link><link href="http://static.jboss.org/ffe/0/www/vendor/redhat/pygments.css" rel="stylesheet"></link></head><body>
+<h1><a id="create-users-required-by-the-quickstarts" class="anchor" href="#create-users-required-by-the-quickstarts"><span class="anchor-icon"></span></a>Create Users Required by the Quickstarts</h1>
+
+<p>Summary: By default, JBoss EAP is distributed with security enabled for the management interfaces. A few of the quickstarts use these management interfaces and require that you create a management or application user to access the running application. An <code>add-user</code> script is provided in the <code>JBOSS_HOME/bin</code> directory for that purpose. You can run the script interactively or you can pass arguments on the command line. </p>
+
+<p>The following procedures describe how to add a user with the appropriate permissions to run the quickstarts that depend on them.</p>
+
+<ul>
+<li><a href="#add-a-management-user">Add a Management User</a></li>
+<li><a href="#add-an-application-user">Add an Application User</a></li>
+</ul>
+
+<p><em>Note:</em> Passwords must meet the following requirements:</p>
+
+<ul>
+<li>It can not be the same as the user name.</li>
+<li>It must contain at least 8 characters.</li>
+<li>It must contain at least one alphanumeric character.</li>
+<li>It must contain at least one digit.</li>
+<li>It must contain at least one non-alphanumeric symbol.</li>
+</ul>
+
+<p>More detailed user configuration instructions can be found in the Administration and Configuration Guide for JBoss Enterprise Application Platform located on the Customer Portal at <a href="https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform/">https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform/</a>.</p>
+
+<h2><a id="add-a-management-user" class="anchor" href="#add-a-management-user"><span class="anchor-icon"></span></a>Add a Management User</h2>
+
+<p>You can pass arguments on the command line or you can run the script interactively. The examples below use &ldquo;admin&rdquo; for the <code>Username</code> and &ldquo;adminPass1!&rdquo; for the <code>Password</code>. If the quickstart requires a specific <code>Username</code> and <code>Password</code>, be sure to replace them in the examples below.</p>
+
+<h3><a id="add-a-management-user-passing-arguments-on-the-command-line" class="anchor" href="#add-a-management-user-passing-arguments-on-the-command-line"><span class="anchor-icon"></span></a>Add a Management User Passing Arguments on the Command Line</h3>
+
+<p>You can create the management user non-interactively by passing each argument on the command line. </p>
+
+<p>For example, to add the Management User <code>admin</code> in the default <code>ManagementRealm</code> realm with password <code>adminPass1!</code>, 
+open a command prompt and type the following:</p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">JBOSS_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">admin</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">adminPass1</span><span class="o">!</span><span class="err">&#39;</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">JBOSS_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">admin</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">adminPass1</span><span class="o">!</span><span class="err">&#39;</span>
+</pre></div>
+<h3><a id="add-a-management-user-interactively" class="anchor" href="#add-a-management-user-interactively"><span class="anchor-icon"></span></a>Add a Management User Interactively</h3>
+
+<p>If you prefer, you can create the management user interactively. </p>
+
+<ol>
+<li>Open a command prompt.</li>
+<li><p>Type the command for your operating system</p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">JBOSS_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span>
+<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">JBOSS_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span>
+</pre></div></li>
+<li><p>You should see the following response:</p>
+<div class="highlight"><pre><span class="n">What</span> <span class="n">type</span> <span class="n">of</span> <span class="n">user</span> <span class="k">do</span> <span class="n">you</span> <span class="n">wish</span> <span class="n">to</span> <span class="n">add</span><span class="o">?</span> 
+
+<span class="n">a</span><span class="p">)</span> <span class="n">Management</span> <span class="n">User</span> <span class="p">(</span><span class="n">mgmt</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span> 
+<span class="n">b</span><span class="p">)</span> <span class="n">Application</span> <span class="n">User</span> <span class="p">(</span><span class="n">application</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span>
+<span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">:</span>
+</pre></div>
+<p>At the prompt, press enter to use the default Management User.</p></li>
+<li><p>You should see the following response:</p>
+<div class="highlight"><pre><span class="n">Enter</span> <span class="n">the</span> <span class="n">details</span> <span class="n">of</span> <span class="n">the</span> <span class="n">new</span> <span class="n">user</span> <span class="n">to</span> <span class="n">add</span><span class="p">.</span>
+<span class="n">Using</span> <span class="n">realm</span> <span class="err">&#39;</span><span class="n">ManagementRealm</span><span class="err">&#39;</span> <span class="n">as</span> <span class="n">discovered</span> <span class="n">from</span> <span class="n">the</span> <span class="n">existing</span> <span class="n">property</span> <span class="n">files</span><span class="p">.</span>
+<span class="n">Username</span> <span class="o">:</span>
+</pre></div></li>
+<li><p>Enter the Username and, at the next prompt, enter the Password.</p>
+<div class="highlight"><pre><span class="n">Username</span> <span class="o">:</span> <span class="n">admin</span>
+<span class="n">Password</span> <span class="o">:</span> <span class="o">(</span><span class="n">choose</span> <span class="n">a</span> <span class="n">password</span> <span class="k">for</span> <span class="n">the</span> <span class="n">admin</span> <span class="n">user</span><span class="o">)</span>
+</pre></div>
+<p>Repeat the password.</p></li>
+<li><p>At the next prompt, you will be asked &ldquo;What groups do you want this user to belong to? (Please enter a comma separated list, or leave blank for none)[ ]: &rdquo;. Leave it blank and press enter.</p></li>
+<li><p>Choose yes for the remaining prompts.</p></li>
+</ol>
+
+<h2><a id="add-an-application-user" class="anchor" href="#add-an-application-user"><span class="anchor-icon"></span></a>Add an Application User</h2>
+
+<p>You can pass arguments on the command line or you can run the script interactively. The examples below use &ldquo;quickstartUser&rdquo; for the <code>Username</code>, &ldquo;quickstartPwd1!&rdquo; for the <code>Password</code>, and &ldquo;guest&rdquo; for the group. If the quickstart requires a specific <code>Username</code>, <code>Password</code>, or <code>group</code>, be sure to replace them in the examples below.</p>
+
+<h3><a id="add-an-application-user-passing-arguments-on-the-command-line" class="anchor" href="#add-an-application-user-passing-arguments-on-the-command-line"><span class="anchor-icon"></span></a>Add an Application User Passing Arguments on the Command Line</h3>
+
+<p>You can create the application user non-interactively by passing each argument on the command line. </p>
+
+<p>The default application user for the quickstarts is <code>quickstartUser</code>, in the <code>ApplicationRealm</code> realm, with password <code>quickstartPwd1!</code>, and belonging to group <code>guest</code>. 
+To add the default application user, open a command prompt and type the following:</p>
+<div class="highlight"><pre>    <span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">JBOSS_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">quickstartUser</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">quickstartPwd1</span><span class="o">!</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="err">&#39;</span><span class="n">guest</span><span class="err">&#39;</span>
+    <span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">JBOSS_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span>  <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">u</span> <span class="err">&#39;</span><span class="n">quickstartUser</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">p</span> <span class="err">&#39;</span><span class="n">quickstartPwd1</span><span class="o">!</span><span class="err">&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="err">&#39;</span><span class="n">guest</span><span class="err">&#39;</span>
+</pre></div>
+<h5><a id="add-an-application-user-interactively" class="anchor" href="#add-an-application-user-interactively"><span class="anchor-icon"></span></a>Add an Application User Interactively</h5>
+
+<p>If you prefer, you can create the application user interactively. </p>
+
+<ol>
+<li>Open a command prompt.</li>
+<li><p>Type the command for your operating system</p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>   <span class="n">JBOSS_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">sh</span>
+<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">JBOSS_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">add</span><span class="o">-</span><span class="n">user</span><span class="p">.</span><span class="n">bat</span>
+</pre></div></li>
+<li><p>You should see the following response:</p>
+<div class="highlight"><pre><span class="n">What</span> <span class="n">type</span> <span class="n">of</span> <span class="n">user</span> <span class="k">do</span> <span class="n">you</span> <span class="n">wish</span> <span class="n">to</span> <span class="n">add</span><span class="o">?</span> 
+
+<span class="n">a</span><span class="p">)</span> <span class="n">Management</span> <span class="n">User</span> <span class="p">(</span><span class="n">mgmt</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span> 
+<span class="n">b</span><span class="p">)</span> <span class="n">Application</span> <span class="n">User</span> <span class="p">(</span><span class="n">application</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">properties</span><span class="p">)</span>
+<span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">:</span>
+</pre></div>
+<p>At the prompt, type:  <code>b</code></p></li>
+<li><p>You should see the following response:</p>
+<div class="highlight"><pre><span class="n">Enter</span> <span class="n">the</span> <span class="n">details</span> <span class="n">of</span> <span class="n">the</span> <span class="n">new</span> <span class="n">user</span> <span class="n">to</span> <span class="n">add</span><span class="p">.</span>
+<span class="n">Using</span> <span class="n">realm</span> <span class="err">&#39;</span><span class="n">ApplicationRealm</span><span class="err">&#39;</span> <span class="n">as</span> <span class="n">discovered</span> <span class="n">from</span> <span class="n">the</span> <span class="n">existing</span> <span class="n">property</span> <span class="n">files</span><span class="p">.</span>
+<span class="n">Username</span> <span class="o">:</span>
+</pre></div></li>
+<li><p>Enter the the Username and at the next prompt, enter the Password. If the quickstart README specifies a Username and Password, enter them here. Otherwise, use the default Username <code>quickstartUser</code> and Password <code>quickstartPwd1!</code>.</p>
+<div class="highlight"><pre><span class="n">Username</span> <span class="o">:</span> <span class="n">quickstartUser</span>
+<span class="n">Password</span> <span class="o">:</span> <span class="n">quickstartPwd1</span><span class="o">!</span>
+</pre></div></li>
+<li><p>At the next prompt, you will be asked &ldquo;What groups do you want this user to belong to? (Please enter a comma separated list, or leave blank for none)[  ]: &rdquo;. If the quickstart README specifies the groups to use, enter that here. Otherwise, type the group: <code>guest</code></p></li>
+</ol>
+
+<p><a href="#create-users-required-by-the-quickstarts">Back to top</a></p>
+</body></html>

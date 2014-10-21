@@ -1,0 +1,272 @@
+<!DOCTYPE html><html><head><title>README</title><link href="http://static.jboss.org/ffe/0/www/vendor/redhat/documentation.css" rel="stylesheet"></link><link href="http://static.jboss.org/ffe/0/www/vendor/redhat/pygments.css" rel="stylesheet"></link></head><body>
+<h1><a id="configure-the-postgresql-database-for-use-with-the-quickstarts" class="anchor" href="#configure-the-postgresql-database-for-use-with-the-quickstarts"><span class="anchor-icon"></span></a>Configure the PostgreSQL Database for Use with the Quickstarts</h1>
+
+<p>Summary: Some of the quickstarts require the PostgreSQL database. This guide describes how to install and configure the database for use with these quickstarts. The instructions here are the minimum required to install PostgreSQL version 9.2. If you install a later version, be sure to modify the version when you issue the commands below. More detailed instructions on how to install, configure, and start PostgreSQL can be found on the Internet.</p>
+
+<p><em>Note</em>: Although the database only needs to be installed once, to help partition each quickstart we recommend using a separate database per quickstart. Where you see <code>QUICKSTART_DATABASE_NAME</code>, you should replace that with the name provided in the specific quickstart&rsquo;s README file.</p>
+
+<p>The following sections describe the steps necessary to install and configure PostgreSQL for use with the quickstarts:</p>
+
+<ul>
+<li><a href="#download-and-install-postgresql">Download and Install PostgreSQL</a>: Follow the instructions for your operating system to download and install PostgreSQL.</li>
+<li><a href="#create-a-database-user">Create a Database User</a>: Create a user for the PostgreSQL database.</li>
+<li><a href="#add-the-postgresql-module-to-the-jboss-eap-server">Add the PostgreSQL Module to the JBoss EAP server</a>: Create a JBoss Module for the JBoss EAP server.</li>
+<li><a href="#configure-the-postgresql-driver-in-the-jboss-eap-server">Configure the PostgreSQL Driver in the JBoss EAP Server</a>: Add PostgreSQL to the JBoss EAP server configuration.</li>
+<li><a href="#remove-the-postgresql-configuration">Remove the PostgreSQL Configuration</a>: When you are done testing, remove PostgreSQL from the server configuration.</li>
+</ul>
+
+<h2><a id="download-and-install-postgresql" class="anchor" href="#download-and-install-postgresql"><span class="anchor-icon"></span></a>Download and Install PostgreSQL</h2>
+
+<p>Follow the instructions below for your operating system.</p>
+
+<ul>
+<li><a href="#download-and-install-postgresql-on-linux">Download and Install PostgreSQL on Linux</a></li>
+<li><a href="#download-and-install-postgresql-on-macintosh">Download and Install PostgreSQL on Macintosh</a>:</li>
+<li><a href="#download-and-install-postgresql-on-windows">Download and Install PostgreSQL on Windows</a>:</li>
+</ul>
+
+<p><em>Note:</em> The installation of PostgreSQL is a one time procedure. However, unless you have set up the database to automatically start as a service, you must repeat the instructions &ldquo;Start the database server&rdquo; for your operating system every time you reboot your machine.</p>
+
+<h3><a id="download-and-install-postgresql-on-linux" class="anchor" href="#download-and-install-postgresql-on-linux"><span class="anchor-icon"></span></a>Download and Install PostgreSQL on Linux</h3>
+
+<p>Use the following steps to install and configure PostgreSQL on Linux. You can download the PDF installation guide here: <a href="http://yum.postgresql.org/files/PostgreSQL-RPM-Installation-PGDG.pdf">http://yum.postgresql.org/files/PostgreSQL-RPM-Installation-PGDG.pdf</a></p>
+
+<ol>
+<li><p>Install PostgreSQL</p>
+
+<ul>
+<li>The yum install instructions for PostgreSQL can be found here: <a href="http://yum.postgresql.org/howtoyum.php/">http://yum.postgresql.org/howtoyum.php/</a></li>
+<li>Download the repository RPM from here: <a href="http://yum.postgresql.org/repopackages.php/">http://yum.postgresql.org/repopackages.php/</a></li>
+<li><p>To install PostgreSQL, in a command prompt type <code>sudo rpm -ivh RPM_FILE_NAME</code>, where RPM_FILE_NAME is the name of the downloaded repository RPM file, for example:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">pgdg</span><span class="o">-</span><span class="n">fedora92</span><span class="o">-</span><span class="mf">9.2</span><span class="o">-</span><span class="mf">5.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span>
+</pre></div></li>
+<li><p>Edit your distributions package manager definitions to exclude PostgreSQL. See the &ldquo;important note&rdquo; on <a href="http://yum.postgresql.org/howtoyum.php/">http://yum.postgresql.org/howtoyum.php/</a> for details on how to exclude install-and-configure-the-postgresql-database packages from the repository of the distribution.</p></li>
+<li><p>Install <em>postgresql92</em> and <em>postgres92-server</em> by typing the following in a command prompt:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">postgresql92</span> <span class="n">postgresql92</span><span class="o">-</span><span class="n">server</span>
+</pre></div></li>
+</ul></li>
+<li><p>Set a password for the <em>postgres</em> user</p>
+
+<ul>
+<li><p>In a command prompt, login as root and set the postgres password by typing the following commands: </p>
+<div class="highlight"><pre><span class="n">su</span>
+<span class="n">passwd</span> <span class="n">postgres</span>
+</pre></div></li>
+<li><p>Choose a password</p></li>
+</ul></li>
+<li><p>Configure the test database</p>
+
+<ul>
+<li><p>In a command prompt, login as the <em>postgres</em> user, navigate to the postgres directory, and initialize the database by typing:</p>
+<div class="highlight"><pre><span class="n">su</span> <span class="n">postgres</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">pgsql</span><span class="o">-</span><span class="mf">9.2</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span>
+<span class="p">.</span><span class="o">/</span><span class="n">initdb</span> <span class="o">-</span><span class="n">D</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">pgsql</span><span class="o">/</span><span class="mf">9.2</span><span class="o">/</span><span class="n">data</span>
+</pre></div></li>
+<li><p>Modify the <code>/var/lib/pgsql/9.2/data/pg_hba.conf</code> file to set the authentication scheme to password for tcp connections. Modify the line following the IPv4 local connections: change trust to to password. The line should look like this:</p>
+<div class="highlight"><pre><span class="n">host</span>    <span class="n">all</span>    <span class="n">all</span>    <span class="mf">127.0.0.1</span><span class="o">/</span><span class="mi">32</span>    <span class="n">password</span>
+</pre></div></li>
+<li><p>Modify the <code>/var/lib/pgsql/9.2/data/postgresql.conf</code> file to allow prepared transactions and reduce the maximum number of connections</p>
+<div class="highlight"><pre><span class="n">max_prepared_transactions</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">max_connections</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div></li>
+</ul></li>
+<li><p>Start the database server </p>
+
+<ul>
+<li><p>In the same command prompt, type the following:</p>
+<div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="n">postgres</span> <span class="o">-</span><span class="n">D</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">pgsql</span><span class="o">/</span><span class="mf">9.2</span><span class="o">/</span><span class="n">data</span>
+</pre></div></li>
+<li><p>Note, this command does not release the command prompt. In the next step you need to open a new command prompt.</p></li>
+</ul>
+
+<p><em>Note: If you do not configure the the database to automatically start as a service, you must repeat the instruction to start the database every time you reboot your machine.</em></p></li>
+<li><p>Create a database for the quickstart (as noted above, replace QUICKSTART_DATABASE_NAME with the name provided in the particular quickstart)</p>
+
+<ul>
+<li><p>Open a new command prompt and login again as the <em>postgres</em> user, navigate to the postgres directory, and create the  database by typing the following:</p>
+<div class="highlight"><pre><span class="n">su</span> <span class="n">postgres</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">pgsql</span><span class="o">-</span><span class="mf">9.2</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span>
+<span class="p">.</span><span class="o">/</span><span class="n">createdb</span> <span class="n">QUICKSTART_DATABASE_NAME</span>
+</pre></div></li>
+</ul></li>
+</ol>
+
+<h3><a id="download-and-install-postgresql-on-macintosh" class="anchor" href="#download-and-install-postgresql-on-macintosh"><span class="anchor-icon"></span></a>Download and Install PostgreSQL on Macintosh</h3>
+
+<p>The following are the steps to install and start PostgreSQL on Mac OS X. Note that this guide covers only &lsquo;One click installer&rsquo; option.</p>
+
+<ol>
+<li>Install PostgreSQL using Mac OS X One click installer: <a href="http://www.postgresql.org/download/macosx/">http://www.postgresql.org/download/macosx/</a></li>
+<li><p>Allow prepared transactions:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">su</span> <span class="o">-</span> <span class="n">postgres</span>
+</pre></div>
+<ul>
+<li><p>Edit <code>/Library/PostgreSQL/9.2/data/postgresql.conf</code> to allow prepared transactions</p>
+<div class="highlight"><pre><span class="n">max_prepared_transactions</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div></li>
+</ul></li>
+<li><p>Start the database server </p>
+<div class="highlight"><pre><span class="n">cd</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">PostgreSQL</span><span class="o">/</span><span class="mf">9.2</span><span class="o">/</span><span class="n">bin</span>
+<span class="p">.</span><span class="o">/</span><span class="n">pg_ctl</span> <span class="o">-</span><span class="n">D</span> <span class="p">..</span><span class="o">/</span><span class="n">data</span> <span class="n">restart</span>
+</pre></div></li>
+<li><p>Create a database for the quickstart (as noted above, replace QUICKSTART_DATABASE_NAME with the name provided in the particular quickstart)</p>
+<div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="n">createdb</span> <span class="n">QUICKSTART_DATABASE_NAME</span>
+</pre></div></li>
+<li><p>Verify that everything works. As the <em>postgres</em> user using the password you specified in Step 1, type the following:</p>
+<div class="highlight"><pre><span class="n">cd</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">PostgreSQL</span><span class="o">/</span><span class="mf">9.2</span><span class="o">/</span><span class="n">bin</span>
+<span class="p">.</span><span class="o">/</span><span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span>    
+</pre></div>
+<p>At the prompt</p>
+<div class="highlight"><pre><span class="n">start</span> <span class="n">transaction</span><span class="p">;</span>
+<span class="n">select</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">prepare</span> <span class="n">transaction</span> <span class="err">&#39;</span><span class="n">foobar</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="n">commit</span> <span class="n">prepared</span> <span class="err">&#39;</span><span class="n">foobar</span><span class="err">&#39;</span><span class="p">;</span>
+</pre></div></li>
+</ol>
+
+<h3><a id="download-and-install-postgresql-on-windows" class="anchor" href="#download-and-install-postgresql-on-windows"><span class="anchor-icon"></span></a>Download and Install PostgreSQL on Windows</h3>
+
+<p>Use the following steps to install and configure PostgreSQL on Windows:</p>
+
+<ol>
+<li>Install PostgreSQL using the Windows installer: <a href="http://www.postgresql.org/download/windows/">http://www.postgresql.org/download/windows/</a></li>
+<li><p>Enable password authentication and configure PostgreSQL to allow prepared transactions</p>
+
+<ul>
+<li><p>Modify the <code>C:\Program Files\PostgreSQL\9.2\data\pg_hba.conf</code> file to set the authentication scheme to password for tcp connections. Modify the line following the IPv4 local connections: change trust to to password. The line should look like this:</p>
+<div class="highlight"><pre><span class="n">host</span>    <span class="n">all</span>    <span class="n">all</span>    <span class="mf">127.0.0.1</span><span class="o">/</span><span class="mi">32</span>    <span class="n">password</span><span class="err">`</span>
+</pre></div></li>
+<li><p>Modify the <code>C:\Program Files\PostgreSQL\9.2\data\postgresql.conf</code> file to allow prepared transactions and reduce the maximum number of connections:</p>
+<div class="highlight"><pre><span class="n">max_prepared_transactions</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">max_connections</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div></li>
+</ul></li>
+<li><p>Start the database server</p>
+
+<ul>
+<li>Choose Start -> All Programs -> PostgreSQL 9.2\pgAdmin III</li>
+<li>Server Groups -> Servers (1) -> PostgreSQL 9.2 (localhost:5432)</li>
+<li>Right click -> Stop Service</li>
+<li>Right click -> Start Service</li>
+</ul></li>
+<li><p>Create a database for the quickstart (as noted above, replace QUICKSTART_DATABASE_NAME with the name provided in the particular quickstart)</p>
+
+<ul>
+<li><p>Open a command prompt and type the following:</p>
+<div class="highlight"><pre><span class="n">cd</span> <span class="n">C</span><span class="o">:</span><span class="err">\</span><span class="n">Program</span> <span class="n">Files</span><span class="err">\</span><span class="n">PostgreSQL</span><span class="err">\</span><span class="mf">9.2</span><span class="err">\</span><span class="n">bin</span>\
+<span class="n">createdb</span><span class="p">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="n">QUICKSTART_DATABASE_NAME</span>
+</pre></div></li>
+</ul></li>
+</ol>
+
+<h2><a id="create-a-database-user" class="anchor" href="#create-a-database-user"><span class="anchor-icon"></span></a>Create a Database User</h2>
+
+<ol>
+<li> Make sure the PostgreSQL bin directory is in your PATH. 
+
+<ul>
+<li>Open a command prompt and change to the root directory
+    psql</li>
+<li>If you see an error that &lsquo;psql&rsquo; is not a recognized command, you need to add the PostgreSQL bin directory to your PATH environment variable. </li>
+</ul></li>
+<li><p>As the <em>postgres</em> user, start the PostgreSQL interactive terminal by typing the following command:</p>
+<div class="highlight"><pre><span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span>
+</pre></div></li>
+<li><p>Create the user sa with password sa and all privileges on the database by typing the following commands (as noted above, replace QUICKSTART_DATABASE_NAME with the name provided in the particular quickstart):</p>
+<div class="highlight"><pre><span class="n">create</span> <span class="n">user</span> <span class="n">sa</span> <span class="n">with</span> <span class="n">password</span> <span class="err">&#39;</span><span class="n">sa</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="n">grant</span> <span class="n">all</span> <span class="n">privileges</span> <span class="n">on</span> <span class="n">database</span> <span class="s">&quot;QUICKSTART_DATABASE_NAME&quot;</span> <span class="n">to</span> <span class="n">sa</span><span class="p">;</span>
+<span class="err">\</span><span class="n">q</span>
+</pre></div></li>
+<li><p>Test the connection to the database using the TCP connection as user <code>&#39;sa&#39;</code>. This validates that the change to <code>pg_hba.conf</code> was made correctly: </p>
+<div class="highlight"><pre><span class="n">psql</span> <span class="o">-</span><span class="n">h</span> <span class="mf">127.0.0.1</span> <span class="o">-</span><span class="n">U</span> <span class="n">sa</span> <span class="n">QUICKSTART_DATABASE_NAME</span>
+</pre></div></li>
+</ol>
+
+<h2><a id="add-the-postgresql-module-to-the-jboss-eap-server" class="anchor" href="#add-the-postgresql-module-to-the-jboss-eap-server"><span class="anchor-icon"></span></a>Add the PostgreSQL Module to the JBoss EAP server</h2>
+
+<ol>
+<li>Create the following directory structure: <code>JBOSS_HOME/modules/system/layers/base/org/postgresql/main</code></li>
+<li>Download the JBDC driver from <a href="http://jdbc.postgresql.org/download.html">http://jdbc.postgresql.org/download.html</a> and copy it into the directory you created in the previous step.</li>
+<li><p>In the same directory, create a file named module.xml. Copy the following contents into the file:</p>
+<div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;module</span> <span class="na">xmlns=</span><span class="s">&quot;urn:jboss:module:1.0&quot;</span> <span class="na">name=</span><span class="s">&quot;org.postgresql&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;resources&gt;</span>
+        <span class="nt">&lt;resource-root</span> <span class="na">path=</span><span class="s">&quot;postgresql-9.2-1002.jdbc4.jar&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/resources&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;module</span> <span class="na">name=</span><span class="s">&quot;javax.api&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;module</span> <span class="na">name=</span><span class="s">&quot;javax.transaction.api&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/module&gt;</span>
+</pre></div></li>
+</ol>
+
+<h2><a id="configure-the-postgresql-driver-in-the-jboss-eap-server" class="anchor" href="#configure-the-postgresql-driver-in-the-jboss-eap-server"><span class="anchor-icon"></span></a>Configure the PostgreSQL Driver in the JBoss EAP Server</h2>
+
+<p>You configure the PostgreSQL driver in the JBoss EAP server by running JBoss CLI commands. For your convenience, the quickstarts batch the commands into a <code>configure-postgresql.cli</code> script provided in the root directory of the quickstarts.</p>
+
+<h3><a id="run-the-script-to-configure-postgresql" class="anchor" href="#run-the-script-to-configure-postgresql"><span class="anchor-icon"></span></a>Run the Script to Configure PostgreSQL</h3>
+
+<ol>
+<li><p>Before you begin, back up your server configuration file.</p>
+
+<ul>
+<li>If it is running, stop the JBoss EAP server.</li>
+<li>Backup the file: <code>JBOSS_HOME/standalone/configuration/standalone-full.xml</code></li>
+<li>After you have completed testing the quickstarts, you can replace this file to restore the server to its original configuration.</li>
+</ul></li>
+<li><p>Start the JBoss EAP server by typing the following: </p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>  <span class="n">JBOSS_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">standalone</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">c</span> <span class="n">standalone</span><span class="o">-</span><span class="n">full</span><span class="p">.</span><span class="n">xml</span>
+<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span>  <span class="n">JBOSS_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">standalone</span><span class="p">.</span><span class="n">bat</span> <span class="o">-</span><span class="n">c</span> <span class="n">standalone</span><span class="o">-</span><span class="n">full</span><span class="p">.</span><span class="n">xml</span>
+</pre></div></li>
+<li><p>Review the <code>configure-postgres.cli</code> file in the root of the quickstarts directory. This script adds the PostgreSQL driver to the datasources subsystem in the server configuration. </p></li>
+<li><p>Open a new command prompt, navigate to the root directory of the quickstarts, and run the following command, replacing JBOSS_HOME with the path to your server:</p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span> <span class="n">JBOSS_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">jboss</span><span class="o">-</span><span class="n">cli</span><span class="p">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">connect</span> <span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">configure</span><span class="o">-</span><span class="n">postgresql</span><span class="p">.</span><span class="n">cli</span> 
+<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span> <span class="n">JBOSS_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">jboss</span><span class="o">-</span><span class="n">cli</span><span class="p">.</span><span class="n">bat</span> <span class="o">--</span><span class="n">connect</span> <span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">configure</span><span class="o">-</span><span class="n">postgresql</span><span class="p">.</span><span class="n">cli</span> 
+</pre></div>
+<p>You should see the following result when you run the script:</p>
+<div class="highlight"><pre><span class="cp">#1 /subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)</span>
+<span class="n">The</span> <span class="n">batch</span> <span class="n">executed</span> <span class="n">successfully</span><span class="p">.</span>
+<span class="p">{</span><span class="s">&quot;outcome&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;success&quot;</span><span class="p">}</span>
+</pre></div></li>
+</ol>
+
+<h4><a id="review-the-postgresql-changes-to-the-server-configuration" class="anchor" href="#review-the-postgresql-changes-to-the-server-configuration"><span class="anchor-icon"></span></a>Review the PostgreSQL Changes to the Server Configuration</h4>
+
+<p>If you want to review and understand newly added XML configuration, stop the JBoss EAP server and open the <code>JBOSS_HOME/standalone/configuration/standalone-full.xml</code> file. </p>
+
+<p>The <code>postgresql</code> driver was added to the <code>&lt;drivers&gt;</code> section in the <code>datasources</code> subsystem of the server configuration file.</p>
+<div class="highlight"><pre>    <span class="nt">&lt;driver</span> <span class="na">name=</span><span class="s">&quot;postgresql&quot;</span> <span class="na">module=</span><span class="s">&quot;org.postgresql&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xa-datasource-class&gt;</span>org.postgresql.xa.PGXADataSource<span class="nt">&lt;/xa-datasource-class&gt;</span>
+    <span class="nt">&lt;/driver&gt;</span>
+</pre></div>
+<h2><a id="remove-the-postgresql-configuration" class="anchor" href="#remove-the-postgresql-configuration"><span class="anchor-icon"></span></a>Remove the PostgreSQL Configuration</h2>
+
+<p>When you are done testing the quickstarts, you can remove the PostgreSQL configuration by running the  <code>remove-postgresql.cli</code> script provided in the root directory of the quickstarts or by manually restoring the back-up copy the configuration file. </p>
+
+<h3><a id="remove-the-postgresql-configuration-by-running-the-jboss-cli-script" class="anchor" href="#remove-the-postgresql-configuration-by-running-the-jboss-cli-script"><span class="anchor-icon"></span></a>Remove the PostgreSQL Configuration by Running the JBoss CLI Script</h3>
+
+<ol>
+<li><p>Start the JBoss EAP server by typing the following: </p>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">Linux</span><span class="o">:</span>  <span class="n">JBOSS_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">standalone</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">c</span> <span class="n">standalone</span><span class="o">-</span><span class="n">full</span><span class="p">.</span><span class="n">xml</span>
+<span class="n">For</span> <span class="n">Windows</span><span class="o">:</span>  <span class="n">JBOSS_HOME</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">standalone</span><span class="p">.</span><span class="n">bat</span> <span class="o">-</span><span class="n">c</span> <span class="n">standalone</span><span class="o">-</span><span class="n">full</span><span class="p">.</span><span class="n">xml</span>
+</pre></div></li>
+<li><p>Open a new command prompt, navigate to the root directory of this quickstart, and run the following command, replacing JBOSS_HOME with the path to your server:</p>
+<div class="highlight"><pre><span class="n">JBOSS_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">jboss</span><span class="o">-</span><span class="n">cli</span><span class="p">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">connect</span> <span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">remove</span><span class="o">-</span><span class="n">postgresql</span><span class="p">.</span><span class="n">cli</span> 
+</pre></div>
+<p>This script removes PostgreSQL from the <code>datasources</code> subsystem in the server configuration. You should see the following result when you run the script:</p>
+<div class="highlight"><pre><span class="cp">#1 /subsystem=datasources/jdbc-driver=postgresql:remove</span>
+<span class="n">The</span> <span class="n">batch</span> <span class="n">executed</span> <span class="n">successfully</span><span class="p">.</span>
+<span class="p">{</span><span class="s">&quot;outcome&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;success&quot;</span><span class="p">}</span>
+</pre></div></li>
+</ol>
+
+<h3><a id="remove-the-postgresql-configuration-manually" class="anchor" href="#remove-the-postgresql-configuration-manually"><span class="anchor-icon"></span></a>Remove the PostgreSQL Configuration Manually</h3>
+
+<ol>
+<li>If it is running, stop the JBoss EAP server.</li>
+<li>Replace the <code>JBOSS_HOME/standalone/configuration/standalone-full.xml</code> file with the back-up copy of the file.</li>
+</ol>
+
+<p><a href="#configure-the-postgresql-database-for-use-with-the-quickstarts">Back to top</a></p>
+</body></html>

@@ -141,8 +141,8 @@ def markdown(source_path)
   text.gsub!("\[TOC\]", toc)
   rendered = markdown.render(text)
   metadata(source_path.path, rendered)
-  rendered = rendered.gsub(/README.md/, "README.html").gsub(/CONTRIBUTING.md/, "CONTRIBUTING.html")
-  '<!DOCTYPE html><html><head><title>README</title><link href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/dist/css/documentation.css" rel="stylesheet"></link><link href="https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/dist/css/pygments.css" rel="stylesheet"></link></head><body>' + rendered + '</body></html>'
+  rendered = rendered.gsub(/README.md/, "README.html").gsub(/CONFIGURE_BYTEMAN.md/, "CONFIGURE_BYTEMAN.html").gsub(/CONFIGURE_MAVEN.md/, "CONFIGURE_MAVEN.html").gsub(/CONFIGURE_POSTGRESQL.md/, "CONFIGURE_POSTGRESQL.html").gsub(/CONTRIBUTING.md/, "CONTRIBUTING.html").gsub(/CREATE_USERS.md/, "CREATE_USERS.html").gsub(/DEPLOY_TO_OPENSHIFT.md/, "DEPLOY_TO_OPENSHIFT.html").gsub(/RUN_ARQUILLIAN_TESTS.md/, "RUN_ARQUILLIAN_TESTS.html").gsub(/START_JBOSS_EAP.md/, "START_JBOSS_EAP.html").gsub(/USE_JDBS.md/, "USE_JDBS.html")
+  '<!DOCTYPE html><html><head><title>README</title><link href="http://static.jboss.org/ffe/0/www/vendor/redhat/documentation.css" rel="stylesheet"></link><link href="http://static.jboss.org/ffe/0/www/vendor/redhat/pygments.css" rel="stylesheet"></link></head><body>' + rendered + '</body></html>'
   end
 
 def optionize(options)

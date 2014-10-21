@@ -40,12 +40,12 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
     |:-----------|:-----------|
     | https://github.com/jboss-developer/jboss-eap-quickstarts | https://github.com/YOUR_USER_NAME/jboss-eap-quickstarts.git |
     | https://github.com/jboss-developer/jboss-wfk-quickstarts | https://github.com/YOUR_USER_NAME/jboss-wfk-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-brms-quickstarts | https://github.com/YOUR_USER_NAME/jboss-brms-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-jdg-quickstarts | https://github.com/YOUR_USER_NAME/jboss-jdg-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-mobile-quickstarts | https://github.com/YOUR_USER_NAME/jboss-mobile-quickstarts.git |
+    | https://github.com/jboss-developer/jboss-on-quickstarts | https://github.com/YOUR_USER_NAME/jboss-on-quickstarts.git |
     | https://github.com/jboss-developer/jboss-picketlink-quickstarts | https://github.com/YOUR_USER_NAME/jboss-picketlink-quickstarts.git |
     | https://github.com/jboss-developer/jboss-portal-quickstarts | https://github.com/YOUR_USER_NAME/jboss-portal-quickstarts.git |
-    | https://github.com/jboss-developer/jboss-jdg-quickstarts | https://github.com/YOUR_USER_NAME/jboss-jdg-quickstarts.git |
-    | https://github.com/jboss-developer/jboss-on-quickstarts | https://github.com/YOUR_USER_NAME/jboss-on-quickstarts.git |
-    | https://github.com/jboss-developer/jboss-mobile-quickstarts | https://github.com/YOUR_USER_NAME/jboss-mobile-quickstarts.git |
-    | https://github.com/jboss-developer/jboss-brms-quickstarts | https://github.com/YOUR_USER_NAME/jboss-brms-quickstarts.git |
     | https://github.com/jboss-developer/jboss-sandbox-quickstarts | https://github.com/YOUR_USER_NAME/jboss-sandbox-quickstarts.git |
 
 2. Clone your forked repository. This creates and populates a directory. for example `jboss-eap-quickstart/` on your local file system with the default remote repository name 'origin'.
