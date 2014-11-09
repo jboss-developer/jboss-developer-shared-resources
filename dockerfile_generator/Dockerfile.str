@@ -1,0 +1,19 @@
+# Use latest #{base_image_name}/base image as the base
+# This base image includes #{product_name}
+FROM #{base_image_name}/base:latest
+
+# Apply any updates from the filesystem since the base image was build
+WORKDIR /opt/jboss/#{quickstarts_repo_name}/#{quickstart_name}
+ADD . /opt/jboss/#{quickstarts_repo_name}/#{quickstart_name}
+
+# Fix permissions on #{quickstarts_repo_name}/#{quickstart_name}
+USER root
+RUN chown jboss /opt/jboss/#{quickstarts_repo_name}/#{quickstart_name}
+USER jboss
+
+# Build the quickstart
+RUN mvn clean package
+
+# Copy the created war file to the #{product_name} deployments file, so that is deployed when #{product_name} starts
+RUN cp target/jboss-#{quickstart_name}.war /opt/jboss/#{product_dir_name}/standalone/deployments/
+

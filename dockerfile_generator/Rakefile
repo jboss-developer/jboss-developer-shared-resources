@@ -1,0 +1,6 @@
+load 'gen.rb'
+
+task :gen, [:dir, :product_code, :product_name] do |task, args|
+  dfg = JBoss::Developer::DockerFileGenerator.new(args)
+  dfg.scan(args[:dir])
+end
