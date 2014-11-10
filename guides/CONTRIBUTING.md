@@ -193,7 +193,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 The quickstart README.md files are converted to HTML using markdown. We recommend using redcarpet, as that is what GitHub uses, but you can use any markdown tool really.
 
-There are two scripts, `dist/github-flaoured-markdown.rb`, that will convert an indivdual file, and `dist/release-utils.sh -m`, that will convert all the files.
+There are two scripts, `dist/github-flavored-markdown.rb`, that will convert an individual file, and `dist/release-utils.sh -m`, that will convert all the files.
 
 To setup the environment you need to follow these steps.
 
