@@ -11,6 +11,8 @@ The following sections describe the steps necessary to install, configure, and u
 * [Use Byteman to Halt the Application](#use-byteman-to-halt-the-application)
 * [Disable the Byteman Script](#disable-the-byteman-script)
 
+_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME) for information about the JBoss EAP installation path._
+
 
 Download and Configure Byteman
 -------------------------------
@@ -28,10 +30,10 @@ Transaction objectstore data remaining from previous tests can prevent _Byteman_
 
 1. Open a command prompt and type the following:
 
-        ls $JBOSS_HOME/standalone/data/tx-object-store/ShadowNoFileLockStore/defaultStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/
+        ls EAP_HOME/standalone/data/tx-object-store/ShadowNoFileLockStore/defaultStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/
 2. If this directory exists and contains any files, delete them before starting the server:
 
-        rm -rf $JBOSS_HOME/standalone/data/tx-object-store/ShadowNoFileLockStore/defaultStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/*
+        rm -rf EAP_HOME/standalone/data/tx-object-store/ShadowNoFileLockStore/defaultStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/*
 3. On Windows, use the file manager to accomplish the same result.
 
 
@@ -44,8 +46,8 @@ When instructed to use _Byteman_ to halt the application, perform the following 
  
 1. Find the appropriate configuration file for your operating system in the list below.
 
-        For Linux: JBOSS_HOME/bin/standalone.conf 
-        For Windows: JBOSS_HOME\bin\standalone.conf.bat
+        For Linux: EAP_HOME/bin/standalone.conf 
+        For Windows: EAP_HOME\bin\standalone.conf.bat
 
 2. **Important**: Make a backup copy of this configuration file before making any modifications!
 

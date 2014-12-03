@@ -13,6 +13,8 @@ The following sections describe the steps necessary to install and configure Pos
 * [Configure the PostgreSQL Driver in the JBoss EAP Server](#configure-the-postgresql-driver-in-the-jboss-eap-server): Add PostgreSQL to the JBoss EAP server configuration.
 * [Remove the PostgreSQL Configuration](#remove-the-postgresql-configuration): When you are done testing, remove PostgreSQL from the server configuration.
 
+_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME) for information about the JBoss EAP installation path._
+
 
 Download and Install PostgreSQL
 -------------------------------
@@ -153,7 +155,7 @@ Create a Database User
 Add the PostgreSQL Module to the JBoss EAP server
 -------------------------------------------------
 
-1. Create the following directory structure: `JBOSS_HOME/modules/system/layers/base/org/postgresql/main`
+1. Create the following directory structure: `EAP_HOME/modules/system/layers/base/org/postgresql/main`
 2. Download the JBDC driver from <http://jdbc.postgresql.org/download.html> and copy it into the directory you created in the previous step.
 3. In the same directory, create a file named module.xml. Copy the following contents into the file:
 
@@ -177,19 +179,19 @@ You configure the PostgreSQL driver in the JBoss EAP server by running JBoss CLI
 
 1. Before you begin, back up your server configuration file.
     * If it is running, stop the JBoss EAP server.
-    * Backup the file: `JBOSS_HOME/standalone/configuration/standalone-full.xml`
+    * Backup the file: `EAP_HOME/standalone/configuration/standalone-full.xml`
     * After you have completed testing the quickstarts, you can replace this file to restore the server to its original configuration.
  
 2. Start the JBoss EAP server by typing the following: 
 
-        For Linux:  JBOSS_HOME/bin/standalone.sh -c standalone-full.xml
-        For Windows:  JBOSS_HOME\bin\standalone.bat -c standalone-full.xml
+        For Linux:  EAP_HOME/bin/standalone.sh -c standalone-full.xml
+        For Windows:  EAP_HOME\bin\standalone.bat -c standalone-full.xml
 3. Review the `configure-postgres.cli` file in the root of the quickstarts directory. This script adds the PostgreSQL driver to the datasources subsystem in the server configuration. 
 
-4. Open a new command prompt, navigate to the root directory of the quickstarts, and run the following command, replacing JBOSS_HOME with the path to your server:
+4. Open a new command prompt, navigate to the root directory of the quickstarts, and run the following command, replacing EAP_HOME with the path to your server:
 
-        For Linux: JBOSS_HOME/bin/jboss-cli.sh --connect --file=configure-postgresql.cli 
-        For Windows: JBOSS_HOME\bin\jboss-cli.bat --connect --file=configure-postgresql.cli 
+        For Linux: EAP_HOME/bin/jboss-cli.sh --connect --file=configure-postgresql.cli 
+        For Windows: EAP_HOME\bin\jboss-cli.bat --connect --file=configure-postgresql.cli 
 You should see the following result when you run the script:
 
         #1 /subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
@@ -198,7 +200,7 @@ You should see the following result when you run the script:
 
 #### Review the PostgreSQL Changes to the Server Configuration
 
-If you want to review and understand newly added XML configuration, stop the JBoss EAP server and open the `JBOSS_HOME/standalone/configuration/standalone-full.xml` file. 
+If you want to review and understand newly added XML configuration, stop the JBoss EAP server and open the `EAP_HOME/standalone/configuration/standalone-full.xml` file. 
 
 The `postgresql` driver was added to the `<drivers>` section in the `datasources` subsystem of the server configuration file.
 
@@ -216,11 +218,11 @@ When you are done testing the quickstarts, you can remove the PostgreSQL configu
 
 1. Start the JBoss EAP server by typing the following: 
 
-        For Linux:  JBOSS_HOME/bin/standalone.sh -c standalone-full.xml
-        For Windows:  JBOSS_HOME\bin\standalone.bat -c standalone-full.xml
-2. Open a new command prompt, navigate to the root directory of this quickstart, and run the following command, replacing JBOSS_HOME with the path to your server:
+        For Linux:  EAP_HOME/bin/standalone.sh -c standalone-full.xml
+        For Windows:  EAP_HOME\bin\standalone.bat -c standalone-full.xml
+2. Open a new command prompt, navigate to the root directory of this quickstart, and run the following command, replacing EAP_HOME with the path to your server:
 
-        JBOSS_HOME/bin/jboss-cli.sh --connect --file=remove-postgresql.cli 
+        EAP_HOME/bin/jboss-cli.sh --connect --file=remove-postgresql.cli 
 This script removes PostgreSQL from the `datasources` subsystem in the server configuration. You should see the following result when you run the script:
 
         #1 /subsystem=datasources/jdbc-driver=postgresql:remove
@@ -230,7 +232,7 @@ This script removes PostgreSQL from the `datasources` subsystem in the server co
 ### Remove the PostgreSQL Configuration Manually
 
 1. If it is running, stop the JBoss EAP server.
-2. Replace the `JBOSS_HOME/standalone/configuration/standalone-full.xml` file with the back-up copy of the file.
+2. Replace the `EAP_HOME/standalone/configuration/standalone-full.xml` file with the back-up copy of the file.
 
 [Back to top](#configure-the-postgresql-database-for-use-with-the-quickstarts)
 

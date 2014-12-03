@@ -1,7 +1,7 @@
 Create Users Required by the Quickstarts
 ===============
 
-Summary: By default, JBoss EAP is distributed with security enabled for the management interfaces. A few of the quickstarts use these management interfaces and require that you create a management or application user to access the running application. An `add-user` script is provided in the `JBOSS_HOME/bin` directory for that purpose. You can run the script interactively or you can pass arguments on the command line. 
+Summary: By default, JBoss EAP is distributed with security enabled for the management interfaces. A few of the quickstarts use these management interfaces and require that you create a management or application user to access the running application. An `add-user` script is provided in the `EAP_HOME/bin` directory for that purpose. You can run the script interactively or you can pass arguments on the command line. 
 
 The following procedures describe how to add a user with the appropriate permissions to run the quickstarts that depend on them.
 
@@ -18,6 +18,8 @@ _Note:_ Passwords must meet the following requirements:
 
 More detailed user configuration instructions can be found in the Administration and Configuration Guide for JBoss Enterprise Application Platform located on the Customer Portal at <https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform/>.
 
+_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME) for information about the JBoss EAP installation path._
+
 Add a Management User
 ----------------------
 
@@ -30,8 +32,8 @@ You can create the management user non-interactively by passing each argument on
 For example, to add the Management User `admin` in the default `ManagementRealm` realm with password `adminPass1!`, 
 open a command prompt and type the following:
 
-        For Linux:   JBOSS_HOME/bin/add-user.sh -u 'admin' -p 'adminPass1!'
-        For Windows: JBOSS_HOME\bin\add-user.bat -u 'admin' -p 'adminPass1!'
+        For Linux:   EAP_HOME/bin/add-user.sh -u 'admin' -p 'adminPass1!'
+        For Windows: EAP_HOME\bin\add-user.bat -u 'admin' -p 'adminPass1!'
 
 ### Add a Management User Interactively
 
@@ -40,8 +42,8 @@ If you prefer, you can create the management user interactively.
 1. Open a command prompt.
 2. Type the command for your operating system
 
-        For Linux:   JBOSS_HOME/bin/add-user.sh
-        For Windows: JBOSS_HOME\bin\add-user.bat
+        For Linux:   EAP_HOME/bin/add-user.sh
+        For Windows: EAP_HOME\bin\add-user.bat
 3. You should see the following response:
 
         What type of user do you wish to add? 
@@ -76,8 +78,8 @@ You can create the application user non-interactively by passing each argument o
 The default application user for the quickstarts is `quickstartUser`, in the `ApplicationRealm` realm, with password `quickstartPwd1!`, and belonging to group `guest`. 
 To add the default application user, open a command prompt and type the following:
 
-        For Linux:   JBOSS_HOME/bin/add-user.sh -a -u 'quickstartUser' -p 'quickstartPwd1!' -g 'guest'
-        For Windows: JBOSS_HOME\bin\add-user.bat  -a -u 'quickstartUser' -p 'quickstartPwd1!' -g 'guest'
+        For Linux:   EAP_HOME/bin/add-user.sh -a -u 'quickstartUser' -p 'quickstartPwd1!' -g 'guest'
+        For Windows: EAP_HOME\bin\add-user.bat  -a -u 'quickstartUser' -p 'quickstartPwd1!' -g 'guest'
 
 
 ##### Add an Application User Interactively 
@@ -87,8 +89,8 @@ If you prefer, you can create the application user interactively.
 1. Open a command prompt.
 2. Type the command for your operating system
 
-        For Linux:   JBOSS_HOME/bin/add-user.sh
-        For Windows: JBOSS_HOME\bin\add-user.bat
+        For Linux:   EAP_HOME/bin/add-user.sh
+        For Windows: EAP_HOME\bin\add-user.bat
 3. You should see the following response:
 
         What type of user do you wish to add? 
