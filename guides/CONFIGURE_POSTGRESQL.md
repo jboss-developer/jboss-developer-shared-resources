@@ -13,7 +13,7 @@ The following sections describe the steps necessary to install and configure Pos
 * [Configure the PostgreSQL Driver in the JBoss EAP Server](#configure-the-postgresql-driver-in-the-jboss-eap-server): Add PostgreSQL to the JBoss EAP server configuration.
 * [Remove the PostgreSQL Configuration](#remove-the-postgresql-configuration): When you are done testing, remove PostgreSQL from the server configuration.
 
-_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME) for information about the JBoss EAP installation path._
+_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME.md) for information about the JBoss EAP installation path._
 
 
 Download and Install PostgreSQL

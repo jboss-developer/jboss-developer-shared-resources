@@ -11,7 +11,7 @@ The following sections describe the steps necessary to install, configure, and u
 * [Use Byteman to Halt the Application](#use-byteman-to-halt-the-application)
 * [Disable the Byteman Script](#disable-the-byteman-script)
 
-_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME) for information about the JBoss EAP installation path._
+_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME.md) for information about the JBoss EAP installation path._
 
 
 Download and Configure Byteman

@@ -18,7 +18,7 @@ _Note:_ Passwords must meet the following requirements:
 
 More detailed user configuration instructions can be found in the Administration and Configuration Guide for JBoss Enterprise Application Platform located on the Customer Portal at <https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform/>.
 
-_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME) for information about the JBoss EAP installation path._
+_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME.md) for information about the JBoss EAP installation path._
 
 Add a Management User
 ----------------------
