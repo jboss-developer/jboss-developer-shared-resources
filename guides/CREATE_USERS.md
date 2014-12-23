@@ -1,7 +1,7 @@
 Create Users Required by the Quickstarts
 ===============
 
-Summary: By default, JBoss EAP is distributed with security enabled for the management interfaces. A few of the quickstarts use these management interfaces and require that you create a management or application user to access the running application. An `add-user` script is provided in the `EAP_HOME/bin` directory for that purpose. You can run the script interactively or you can pass arguments on the command line. 
+Summary: By default, Red Hat JBoss Enterprise Application Platform is distributed with security enabled for the management interfaces. A few of the quickstarts use these management interfaces and require that you create a management or application user to access the running application. An `add-user` script is provided in the `EAP_HOME/bin` directory for that purpose. You can run the script interactively or you can pass arguments on the command line. 
 
 The following procedures describe how to add a user with the appropriate permissions to run the quickstarts that depend on them.
 

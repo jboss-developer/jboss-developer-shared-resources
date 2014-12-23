@@ -2,7 +2,7 @@
 JBoss Developer Contributing Guide
 ==============================
 
-This document contains information targeted for developers who want to contribute to JBoss developer projects.
+This document contains information targeted for developers who want to contribute to Red Hat JBoss Enterprise Application Platform developer projects.
 
 * [Join the Mailing list](#join-the-mailing-list): Sign up for the JBoss developer mailing list.
 * [Contribute a Quickstart](#contribute-a-quickstart): Find out how to contribute a quickstart.
@@ -216,6 +216,8 @@ To setup the environment you need to follow these steps.
             sudo easy_install pygments
 
 ### Configure Maven
+
+_Note:_ Maven 3.2.2 introduced a bug that breaks resolution of the JBoss EAP BOM dependencies because it ignores additional repositories during artifact resolution. For more information about this bug, see <https://jira.codehaus.org/browse/MNG-5663>. Make sure to use Maven 3.2.3 or later.
 
 If you are working with quickstarts currently under development in the current development branch, you need access to artifacts currently under development. The JBoss developer Maven repository, which contains newly staged artifacts, is located at [jboss-developer.github.io](http://jboss-developer.github.io/temp-maven-repo/).
 

@@ -5,17 +5,17 @@ Arquillian is a testing platform that makes it easy to create automated integrat
 
 There are two ways you can run Arquillian tests:
 
-  * [Test the Quickstart on a Remote JBoss EAP Server](#test-the-quickstart-on-a-remote-jboss-eap-server): You must start the server yourself and run the tests against a remote server.
-  * [Test the Quickstart on a Managed JBoss EAP Server](#test-the-quickstart-on-a-managed-jboss-eap-server): You must not start the server and instead let Arquillian manage the server lifecycle during the testing. 
+  * [Test the Quickstart on a Remote Red Hat JBoss Enterprise Application Platform Server](#test-the-quickstart-on-a-remote-jboss-eap-server): You must start the server yourself and run the tests against a remote server.
+  * [Test the Quickstart on a Managed Red Hat JBoss Enterprise Application Platform Server](#test-the-quickstart-on-a-managed-jboss-eap-server): You must not start the server and instead let Arquillian manage the server lifecycle during the testing. 
 
 The individual quickstart README should tell you what to expect in the console output and the server log when you run the tests.
 
 _Note:_ If you do not configure the Maven settings as described here, [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts), you must pass the configuration setting on every Maven command as follows: ` -s QUICKSTART_HOME/settings.xml`
 
-Test the Quickstart on a Remote JBoss EAP Server
+Test the Quickstart on a Remote Red Hat JBoss Enterprise Application Platform Server
 -------------------------------------
 
-Arquillian's remote container adapter expects a JBoss EAP server instance to be already started prior to the test execution. 
+Arquillian's remote container adapter expects a Red Hat JBoss Enterprise Application Platform server instance to be already started prior to the test execution. 
 
 1. You must start the JBoss EAP server as described in the quickstart README file.
 
@@ -36,7 +36,7 @@ Arquillian's remote container adapter expects a JBoss EAP server instance to be 
 
 _Note:_ See the individual quickstart README file for any additional requirements.
 
-Test the Quickstart on a Managed JBoss EAP Server
+Test the Quickstart on a Managed Red Hat JBoss Enterprise Application Platform Server
 ---------------------------------------
 
 Arquillian's managed container adapter starts the container for you and requires that your JBoss EAP server is not running.

@@ -9,11 +9,11 @@ The following sections describe the steps necessary to install and configure Pos
 
 * [Download and Install PostgreSQL](#download-and-install-postgresql): Follow the instructions for your operating system to download and install PostgreSQL.
 * [Create a Database User](#create-a-database-user): Create a user for the PostgreSQL database.
-* [Add the PostgreSQL Module to the JBoss EAP server](#add-the-postgresql-module-to-the-jboss-eap-server): Create a JBoss Module for the JBoss EAP server.
-* [Configure the PostgreSQL Driver in the JBoss EAP Server](#configure-the-postgresql-driver-in-the-jboss-eap-server): Add PostgreSQL to the JBoss EAP server configuration.
+* [Add the PostgreSQL Module to the Red Hat JBoss Enterprise Application Platform Server](#add-the-postgresql-module-to-the-jboss-eap-server): Create a JBoss Module for the JBoss EAP server.
+* [Configure the PostgreSQL Driver in the Red Hat JBoss Enterprise Application Platform Server](#configure-the-postgresql-driver-in-the-jboss-eap-server): Add PostgreSQL to the JBoss EAP server configuration.
 * [Remove the PostgreSQL Configuration](#remove-the-postgresql-configuration): When you are done testing, remove PostgreSQL from the server configuration.
 
-_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME.md) for information about the JBoss EAP installation path._
+_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME.md) for information about the Red Hat JBoss Enterprise Application Platform installation path._
 
 
 Download and Install PostgreSQL
@@ -152,7 +152,7 @@ Create a Database User
         psql -h 127.0.0.1 -U sa QUICKSTART_DATABASE_NAME
 
 
-Add the PostgreSQL Module to the JBoss EAP server
+Add the PostgreSQL Module to the Red Hat JBoss Enterprise Application Platform Server
 -------------------------------------------------
 
 1. Create the following directory structure: `EAP_HOME/modules/system/layers/base/org/postgresql/main`
@@ -170,7 +170,7 @@ Add the PostgreSQL Module to the JBoss EAP server
             </dependencies>
         </module>
 
-Configure the PostgreSQL Driver in the JBoss EAP Server
+Configure the PostgreSQL Driver in the Red Hat JBoss Enterprise Application Platform Server
 -----------------------------------------------------------
 
 You configure the PostgreSQL driver in the JBoss EAP server by running JBoss CLI commands. For your convenience, the quickstarts batch the commands into a `configure-postgresql.cli` script provided in the root directory of the quickstarts.

@@ -1,7 +1,7 @@
 Configure Maven to Build and Deploy the Quickstarts
 ===============
 
-Summary: The artifacts and dependencies needed to build and deploy applications to JBoss EAP 6 are hosted in public repositories. You must configure Maven to use these repositories before you build and deploy the quickstarts. How you do this depends on whether you plan to use JBoss Developer Studio or Maven command line to build and deploy your applications. Both methods are described below.
+Summary: The artifacts and dependencies needed to build and deploy applications to Red Hat JBoss Enterprise Application Platform 6 are hosted in public repositories. You must configure Maven to use these repositories before you build and deploy the quickstarts. How you do this depends on whether you plan to use JBoss Developer Studio or Maven command line to build and deploy your applications. Both methods are described below.
 
 * [Configure Maven - For Use with Command Line](#configure-maven-for-use-with-command-line): Follow these instructions if you plan to build and deploy the quickstarts using Maven command line tools.
 * [Configure Maven - For Use with JBoss Developer Studio](#configure-maven-for-use-with-jboss-developer-studio): Follow these instructions if you plan to build and deploy the quickstarts using JBoss Developer Studio.
@@ -21,11 +21,13 @@ If you have not yet done so, you must download and install Maven.
 1. Go to [Apache Maven Project - Download Maven](http://maven.apache.org/download.html) and download the latest distribution for your operating system.
 2. See the Maven documentation for information on how to download and install Apache Maven for your operating system.
 
-The quickstarts use artifacts located in the JBoss GA and Early Access repositories. You must configure Maven to use these repositories before you build and deploy the quickstarts. 
+_Note:_ Maven 3.2.2 introduced a bug that breaks resolution of the JBoss EAP BOM dependencies because it ignores additional repositories during artifact resolution. For more information about this bug, see <https://jira.codehaus.org/browse/MNG-5663>. Make sure to use Maven 3.2.3 or later.
 
 ### Configure Maven to Use the JBoss EAP Repositories
 
-_Note: These instructions assume you are working with a released version of the quickstarts. If you are working with the quickstarts located in the GitHub master branch, follow the instructions located in the [Contributing Guide](CONTRIBUTING.md#configure-maven)._
+The quickstarts use artifacts located in the JBoss GA and Early Access repositories. You must configure Maven to use these repositories before you build and deploy the quickstarts. 
+
+_Note:_ These instructions assume you are working with a released version of the quickstarts. If you are working with the quickstarts located in the GitHub master branch, follow the instructions located in the [Contributing Guide](CONTRIBUTING.md#configure-maven).
 
 1. Locate the Maven install directory for your operating system. It is usually installed in `${user.home}/.m2/`. 
 

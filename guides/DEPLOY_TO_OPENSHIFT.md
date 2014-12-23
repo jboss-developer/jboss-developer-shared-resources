@@ -17,7 +17,7 @@ If you do not yet have an OpenShift account and domain, [Sign in to OpenShift](h
 
 _NOTE_: The domain name for this application will be `APPLICATION_NAME-YOUR_DOMAIN_NAME.rhcloud.com`. In these instructions, be sure to replace all instances of `YOUR_DOMAIN_NAME` with your own OpenShift account user name.
 
-Open a shell command prompt and change to a directory of your choice. Enter the following command to create a JBoss EAP 6 application:
+Open a shell command prompt and change to a directory of your choice. Enter the following command to create a Red Hat JBoss Enterprise Application Platform 6 application:
 
         rhc app create -a APPLICATION_NAME -t jbosseap-6
 
