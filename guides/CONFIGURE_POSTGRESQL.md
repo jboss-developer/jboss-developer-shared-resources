@@ -9,8 +9,8 @@ The following sections describe the steps necessary to install and configure Pos
 
 * [Download and Install PostgreSQL](#download-and-install-postgresql): Follow the instructions for your operating system to download and install PostgreSQL.
 * [Create a Database User](#create-a-database-user): Create a user for the PostgreSQL database.
-* [Add the PostgreSQL Module to the Red Hat JBoss Enterprise Application Platform Server](#add-the-postgresql-module-to-the-jboss-eap-server): Create a JBoss Module for the JBoss EAP server.
-* [Configure the PostgreSQL Driver in the Red Hat JBoss Enterprise Application Platform Server](#configure-the-postgresql-driver-in-the-jboss-eap-server): Add PostgreSQL to the JBoss EAP server configuration.
+* [Add the PostgreSQL Module to the Red Hat JBoss Enterprise Application Platform Server](#add-the-postgresql-module-to-the-red-hat-jboss-enterprise-application-platform-server): Create a JBoss Module for the JBoss EAP server.
+* [Configure the PostgreSQL Driver in the Red Hat JBoss Enterprise Application Platform Server](#configure-the-postgresql-driver-in-the-red-hat-jboss-enterprise-application-platform-server): Add PostgreSQL to the JBoss EAP server configuration.
 * [Remove the PostgreSQL Configuration](#remove-the-postgresql-configuration): When you are done testing, remove PostgreSQL from the server configuration.
 
 _NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME.md) for information about the Red Hat JBoss Enterprise Application Platform installation path._
