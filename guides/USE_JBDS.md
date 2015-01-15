@@ -31,6 +31,6 @@ _Note:_ You may see one or more of the following errors or warnings or when you 
 
 * **EJB Problem: An EJB module must contain one or more enterprise beans.** 
  
-     Eclipse Web Tools Platform can not deploy simple JARs to the JBoss EAP server. For this reason, quickstarts subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
+     Eclipse Web Tools Platform can not deploy simple JARs to the JBoss EAP server. For this reason, quickstart subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
      
 
