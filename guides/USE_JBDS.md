@@ -25,7 +25,12 @@ _Note:_ You may see one or more of the following errors or warnings or when you 
 
     This is a known issue. See https://issues.jboss.org/browse/JBIDE-18316
  
- * **Knowledge Base Builder Problem: JBoss Tools Knowledge Base problem: Nature is not installed on required Java project jboss-ejb-throws-exception-ejb-api. Use Quick Fix to include artifacts declared in that project into Content Assistant and Validation.**
+* **Knowledge Base Builder Problem: JBoss Tools Knowledge Base problem: Nature is not installed on required Java project jboss-ejb-throws-exception-ejb-api. Use Quick Fix to include artifacts declared in that project into Content Assistant and Validation.**
  
      Quickstarts that require Knowledge Base capabilities to be enabled on the project display this warning. To resolve it, right-click on the warning message in the in the JBoss Developer Studio `Problems` window and choose `Quick Fix`. This opens a window with the fix `Enable Knowledge Base capabilities on project <project-name>` selected. Make sure all projects are selected and click `Finish` to resolve the warning.
+
+* **EJB Problem: An EJB module must contain one or more enterprise beans.** 
+ 
+     Eclipse Web Tools Platform can not deploy simple JARs to the JBoss EAP server. For this reason, quickstarts subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
+     
 
