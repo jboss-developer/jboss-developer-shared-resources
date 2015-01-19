@@ -1,10 +1,4 @@
 Use Red Hat JBoss Developer Studio or Eclipse to Run the Quickstarts
 ============================================================
 
-You can also deploy the quickstarts or run the Arquillian tests from Eclipse using JBoss tools. 
-
-For information on how to configure Maven and Red Hat JBoss Developer Studio for use with the quickstarts, see the [Getting Started Guide](https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform/6.3/html-single/Getting_Started_Guide/index.html "Getting Started Guide") for Red Hat JBoss Enterprise Application Platform. 
-
-See [Get Started](http://www.jboss.org/get-started/ "Get Started") on the JBoss Developer web site for additional information.
-
-
+This page is obsolete. See [Use JBoss Developer Studio or Eclipse to Run the Quickstarts](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_JBDS.md#use-jboss-developer-studio-or-eclipse-to-run-the-quickstarts).
