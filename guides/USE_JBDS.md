@@ -7,7 +7,7 @@ For information on how to configure Maven and Red Hat JBoss Developer Studio for
 
 See [Get Started](http://www.jboss.org/get-started/ "Get Started") on the JBoss Developer web site for additional information.
 
-_Note:_ You may see one or more of the following errors or warnings or when you import quickstart projects into Red Hat JBoss Developer Studio.
+_Note:_ You may see one or more of the following errors or warnings when you import quickstart projects into Red Hat JBoss Developer Studio.
 
 * **JPA Problem: No connection specified for project. No database-specific validation will be performed.**
 
