@@ -13,6 +13,10 @@ _Note:_ You may see one or more of the following errors or warnings when you imp
 
     If the quickstart project uses JPA to access a database, you will see the following warning when you import the project into Eclipse. You can ignore this warning as it only applies to the local connection in the Eclipse development environment and does not affect the JBoss EAP runtime deployment. To eliminate this warning, you must configure the database connection in the Eclipse project settings.
 
+* **Failed while installing JPA 2.0.   org.osgi.service.prefs.BackingStoreException: Resource '/<project-name>/<subproject-name>/.settings' does not exist**
+
+     This error can occur with quickstart projects that are composed of multiple subprojects. This is a known issue. See https://bugs.eclipse.org/bugs/show_bug.cgi?id=459810.
+
 * **Maven Configuration Problem: Project configuration is not up-to-date with pom.xml. Run Maven->Update Project or use Quick Fix.**
 
     This error can occur with quickstart projects that are composed of multiple subprojects. The import of a project on one thread may trigger Eclipse to refresh a project on another thread making the project state appear to be inconsistent. To resolve the errors, right-click on the parent project in JBoss Developer Studio and choose `Maven` --> `Update Project`. Make sure all the projects are selected and click `OK`. This should resolve the errors.
@@ -33,12 +37,12 @@ _Note:_ You may see one or more of the following errors or warnings when you imp
 
     You can ignore this warning. This is a known issue. See https://issues.jboss.org/browse/JBIDE-18316.
 
+* **EJB Problem: An EJB module must contain one or more enterprise beans.** 
+ 
+     Eclipse Web Tools Platform can not deploy simple JARs to the JBoss EAP server. For this reason, quickstart subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
+
 * **Knowledge Base Builder Problem: JBoss Tools Knowledge Base problem: Nature is not installed on required Java project jboss-ejb-throws-exception-ejb-api. Use Quick Fix to include artifacts declared in that project into Content Assistant and Validation.**
  
      Quickstarts that require Knowledge Base capabilities to be enabled on the project display this warning. To resolve it, right-click on the warning message in the in the JBoss Developer Studio `Problems` window and choose `Quick Fix`. This opens a window with the fix `Enable Knowledge Base capabilities on project <project-name>` selected. Make sure all projects are selected and click `Finish` to resolve the warning.
 
-* **EJB Problem: An EJB module must contain one or more enterprise beans.** 
- 
-     Eclipse Web Tools Platform can not deploy simple JARs to the JBoss EAP server. For this reason, quickstart subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
-     
 
