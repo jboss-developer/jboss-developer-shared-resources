@@ -37,6 +37,14 @@ _Note:_ You may see one or more of the following errors or warnings when you imp
 
     You can ignore this error. This is a known issue. See <https://bugzilla.redhat.com/show_bug.cgi?id=901186> and <https://bugzilla.redhat.com/show_bug.cgi?id=1192591>.
  
+* **WSDL Problem: WS-I: (AP2901) A description uses neither the WSDL MIME Binding as described in WSDL 1.1 Section 5 nor WSDL SOAP binding as described in WSDL 1.1 Section 3 on each of the wsdl:input or wsdl:output elements of a wsdl:binding.**
+
+    You can ignore this error. This is a known Eclipse issue. See <https://bugs.eclipse.org/bugs/show_bug.cgi?id=415786>. To turn off WSDL validation in JBoss Developer Studio, choose `Windows` --> `Preferences`, select `Validation`, find `WSDL Validator` in the list, and uncheck the `Manual` and `Build` selections.
+
+* **WSDL Problem: WS-I: (BP2402) The wsdl:binding element does not use a soapbind:binding element as defined in section "3 SOAP Binding." of the WSDL 1.1 specification.**
+
+    You can ignore this error. This is a known Eclipse issue. See <https://bugs.eclipse.org/bugs/show_bug.cgi?id=415786>. To turn off WSDL validation in JBoss Developer Studio, choose `Windows` --> `Preferences`, select `Validation`, find `WSDL Validator` in the list, and uncheck the `Manual` and `Build` selections.
+
 * **EJB Problem: An EJB module must contain one or more enterprise beans.** 
  
      Eclipse Web Tools Platform can not deploy simple JARs to the JBoss EAP server. For this reason, quickstart subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
