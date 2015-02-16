@@ -16,9 +16,9 @@ _Note:_ Passwords must meet the following requirements:
 * It must contain at least one digit.
 * It must contain at least one non-alphanumeric symbol.
 
-More detailed user configuration instructions can be found in the Administration and Configuration Guide for JBoss Enterprise Application Platform located on the Customer Portal at <https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform/>.
+Foe more information about how to configure users, see [User Management](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Administration_and_Configuration_Guide/index.html#chap-User_Management "User Management") in the _Administration and Configuration Guide_ for Red Hat JBoss Enterprise Application Platform.
 
-_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME.md) for information about the JBoss EAP installation path._
+_NOTE: See [Use of EAP_HOME](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/USE_OF_EAP_HOME.md#use-of-eap_home-and-jboss_home-variables "Use Of EAP_HOME") for information about the JBoss EAP installation path._
 
 Add a Management User
 ----------------------

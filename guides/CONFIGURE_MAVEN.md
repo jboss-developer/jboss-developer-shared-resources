@@ -8,7 +8,9 @@ Summary: The artifacts and dependencies needed to build and deploy applications 
 
 Some common profiles are defined and may be used in some quickstart POM files. These profiles are described here: [Use of Maven Profiles in POM Files](#use-of-maven-profiles-in-pom-files)
 
-More detailed Maven configuration instructions can be found in the Development Guide for JBoss Enterprise Application Platform located on the Customer Portal at <https://access.redhat.com/site/documentation/en-US/JBoss_Enterprise_Application_Platform/>.
+For more information about Maven, see the [Maven Guide](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Development_Guide/index.html#chap-Maven_Guide "Maven Guide") chapter in the _Development Guide_ for Red Hat JBoss Enterprise Application Platform.
+
+For more information about how to configure Maven for use with the quickstarts, see [Configure Maven](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Getting_Started_Guide/index.html#sect-Configure_Maven "Configure Maven") in the _Getting Started Guide_ for Red Hat JBoss Enterprise Application Platform.
 
 
 Configure Maven - For Use With Command Line

@@ -10,7 +10,7 @@ It includes the following guides:
 * [Create managment and application users](guides/CREATE_USERS.md): Create Administrative and application users for use by quickstarts that use security enabled management interfaces.
 * [Start the JBoss EAP Server](guides/START_JBOSS_EAP.md): Start the JBoss EAP server using different configuration options.
 * [Run the Arquillian Tests](guides/RUN_ARQUILLIAN_TESTS.md): Run Arquillian tests provided by many of the quickstarts.
-* [Red Hat JBoss Developer Studio](guides/USE_JBDS.md): Use Red Hat JBoss Developer Studio to deploy and test the quickstarts.
+* [Use Red Hat JBoss Developer Studio](guides/USE_JBDS.md): Use Red Hat JBoss Developer Studio to deploy and test the quickstarts.
 * [Deploy quickstarts to OpenShift](guides/DEPLOY_TO_OPENSHIFT.md): Learn how to deploy the quickstarts to OpenShift.
 * [Configure PostgreSQL](guides/CONFIGURE_POSTGRESQL.md): Install and configure PostgreSQL for quickstarts that use it.
 * [Configure Byteman](guides/CONFIGURE_BYTEMAN.md): Configure Byteman for quickstarts that use it to simulate transaction processing.
