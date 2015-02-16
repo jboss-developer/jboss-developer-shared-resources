@@ -13,7 +13,7 @@ _Note:_ You may see one or more of the following errors or warnings when you imp
 
     If the quickstart project uses JPA to access a database, you will see the following warning when you import the project into Eclipse. You can ignore this warning as it only applies to the local connection in the Eclipse development environment and does not affect the JBoss EAP runtime deployment. To eliminate this warning, you must configure the database connection in the Eclipse project settings.
 
-* **Failed while installing JPA 2.0.   org.osgi.service.prefs.BackingStoreException: Resource '/<project-name>/<subproject-name>/.settings' does not exist**
+* **Failed while installing JPA 2.0.   org.osgi.service.prefs.BackingStoreException: Resource '/PROJECT_NAME/SUBPROJECT_NAME/.settings' does not exist**
 
      This error can occur with quickstart projects that are composed of multiple subprojects. This is a known issue. See https://bugs.eclipse.org/bugs/show_bug.cgi?id=459810.
 
