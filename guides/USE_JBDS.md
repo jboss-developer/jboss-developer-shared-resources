@@ -27,16 +27,12 @@ _Note:_ You may see one or more of the following errors or warnings when you imp
     
 * **XML Problem: Referenced file contains errors (jar:file:PATH-TO-jbdevstudio/studio/plugins/org.jboss.tools.as.catalog_3.0.0.Final-v20141016-1911-B95.jar!/schema/xsd/jboss-ejb3-2_0.xsd).  For more information, right click on the message in the Problems View and select "Show Details..."**
 
-    You can ignore this error. This is a known issue. See https://issues.jboss.org/browse/JBIDE-18316.
+    You can ignore this error. This is a known issue. See <https://issues.jboss.org/browse/JBIDE-18316>.
 
 * **XML Problem: cvc-complex-type.2.4.a: Invalid content was found starting with element 'iiop:iiop'. One of '{"http://java.sun.com/xml/ns/javaee":security-role, "http://java.sun.com/xml/ns/javaee":method-permission, "http://java.sun.com/xml/ns/javaee":container-transaction, "http://java.sun.com/xml/ns/javaee":interceptor-binding, "http://java.sun.com/xml/ns/javaee":message-destination, "http://java.sun.com/xml/ns/javaee":exclude-list, "http://java.sun.com/xml/ns/javaee":application-exception, "http://java.sun.com/xml/ns/javaee":assembly-descriptor-entry}' is expected.**
 
-    You can ignore this error. This is a known issue. See https://issues.jboss.org/browse/JBIDE-18316.
+    You can ignore this error. This is a known issue. See <https://bugzilla.redhat.com/show_bug.cgi?id=901186> and <https://bugzilla.redhat.com/show_bug.cgi?id=1192591>.
  
-* **XML Problem: schema_reference.4: Failed to read schema document 'jboss-ejb-iiop_1_0.xsd', because 1) could not find the document; 2) the document could not be read; 3) the root element of the document is not <xsd:schema>.**
-
-    You can ignore this warning. This is a known issue. See https://issues.jboss.org/browse/JBIDE-18316.
-
 * **EJB Problem: An EJB module must contain one or more enterprise beans.** 
  
      Eclipse Web Tools Platform can not deploy simple JARs to the JBoss EAP server. For this reason, quickstart subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
