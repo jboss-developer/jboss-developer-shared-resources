@@ -40,7 +40,7 @@ You may see one or more of the following errors or warnings when you import quic
 * **XML Problem: Referenced file contains errors (jar:file:/PATH-TO-jbdevstudio/studio/plugins/org.jboss.tools.as.catalog_3.0.1.Final-v20141209-0156-B106.jar!/schema/xsd/jboss-ejb3-spec-2_0.xsd).  For more information, right click on the message in the Problems View and select "Show Details..."**
 
     You can ignore this error. This is a known issue with the `jboss-ejb3-spec-2_0.xsd` schema file. See <https://bugzilla.redhat.com/show_bug.cgi?id=1193543>.
- 
+
 * **XML Problem: cvc-complex-type.2.4.a: Invalid content was found starting with element 'iiop:iiop'. One of '{"http://java.sun.com/xml/ns/javaee":security-role, "http://java.sun.com/xml/ns/javaee":method-permission, "http://java.sun.com/xml/ns/javaee":container-transaction, "http://java.sun.com/xml/ns/javaee":interceptor-binding, "http://java.sun.com/xml/ns/javaee":message-destination, "http://java.sun.com/xml/ns/javaee":exclude-list, "http://java.sun.com/xml/ns/javaee":application-exception, "http://java.sun.com/xml/ns/javaee":assembly-descriptor-entry}' is expected.**
 
     You can ignore this error. This is a known issue with the ` jboss-ejb-iiop_1_0.xsd` schema file. See <https://bugzilla.redhat.com/show_bug.cgi?id=901186> and <https://bugzilla.redhat.com/show_bug.cgi?id=1192591>.
