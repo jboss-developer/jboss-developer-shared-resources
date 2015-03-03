@@ -29,11 +29,11 @@ _Note:_ You may see one or more of the following errors or warnings when you imp
 
     You can ignore this error. This is a known issue with the `jboss-ejb3-spec-2_0.xsd` schema file. See <https://bugzilla.redhat.com/show_bug.cgi?id=1193543>.
 
-* **XML Problem: Referenced file contains errors (jar:file:/home/sgilda/tools/jbdevstudio/studio/plugins/org.jboss.tools.as.catalog_3.0.1.Final-v20141209-0156-B106.jar!/schema/xsd/jboss-ejb3-spec-2_0.xsd).  For more information, right click on the message in the Problems View and select "Show Details..."**
+* **XML Problem: Referenced file contains errors (jar:file:/home/PATH-TO-jbdevstudio/studio/plugins/org.jboss.tools.as.catalog_3.0.1.Final-v20141209-0156-B106.jar!/schema/xsd/jboss-ejb3-spec-2_0.xsd).  For more information, right click on the message in the Problems View and select "Show Details..."**
 
     You can ignore this error. This is a known issue. See <https://bugzilla.redhat.com/show_bug.cgi?id=1193543>.
 
-* **XML Problem: Referenced file contains errors (jar:file:/home/sgilda/tools/jbdevstudio/studio/plugins/org.jboss.tools.as.catalog_3.0.1.Final-v20141209-0156-B106.jar!/schema/xsd/jboss-ejb3-spec-2_0.xsd).  For more information, right click on the message in the Problems View and select "Show Details..."**
+* **XML Problem: Referenced file contains errors (jar:file:/PATH-TO-jbdevstudio/studio/plugins/org.jboss.tools.as.catalog_3.0.1.Final-v20141209-0156-B106.jar!/schema/xsd/jboss-ejb3-spec-2_0.xsd).  For more information, right click on the message in the Problems View and select "Show Details..."**
 
     You can ignore this error. This is a known issue with the `jboss-ejb3-spec-2_0.xsd` schema file. See <https://bugzilla.redhat.com/show_bug.cgi?id=1193543>.
  
@@ -45,6 +45,10 @@ _Note:_ You may see one or more of the following errors or warnings when you imp
 
     You can ignore this error. This is a known issue with the `jboss-ejb-container-interceptors_1_0.xsd` schema file. See <https://bugzilla.redhat.com/show_bug.cgi?id=1193948>.
  
+* **XML Problem: Referenced file contains errors (jar:file:/PATH-TO-jbdevstudio/studio/plugins/org.jboss.tools.as.catalog_3.0.1.Final-v20141209-0156-B106.jar!/schema/xsd/jboss-ejb3-spec-2_0.xsd).  For more information, right click on the message in the Problems View and select "Show Details..."**
+
+    You can ignore this error. This is a known Eclipse Web Tools Platform (WTP) issue. See <https://issues.jboss.org/browse/JBIDE-18316>.
+ 
 * **WSDL Problem: WS-I: (AP2901) A description uses neither the WSDL MIME Binding as described in WSDL 1.1 Section 5 nor WSDL SOAP binding as described in WSDL 1.1 Section 3 on each of the wsdl:input or wsdl:output elements of a wsdl:binding.**
 
     You can ignore this error. This is a known Eclipse issue. See <https://bugs.eclipse.org/bugs/show_bug.cgi?id=415786>. To turn off WSDL validation in JBoss Developer Studio, choose `Windows` --> `Preferences`, select `Validation`, find `WSDL Validator` in the list, and uncheck the `Manual` and `Build` selections.
@@ -55,7 +59,7 @@ _Note:_ You may see one or more of the following errors or warnings when you imp
 
 * **EJB Problem: An EJB module must contain one or more enterprise beans.** 
  
-     Eclipse Web Tools Platform can not deploy simple JARs to the JBoss EAP server. For this reason, quickstart subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
+     Eclipse Web Tools Platform (WTP) can not deploy simple JARs to the JBoss EAP server. For this reason, quickstart subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
 
 * **Knowledge Base Builder Problem: JBoss Tools Knowledge Base problem: Nature is not installed on required Java project jboss-ejb-throws-exception-ejb-api. Use Quick Fix to include artifacts declared in that project into Content Assistant and Validation.**
  
