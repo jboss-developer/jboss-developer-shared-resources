@@ -41,6 +41,10 @@ _Note:_ You may see one or more of the following errors or warnings when you imp
 
     You can ignore this error. This is a known issue with the ` jboss-ejb-iiop_1_0.xsd` schema file. See <https://bugzilla.redhat.com/show_bug.cgi?id=901186> and <https://bugzilla.redhat.com/show_bug.cgi?id=1192591>.
  
+* **XML Problem: cvc-complex-type.2.4.a: Invalid content was found starting with element 'iiop:binding-name'. One of '{"urn:iiop":ejb-name}' is expected.**
+
+    You can ignore this error. This is a known issue with the ` jboss-ejb-iiop_1_0.xsd` schema file. See <https://bugzilla.redhat.com/show_bug.cgi?id=901186> and <https://bugzilla.redhat.com/show_bug.cgi?id=1192591>.
+ 
 * **XML Problem: cvc-complex-type.2.4.a: Invalid content was found starting with element 'jee:interceptor-binding'. One of '{"http://java.sun.com/xml/ns/javaee":description, "http://java.sun.com/xml/ns/javaee":ejb-name}' is expected.**
 
     You can ignore this error. This is a known issue with the `jboss-ejb-container-interceptors_1_0.xsd` schema file. See <https://bugzilla.redhat.com/show_bug.cgi?id=1193948>.
