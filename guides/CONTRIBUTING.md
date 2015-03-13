@@ -534,47 +534,46 @@ You can find additional help about cheat sheets at the following locations:
 Copy a Quickstart to Another Repository and Preserve Its History
 -----------------------------------------------------------------
 
-1. In the source repository that currently contains the quickstarts, for example `jboss-eap-quickstarts`, create a branch for each quickstart you want to move. For example:
+The following instructions are based on information in this blog: <http://blog.neutrino.es/2012/git-copy-a-file-or-directory-from-another-repository-preserving-history/>
+
+1. Navigate to the parent directory of the quickstart you want to move. 
+
+        cd ~/jboss-sandbox-quickstarts
+
+2. Make sure you have downloaded the latest source, then checkout a branch to work in. For example:
 
         git fetch upstream
-        git checkout -b <source_branch_name> upstream/<current-development-branch>
+        git checkout -b copy-xyz-quickstart upstream/master
 
-2. To extract only one quickstart, in each source branch, run: 
+2. Create a temporary directory to contain the quickstart patch files.
 
-        git filter-branch --subdirectory-filter <quickstart_name> -- --all
-3. The previous step places the quickstart at the root of the tree. You need to create a directory using the quickstart name and move the files under it. To accomplish that task, in each source branch, run:
-    
-        git filter-branch --tree-filter '(ls -A; mkdir <quickstart_name>; echo <quickstart_name>) | xargs mv'
-4. Push each branch up to your own GitHub repository to make merging into the destination repository easy.
+        mkdir -p ~/temp/qsPatchFolder
 
-        git push <your_remote_source_github> HEAD
-5. Navigate to the target directory that does not yet contain the quickstarts, for example, `jboss-sandbox-quickstarts`. 
+3. Create a `QS_SOURCE` environment variable that defines the quickstart source path.
 
-6. Add the source GitHub repository as a remote to the local target destination repository.
+        export QS_SOURCE=~/jboss-sandbox-quickstarts/xyz-quickstart/
 
-        git remote add <your_remote_source_github> https://github.com/<your_remote_source_github>/jboss-eap-quickstarts.git
-7. Create a branch, into which you will merge the quickstarts.
+4. Execute the following command to create the quickstart patch files in the temporary quickstart patch folder.
+
+        git format-patch -o ~/temp/qsPatchFolder $(git log $QS_SOURCE|grep ^commit|tail -1|awk '{print $2}')^..HEAD $QS_SOURCE
+
+5. Navigate to quickstarts parent directory where you want to move the quickstart.
+
+        cd ~/jboss-eap-quickstarts
+
+6. Checkout a branch to work in.
 
         git fetch upstream
-        git checkout -b <target_branch_name> upstream/<current-development-branch> 
-8. For each quickstart source branch you want to merge, run:
+        git checkout -b merge-xyz-quickstart upstream/6.4.x-develop 
 
-        git merge -s ours --no-commit <your_remote_source_github>/<source_branch_name>
-        git read-tree --prefix=<quickstart_name> -u <your_remote_source_github>/<source_branch_name>
-        git commit -m "Merge <quickstart_name> to XXX."
-9. Now, rebase out the merges. Run:
- 
-        git rebase upstream/<current-development-branch>
-10. This should succeed with no problems as you are merging into new subdirectories.
+7. Merge the patches into the destination directory.
 
-11. This process leaves your GitHub repository with a lot of unwanted junk in it, so you need to do some cleaning up! Run:
+        git am ~/temp/qsPatchFolder/*.patch
 
-        git gc --prune=all
-12. Now push this branch to your target GitHub:
+8. Push the changes to your own Git. 
 
-        git push <your_remote_target_github> HEAD
-13. Verify that it looks correct and send a pull request.
-
-14. Remove the quickstarts from the source repository if they are no longer needed.
-
+   * Verify that the target quickstarts directory now contains the `xyz-quickstart` folder and files.
+   * Verify that the commit history is included. 
+   
+9. Issue a pull to the upstream repository.
 
