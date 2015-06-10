@@ -81,7 +81,11 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
            mvn -U org.jboss.maven.plugins:maven-qstools-plugin:check
    This will generate a report on `QUICKSTART_HOME/target/site/qschecker.html`. Review the report to determine if your quickstart project violates any item in the *General Guidelines*.
 
-9. Use the `git add` command to add new or changed file contents to the staging area.
+9. Test your changes in 2 ways.
+   * Run the Maven command line to build and deploy the quickstart.
+   * Import the quickstart into Red Hat JBoss Developer Studio and make sure it builds and deploys with no errors or warnings.
+
+10. Use the `git add` command to add new or changed file contents to the staging area.
    * If you create a new quickstart, you can add files using the subfolder and file names. The following is an example of new quickstart folders and files you may want to stage:
    
             git add src/
@@ -91,13 +95,13 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
    * If you only modified a few files, use `git add <filename>` for every file you create or change. For example:
 
             git add README.md       
-10. Use the git status command to view the status of the files in the directory and in the staging area and ensure that all modified files are properly staged:
+11. Use the git status command to view the status of the files in the directory and in the staging area and ensure that all modified files are properly staged:
 
         git status        
-11. Commit your changes to your local topic branch. 
+12. Commit your changes to your local topic branch. 
 
         git commit -m 'Description of change...'
-12. Update your branch with any changes made upstream since you started.
+13. Update your branch with any changes made upstream since you started.
    * Fetch the latest changes from upstream
 
         git fetch upstream
@@ -111,11 +115,11 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
         git rebase --continue
    * If there were conflicts, it is a good idea to test your changes again to make they still work.
         
-13. Push your local topic branch to your GitHub forked repository. This will create a branch on your Git fork repository with the same name as your local topic branch name. 
+14. Push your local topic branch to your GitHub forked repository. This will create a branch on your Git fork repository with the same name as your local topic branch name. 
 
         git push origin HEAD            
    _Note:_ The above command assumes your remote repository is named 'origin'. You can verify your forked remote repository name using the command `git remote -v`.
-14. Browse to the <topic-branch-name> branch on your forked Git repository and [open a Pull Request](http://help.github.com/send-pull-requests/). Give it a clear title and description.
+15. Browse to the <topic-branch-name> branch on your forked Git repository and [open a Pull Request](http://help.github.com/send-pull-requests/). Give it a clear title and description.
 
 
 ### General Guidelines
@@ -167,6 +171,8 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
  - Any tests should use Arquillian.
 
 * If the quickstart persists to a database, you must use a unique datasource JNDI name and connection URL for the application and for any Arquillian tests that it provides. Do not use the JNDI name `java:jboss/datasources/ExampleDS`. Failure to use unique names can result in a `DuplicateServiceException` when more than one quickstart is deployed to the same server.
+
+* Be sure to test the quickstart in JBoss Developer Studio, which strictly enforces Java EE coding rules!
 
 * If possible, create a cheat sheet for the quickstart to guide users and developers through the example. See [Create a Quickstart Cheat Sheet](#create-a-quickstart-cheat-sheet) for more information.
 
@@ -317,11 +323,11 @@ _Note:_ The following substitution variables are used in these instructions:
     * If it needs to use a local repository, you must upload the repository to OpenShift `file:///${HOME}/app-root/data/` directory, and specify the URL in the `settings.xml` file relative to that location. You must use the `${HOME}` environment variable in the URL. For example:
     
             <profile>
-                <id>jboss-630GA-repository</id>
+                <id>jboss-6.4.0.GA-repository</id>
                 <repositories>
                     <repository>
-                        <id>jboss-630GA-repository</id>
-                        <url>file:///${HOME}/app-root/data/jboss-eap-6.3.0.GA-maven-repository/</url>
+                        <id>jboss-6.4.0.GA-repository</id>
+                        <url>file:///${HOME}/app-root/data/jboss-eap-6.4.0.GA-maven-repository/</url>
                         <releases>
                            <enabled>true</enabled>
                         </releases>
@@ -332,8 +338,8 @@ _Note:_ The following substitution variables are used in these instructions:
                 </repositories>
                 <pluginRepositories>
                     <pluginRepository>
-                        <id>jboss-630GA-repository</id>
-                        <url>file:///${HOME}/app-root/data/jboss-eap-6.3.0.GA-maven-repository/</url>
+                        <id>jboss-6.4.0.GA-repository</id>
+                        <url>file:///${HOME}/app-root/data/jboss-eap-6.4.0.GA-maven-repository/</url>
                         <releases>
                           <enabled>true</enabled>
                         </releases>
@@ -344,18 +350,18 @@ _Note:_ The following substitution variables are used in these instructions:
                 </pluginRepositories>
             </profile>
             
-            <activeProfile>jboss-630GA-repository</activeProfile>
+            <activeProfile>jboss-6.4.0.GA-repository</activeProfile>
 3. Upload your `settings.xml` file to the OpenShift application `app-root/data/` directory using the 'SSH to' URL displayed when you created the application. For example:
 
         $ scp <SETTINGS_DIRECTORY>/settings.xml APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com:app-root/data
 4. If you specified a local Maven repository, upload the zip file to the OpenShift application `app-root/data/` directory using the 'SSH to' URL displayed when you created the application. For example:
 
-        $ scp <MAVEN_ZIP_DIRECTORY>/jboss-eap-6.3.0.GA-maven-repository.zip  APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com:app-root/data
+        $ scp <MAVEN_ZIP_DIRECTORY>/jboss-eap-6.4.0.GA-maven-repository.zip  APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com:app-root/data
     Wait until the upload completes before performing the next step. This takes a very long time!! When the upload process is complete, SSH into the same URL and unzip the Maven repository:
     
         $ ssh APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com
         cd app-root/data
-        unzip jboss-eap-6.3.0.GA-maven-repository.zip 
+        unzip jboss-eap-6.4.0.GA-maven-repository.zip 
 5. To direct Maven to use the uploaded `settings.xml` file, create a file in the `.openshift/action_hooks/` directory named `pre_build_jbosseap`, containing this line:
 
         export MAVEN_ARGS="clean package -Popenshift -s ${OPENSHIFT_DATA_DIR}settings.xml -DskipTests"

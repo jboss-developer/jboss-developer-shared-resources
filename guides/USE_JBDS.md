@@ -7,11 +7,39 @@ For information on how to configure Maven and Red Hat JBoss Developer Studio for
 
 See [Get Started](http://www.jboss.org/get-started/ "Get Started") on the JBoss Developer web site for additional information.
 
+Special Instructions
+------------
+
+More complex quickstarts may require special instructions to run properly in JBoss Developer Studio. This section describes some of these special situations.
+
+### Quickstarts Containing a Server and Java Client
+
+You must deploy the server project before running the client. More detailed instructions be found in the `shopping-cart` quickstart. 
+
+1. In the `Servers` tab, right-click on the JBoss EAP server and choose `Start`.
+2. Right-click on the server project and choose `Run As` --> `Run on Server`.
+3. Right-click on the Java client project and choose `Run As` --> `Java Application`. In the `Select Java Application` window, choose the client class and click `OK`. 
+4. The client output displays in the `Console` window.
+
+### Quickstarts Consisting of Multiple Interdependent Projects
+
+To deploy a quickstart that consists of multiple projects containing interdependencies on each other without opening a browser and running the application, use the following steps. More detailed instructions be found in the `inter-app` quickstart. 
+
+1. In the `Servers` tab, right-click on the JBoss EAP server and choose `Start`.
+2. Deploy the projects in one of the following ways.
+   * `Drag and Drop` mode: Click to multi-select the projects, then drag and drop them on the running JBoss EAP server. This deploys the projects to the server without opening the browser.
+   * `Batch` mode: In the `Servers` tab, right-click on the server and choose `Add and Remove`. If the quickstart projects are the only projects in the list, click `Add All`. Otherwise, use multi-select to select them and click `Add`. Then click `Finish`.
+3. Right-click on the individual projects and choose `Run As` --> `Run on Server`. A browser window appears that accesses the running application.
+
 
 Known Issues
 ------------
 
 You may see one or more of the following errors or warnings when you import quickstart projects into Red Hat JBoss Developer Studio.
+
+* **JRE System Library Problem: Build path specifies execution environment JavaSE-1.6. There are no JREs installed in the workspace that are strictly compatible with this environment.**
+
+    The JBoss EAP 6 quickstarts demonstrate Java EE 6 features and are built on Java SE 6. JBoss Developer Studio requires Java 8 to run, but is still capable of launching runtimes with various versions of Java. You can ignore this warning.
 
 * **JPA Problem: No connection specified for project. No database-specific validation will be performed.**
 
