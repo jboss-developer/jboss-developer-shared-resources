@@ -39,7 +39,7 @@ You may see one or more of the following errors or warnings when you import quic
 
 * **JRE System Library Problem: Build path specifies execution environment JavaSE-1.6. There are no JREs installed in the workspace that are strictly compatible with this environment.**
 
-    The JBoss EAP 6 quickstarts demonstrate Java EE 6 features and are built on Java SE 6. JBoss Developer Studio requires Java 8 to run, but is still capable of launching runtimes with various versions of Java. You can ignore this warning.
+    The JBoss EAP 6 quickstarts demonstrate Java EE 6 features and are built on Java SE 6. JBoss Developer Studio requires Java 8 to run, but is still capable of launching runtimes with various versions of Java. You can ignore this warning, or you can install a JDK 6 on your machine and add it to Eclipse's Java Runtime Environments by choosing `Preferences` --> `Java` --> `Installed JREs`.
 
 * **JPA Problem: No connection specified for project. No database-specific validation will be performed.**
 
