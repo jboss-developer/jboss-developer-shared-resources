@@ -133,6 +133,14 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 * The quickstart project or folder name should match the quickstart name. Each sample project should have a unique name, allowing easy identification by users and developers.
 
+* The quickstart directory structure should follow standard Java project rules:
+
+ - All directories and packages containing Java source files should be placed in a `src/main/java/` directory, 
+ - All Java source files should use package names.
+ - Index pages, JSF, and HTML files should be placed in a `src/main/webapp/` directory.
+ - Any `beans.xml`, `faces-config.xml`, and other related configuration files should be placed in a `src/main/webapp/WEB-INF/` directory.
+ - Resources such as images and stylesheets and the  should be placed in the `src/main/webapp/resources` directory.
+
 * The `<name>` in the quickstart `pom.xml` file should follow the template: `JBoss <target-product> Quickstart: <quickstart-name> < - optional-subfolder-name>` where `target-product` is the `Target Product` metadata specified in the README.md file,  `quickstart-name` is the quickstart folder name, and `optional-subfolder-name` is the name of any nested subfolder containing a `pom.xml` file. The following are a few examples of quickstart pom files and the correct name tags:
 
         greeter/pom.xml ==> `JBoss EAP Quickstart: greeter`
