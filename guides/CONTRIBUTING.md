@@ -133,6 +133,8 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 * The quickstart project or folder name should match the quickstart name. Each sample project should have a unique name, allowing easy identification by users and developers.
 
+* The quickstart project or folder name should be located in the root directory of the product quickstarts repository and should not be nested under other quickstarts or folders. For example, if you create quickstart "foo" for the JBoss EAP quickstarts, it should appear here: `YOUR_PATH/jboss-eap-quickstarts/foo`.
+
 * The quickstart directory structure should follow standard Java project rules:
 
  - All directories and packages containing Java source files should be placed in a `src/main/java/` directory, 
