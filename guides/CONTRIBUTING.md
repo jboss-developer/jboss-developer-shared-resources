@@ -164,7 +164,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 * Maven POMs must be used. No other build system is allowed unless the purpose of the quickstart is to show another build system in use. If using Maven it should:
 
- - Not inherit from another POM
+ - Not inherit from another POM (no parent POM)
  - Maven POMs must use the Java EE spec BOM/POM imports
  - The POMs must be commented, with a comment each item in the POM
  - Import the various BOMs, either directly from a project, or from [JBoss BOMs](http://www.jboss.org/developer-materials/#!formats=jbossdeveloper_bom), to determine version numbers. You should aim to have no dependencies declared directly. If you do, work with the jdf team to get them added to a BOM.
