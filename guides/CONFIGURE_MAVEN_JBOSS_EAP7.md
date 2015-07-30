@@ -8,7 +8,7 @@ The artifacts and dependencies needed to build and deploy applications to Red Ha
 
 You can skip these instructions if you meet one of the following criteria:
 
-* You plan to use Maven command line and have already installed Maven 3.1.1 or later. In this case, you should already be configured to build and deploy the quickstarts. f you installed Maven 3.2.2, you must updated to Maven 3.2.3 or later. The reasons are described later under [Download and Install Maven](#download-and-install-maven).
+* You plan to use Maven command line and have already installed Maven 3.1.1 or later. In this case, you should already be configured to build and deploy the quickstarts. If you installed Maven 3.2.2, you must updated to Maven 3.2.3 or later. The reasons are described later under [Download and Install Maven](#download-and-install-maven).
 * You plan to use Red Hat JBoss Developer Studio (8 or above) to build and deploy the quickstarts. These IDEs embed Maven 3.2.1 so you do not need to install it separately. If you plan to use JBoss Developer Studio 7.1.1, you must download and install a newer version of Maven and replace the embedded version of Maven.
 
 Some common profiles are defined and may be used in some quickstart POM files. These profiles are described here: [Use of Maven Profiles in POM Files](#use-of-maven-profiles-in-pom-files)
