@@ -8,7 +8,7 @@ The artifacts and dependencies needed to build and deploy applications to Red Ha
 
 You can skip these instructions if you meet one of the following criteria:
 
-* You plan to use Maven command line and have already installed Maven 3.1.1 or later. In this case, you should already be configured to build and deploy the quickstarts. If you installed Maven 3.2.2, you must updated to Maven 3.2.3 or later. The reasons are described later under [Download and Install Maven](#download-and-install-maven).
+* You plan to use Maven command line and have already installed Maven 3.1.1 or later. In this case, you should already be configured to build and deploy the quickstarts. If you installed Maven 3.2.2, you must update to Maven 3.2.3 or later. The reasons are described later under [Download and Install Maven](#download-and-install-maven).
 * You plan to use Red Hat JBoss Developer Studio (8 or above) to build and deploy the quickstarts. These IDEs embed Maven 3.2.1 so you do not need to install it separately. If you plan to use JBoss Developer Studio 7.1.1, you must download and install a newer version of Maven and replace the embedded version of Maven.
 
 Some common profiles are defined and may be used in some quickstart POM files. These profiles are described here: [Use of Maven Profiles in POM Files](#use-of-maven-profiles-in-pom-files)
@@ -30,10 +30,10 @@ _Note:_ Maven 3.2.2 introduced a bug that breaks resolution of the JBoss EAP BOM
 Configure the IDE to Use the Updated Maven
 --------------------------
 
-If you plan to use JBoss Developer Studio 7.1.1, follow this procedure to replace the embedded 3.0.4 version of Maven with this newer version.
+If you plan to use JBoss Developer Studio 7.1.1, follow this procedure to replace the embedded 3.0.4 version of Maven with the 3.2.3 or later version installed in the previous section.
 
  
-Maven is distributed with JBoss Developer Studio, so it is not necessary to install it separately. However, you must configure Maven for use by the Java EE Web Project wizard for deployments to JBoss Enterprise Application Server 6.x.
+Maven is distributed with JBoss Developer Studio, so it is not necessary to install it separately. However, you must configure Maven for use by the Java EE Web Project wizard for deployments to Red Hat JBoss Enterprise Application Platform 7.
 
 1. From the menu, choose `Window` --> `Preferences`.
 2. Expand `Maven` and click on `Installations`.
@@ -49,7 +49,7 @@ Profiles are used by Maven to customize the build environment. The `pom.xml` in 
 
 _NOTE:_ Some profiles in this list may not be used by some product quickstart projects.
 
-* The `default` profile defines the list of modules or quickstarts that require nothing but JBoss Enterprise Application Platform.
+* The `default` profile defines the list of modules or quickstarts that require nothing but Red Hat JBoss Enterprise Application Platform.
 * The `requires-postgres` profile lists the quickstarts that require PostgreSQL to be running when the quickstart is deployed.
 * The `complex-dependency` profile lists quickstarts that require manual configuration that can not be automated.
 * The `requires-full` profile lists quickstarts the require you start the JBoss EAP server using the full profile.
