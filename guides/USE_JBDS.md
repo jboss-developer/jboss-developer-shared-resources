@@ -32,7 +32,7 @@ To deploy a quickstart that consists of multiple projects containing interdepend
 3. Right-click on the individual projects and choose `Run As` --> `Run on Server`. A browser window appears that accesses the running application.
 
 
-Known Issues
+Known Issues for JBoss EAP 6 Quickstarts
 ------------
 
 You may see one or more of the following errors or warnings when you import quickstart projects into Red Hat JBoss Developer Studio.

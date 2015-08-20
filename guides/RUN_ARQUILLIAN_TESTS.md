@@ -49,7 +49,7 @@ Arquillian's managed container adapter starts the container for you and requires
     * Open the `src/test/resources/arquillian.xml` file located in the quickstart directory.
     * Find the configuration for the JBoss container. It should look like this:
 
-            <!-- Example configuration for a managed/remote JBoss EAP 6 instance -->
+            <!-- Example configuration for a managed/remote JBoss EAP instance -->
             <container qualifier="jboss" default="true">
                 <!-- If you want to use the JBOSS_HOME environment variable, just delete the jbossHome property -->
                 <!--<configuration> -->
@@ -58,10 +58,10 @@ Arquillian's managed container adapter starts the container for you and requires
             </container>           
     * Uncomment the `configuration` element, find the `jbossHome` property, and replace the "/path/to/jboss/as" value with the actual path to your JBoss EAP server. For example:
     
-            <!-- Example configuration for a managed/remote JBoss EAP 6 instance -->
+            <!-- Example configuration for a managed/remote JBoss EAP instance -->
             <container qualifier="jboss" default="true">
                 <configuration>
-                    property name="jbossHome">/home/myusername/EAP/jboss-eap-6.x/</property>
+                    property name="jbossHome">/home/myusername/EAP/jboss-eap-x.x/</property>
                 </configuration>
             </container>           
     
