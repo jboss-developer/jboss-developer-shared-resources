@@ -1,7 +1,7 @@
 Use of EAP7_HOME and JBOSS_HOME Variables
 =============================
 
-The developer guides and quickstart README files use the *replaceable* value `EAP7_HOME` to denote the path to the Red Hat JBoss Enterprise Application Platform 6 installation. When you encounter this value in a README file or guide, be sure to replace it with the actual path to your JBoss EAP 7 installation. 
+The developer guides and quickstart README files use the *replaceable* value `EAP7_HOME` to denote the path to the Red Hat JBoss Enterprise Application Platform 7 installation. When you encounter this value in a README file or guide, be sure to replace it with the actual path to your JBoss EAP 7 installation. 
 
 * If you installed JBoss EAP using the ZIP, the install directory is the path you specified when you ran the command.
 
