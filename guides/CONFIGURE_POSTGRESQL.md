@@ -182,10 +182,16 @@ You configure the PostgreSQL driver in the JBoss EAP server by running JBoss CLI
     * Backup the file: `EAP_HOME/standalone/configuration/standalone-full.xml`
     * After you have completed testing the quickstarts, you can replace this file to restore the server to its original configuration.
  
-2. Start the JBoss EAP server by typing the following: 
+2. Start the JBoss EAP server. 
+    * If the quickstart does not provide additional instructions, type the following command.
 
-        For Linux:  EAP_HOME/bin/standalone.sh -c standalone-full.xml
-        For Windows:  EAP_HOME\bin\standalone.bat -c standalone-full.xml
+            For Linux:  EAP_HOME/bin/standalone.sh -c standalone-full.xml
+            For Windows:  EAP_HOME\bin\standalone.bat -c standalone-full.xml
+    
+    *  If the quickstart instructs you to pass the node ID, add the `-Djboss.tx.node.id=UNIQUE_NODE_ID` argument  using the appropriate node ID when you start the server.
+
+            For Linux:  EAP_HOME/bin/standalone.sh -c standalone-full.xml -Djboss.tx.node.id=UNIQUE_NODE_ID
+            For Windows:  EAP_HOME\bin\standalone.bat -c standalone-full.xml -Djboss.tx.node.id=UNIQUE_NODE_ID       
 3. Review the `configure-postgres.cli` file in the root of the quickstarts directory. This script adds the PostgreSQL driver to the datasources subsystem in the server configuration. 
 
 4. Open a new command prompt, navigate to the root directory of the quickstarts, and run the following command, replacing EAP_HOME with the path to your server:
@@ -216,10 +222,16 @@ When you are done testing the quickstarts, you can remove the PostgreSQL configu
 
 ### Remove the PostgreSQL Configuration by Running the JBoss CLI Script
 
-1. Start the JBoss EAP server by typing the following: 
+1. Start the JBoss EAP server. 
+    * If the quickstart does not provide additional instructions, type the following command.
 
-        For Linux:  EAP_HOME/bin/standalone.sh -c standalone-full.xml
-        For Windows:  EAP_HOME\bin\standalone.bat -c standalone-full.xml
+            For Linux:  EAP_HOME/bin/standalone.sh -c standalone-full.xml
+            For Windows:  EAP_HOME\bin\standalone.bat -c standalone-full.xml
+    
+    *  If the quickstart instructs you to pass the node ID, add the `-Djboss.tx.node.id=UNIQUE_NODE_ID` argument using the appropriate node ID when you start the server.
+
+            For Linux:  EAP_HOME/bin/standalone.sh -c standalone-full.xml -Djboss.tx.node.id=UNIQUE_NODE_ID
+            For Windows:  EAP_HOME\bin\standalone.bat -c standalone-full.xml -Djboss.tx.node.id=UNIQUE_NODE_ID       
 2. Open a new command prompt, navigate to the root directory of this quickstart, and run the following command, replacing EAP_HOME with the path to your server:
 
         EAP_HOME/bin/jboss-cli.sh --connect --file=remove-postgresql.cli 
