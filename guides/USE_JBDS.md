@@ -10,7 +10,17 @@ See [Get Started](http://www.jboss.org/get-started/ "Get Started") on the JBoss 
 Special Instructions
 ------------
 
+_IMPORTANT: Be sure to follow the instructions in the quickstart `README.md` file to add any required application users or make the appropriate server configuration changes._
+
 More complex quickstarts may require special instructions to run properly in JBoss Developer Studio. This section describes some of these special situations.
+
+### Quickstarts Containing an EAR
+
+For EAR projects, you simply deploy the EAR subproject. The subproject name is usually appended with "-ear-ear".
+
+1. Right-click on the EAR subproject, and choose `Run As` --> `Run on Server`.
+2. Choose the server and click `Finish`. 
+3. This starts the server, deploys the application, and opens a browser window that accesses the running application.
 
 ### Quickstarts Containing a Server and Java Client
 
