@@ -99,7 +99,7 @@ You may see one or more of the following errors or warnings when you import quic
  
      Eclipse Web Tools Platform (WTP) can not deploy simple JARs to the JBoss EAP server. For this reason, quickstart subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
 
-* **Knowledge Base Builder Problem: JBoss Tools Knowledge Base problem: Nature is not installed on required Java project <project-name>. Use Quick Fix to include artifacts declared in that project into Content Assistant and Validation.**
+* **Knowledge Base Builder Problem: JBoss Tools Knowledge Base problem: Nature is not installed on required Java project `<project-name>`. Use Quick Fix to include artifacts declared in that project into Content Assistant and Validation.**
  
      Quickstarts that require Knowledge Base capabilities to be enabled on the project display this warning. To resolve it, right-click on the warning message in the in the JBoss Developer Studio `Problems` window and choose `Quick Fix`. This opens a window with the fix `Enable Knowledge Base capabilities on project <project-name>` selected. Make sure all projects are selected and click `Finish` to resolve the warning.
 
