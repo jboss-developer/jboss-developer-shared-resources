@@ -85,7 +85,7 @@ You may see one or more of the following errors or warnings when you import quic
  
 * **XML Problem: cvc-complex-type.2.4.a: Invalid content was found starting with element 'jee:interceptor-binding'. One of '{"http://java.sun.com/xml/ns/javaee":description, "http://java.sun.com/xml/ns/javaee":ejb-name}' is expected.**
 
-    You can ignore this error. This is a known issue with the `jboss-ejb-container-interceptors_1_0.xsd` schema file. See <https://bugzilla.redhat.com/show_bug.cgi?id=1193948>.
+    You can ignore this error. This is a known issue with the `jboss-ejb-container-interceptors_1_0.xsd` schema file. See <https://issues.jboss.org/browse/WFLY-4365>.
  
 * **WSDL Problem: WS-I: (AP2901) A description uses neither the WSDL MIME Binding as described in WSDL 1.1 Section 5 nor WSDL SOAP binding as described in WSDL 1.1 Section 3 on each of the wsdl:input or wsdl:output elements of a wsdl:binding.**
 
