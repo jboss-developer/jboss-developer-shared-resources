@@ -4,7 +4,7 @@ Configure Maven to Build and Deploy the Quickstarts
 Overview
 --------
 
-The artifacts and dependencies needed to build and deploy applications to Red Hat JBoss Enterprise Application Platform 7 are hosted in public repositories. JBoss EAP 6 required that you configure your Maven `settings.xml` file to use those repositories when building the quickstarts. In JBoss EAP 7, this has changed. Maven is now configured in the quickstart project POM files. This method of configuration is provided to make it easier to get started with the quickstarts, however, is generally not recommended for production projects because it can slow down your build. You may even end up with artifacts that are not from the expected repository.  For more information, see the [Maven Guide](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Development_Guide/index.html#chap-Maven_Guide "Maven Guide") chapter in the _Development Guide_ for Red Hat JBoss Enterprise Application Platform.
+The artifacts and dependencies needed to build and deploy applications to Red Hat JBoss Enterprise Application Platform 7 are hosted in public repositories. JBoss EAP 6 required that you configure your Maven `settings.xml` file to use those repositories when building the quickstarts. In JBoss EAP 7, this has changed. Maven is now configured in the quickstart project POM files. This method of configuration is provided to make it easier to get started with the quickstarts, however, is generally not recommended for production projects because it can slow down your build. You may even end up with artifacts that are not from the expected repository.  For more information, see the [Product Documentation](https://access.redhat.com/documentation/en/jboss-enterprise-application-platform/) for Red Hat JBoss Enterprise Application Platform.
 
 You can skip these instructions if you meet one of the following criteria:
 
@@ -12,9 +12,6 @@ You can skip these instructions if you meet one of the following criteria:
 * You plan to use Red Hat JBoss Developer Studio (8 or above) to build and deploy the quickstarts. These IDEs embed Maven 3.2.1 so you do not need to install it separately. If you plan to use JBoss Developer Studio 7.1.1, you must download and install a newer version of Maven and replace the embedded version of Maven.
 
 Some common profiles are defined and may be used in some quickstart POM files. These profiles are described here: [Use of Maven Profiles in POM Files](#use-of-maven-profiles-in-pom-files)
-
-For more information about Maven, see the [Maven Guide](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Development_Guide/index.html#chap-Maven_Guide "Maven Guide") chapter in the _Development Guide_ for Red Hat JBoss Enterprise Application Platform.
-
 
 Download and Install Maven
 --------------------------

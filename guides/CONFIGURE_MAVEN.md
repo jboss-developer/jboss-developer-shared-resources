@@ -10,7 +10,7 @@ Some common profiles are defined and may be used in some quickstart POM files. T
 
 For more information about Maven, see the [Maven Guide](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Development_Guide/index.html#chap-Maven_Guide "Maven Guide") chapter in the _Development Guide_ for Red Hat JBoss Enterprise Application Platform.
 
-For more information about how to configure Maven for use with the quickstarts, see [Configure Maven](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Getting_Started_Guide/index.html#sect-Configure_Maven "Configure Maven") in the _Getting Started Guide_ for Red Hat JBoss Enterprise Application Platform.
+For more information about how to configure Maven for use with the quickstarts, see [Configure Maven](https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html-single/Getting_Started_Guide/index.html#sect-Configure_Maven "Configure Maven") in the _Getting Started Guide_ for Red Hat JBoss Enterprise Application Platform.
 
 
 Configure Maven - For Use With Command Line
