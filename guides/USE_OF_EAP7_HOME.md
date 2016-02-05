@@ -5,7 +5,7 @@ The developer guides and quickstart README files use the *replaceable* value `EA
 
 * If you installed JBoss EAP using the ZIP, the install directory is the path you specified when you ran the command.
 
-* If you installed JBoss EAP using the RPM, the install directory is `/var/lib/jbossas/`.
+* If you installed JBoss EAP using the RPM, the install directory is `/opt/rh/eap7/root/usr/share/wildfly`.
 
 * If you used the installer to install JBoss EAP, the default path for `EAP7_HOME` is `${user.home}/EAP-7.0.0`. 
 
