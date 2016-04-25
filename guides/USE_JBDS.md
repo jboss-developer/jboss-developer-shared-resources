@@ -103,4 +103,8 @@ You may see one or more of the following errors or warnings when you import quic
  
      Quickstarts that require Knowledge Base capabilities to be enabled on the project display this warning. To resolve it, right-click on the warning message in the in the JBoss Developer Studio `Problems` window and choose `Quick Fix`. This opens a window with the fix `Enable Knowledge Base capabilities on project <project-name>` selected. Make sure all projects are selected and click `Finish` to resolve the warning.
 
+* **JPA Problem: Console configuration QUICKSTART_HOME does not exist. Hibernate specific validation and content assist will be limited.**
+
+    This warning is intermittent and can occur with any quickstart project that uses Hibernate. This is a known issue. For more information, see <https://issues.jboss.org/browse/JBIDE-17483>.
+
 
