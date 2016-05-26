@@ -593,3 +593,19 @@ The following instructions are based on information in this blog: <http://blog.n
    
 9. Issue a pull to the upstream repository.
 
+
+Request jboss.org and JBoss Central Update to the Latest Release
+-----------------------------------------------------------------
+
+The following instructions are based on information : <https://github.com/jboss-developer/www.jboss.org/blob/master/CONTRIBUTING.md#updating-developer-materials-versions/>
+
+1. Be sure to tag the release.
+
+2. Open a JIRA for the Red Hat Developer (RHD) project asking them to update JBoss Central and jboss.org sites to point to the latest tagged release:
+
+        https://issues.jboss.org/secure/RHD/CreateIssue.jspa
+
+
+
+
+
