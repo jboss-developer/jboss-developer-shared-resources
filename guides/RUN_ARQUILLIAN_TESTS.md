@@ -10,7 +10,11 @@ There are two ways you can run Arquillian tests:
 
 The individual quickstart README should tell you what to expect in the console output and the server log when you run the tests.
 
-_Note:_ If you do not configure the Maven settings as described here, [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts), you must pass the configuration setting on every Maven command as follows: ` -s QUICKSTART_HOME/settings.xml`
+_Note:_ 
+
+* _For the JBoss EAP 6.x quickstarts, if you do not configure your Maven settings as described here, [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts), you must pass the configuration settings file on every Maven command as follows: ` -s QUICKSTART_HOME/settings.xml`._
+* _The JBoss EAP 7 quickstarts include the repository in the project POM files and do not require you to configure your Maven settings._
+
 
 Test the Quickstart on a Remote Red Hat JBoss Enterprise Application Platform Server
 -------------------------------------
@@ -30,9 +34,16 @@ Arquillian's remote container adapter expects a Red Hat JBoss Enterprise Applica
                 </configuration>
             </container>    
  
-3. Run the test goal with the `arq-jbossas-remote` profile activated:
+3. Run the test goal with the correct profile activated. 
 
-            mvn clean test -Parq-jbossas-remote     
+   * For JBoss EAP 6.x, this is the `arq-jbossas-remote` profile, so you type the following command: 
+ 
+            mvn clean test -Parq-jbossas-remote  
+
+   * For JBoss EAP 7.x, this is the `arq-wildfly-remote` profile, so you type the following command:
+   
+            mvn clean test -Parq-wildfly-remote 
+   
 
 _Note:_ See the individual quickstart README file for any additional requirements.
 
@@ -46,8 +57,9 @@ Arquillian's managed container adapter starts the container for you and requires
    The simplest approach is to set the `JBOSS_HOME` environment variable to the full path to your JBoss EAP server directory. 
    
    Alternatively, you can set the path in the `jbossHome` property in the Arquillian configuration file as follows.
-    * Open the `src/test/resources/arquillian.xml` file located in the quickstart directory.
-    * Find the configuration for the JBoss container. It should look like this:
+ 
+   * Open the `src/test/resources/arquillian.xml` file located in the quickstart directory.
+   * Find the configuration for the JBoss container. It should look like this:
 
             <!-- Example configuration for a managed/remote JBoss EAP instance -->
             <container qualifier="jboss" default="true">
@@ -56,7 +68,7 @@ Arquillian's managed container adapter starts the container for you and requires
                 <!--<property name="jbossHome">/path/to/jboss/as</property> -->
                 <!--</configuration> -->
             </container>           
-    * Uncomment the `configuration` element, find the `jbossHome` property, and replace the "/path/to/jboss/as" value with the actual path to your JBoss EAP server. For example:
+   * Uncomment the `configuration` element, find the `jbossHome` property, and replace the "/path/to/jboss/as" value with the actual path to your JBoss EAP server. For example:
     
             <!-- Example configuration for a managed/remote JBoss EAP instance -->
             <container qualifier="jboss" default="true">
@@ -66,9 +78,15 @@ Arquillian's managed container adapter starts the container for you and requires
             </container>           
     
     
-2. Run the test goal with the `arq-jbossas-managed` profile activated:
+2. Run the test goal with the correct profile activated. 
+
+   * For JBoss EAP 6.x, this is the `arq-jbossas-managed` profile, so you type the following command:
 
             mvn clean test -Parq-jbossas-managed
+
+   * For JBoss EAP 7.x, this is the `arq-wildfly-managed` profile, so you type the following command:
+   
+            mvn clean test -Parq-wildfly-managed 
 
 _Note:_ See the individual quickstart README file for any additional requirements.
 
