@@ -20,7 +20,7 @@ Contribute a Quickstart
 ### Purpose of the quickstarts
 
 
-- To demonstrate Java EE 6 technologies
+- To demonstrate Java EE 6 and Java EE 7 technologies
 
 - To provide developers with working examples and instructions that are easy to follow .
 
@@ -70,9 +70,9 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
    * If you are fixing a Bugzilla or JIRA, it is a good practice to use the number in the branch name. For new quickstarts or other fixes, try to use a good description for the branch name. 
    * The following are examples of Git checkout commands:
 
-            git checkout -b Bz-98765432 upstream/6.4.x-develop
-            git checkout -b JDF-9876543 upstream/6.4.x-develop
-            git checkout -b add-xyz-quickstart upstream/6.4.x-develop
+            git checkout -b Bz-98765432 upstream/7.1.x-develop
+            git checkout -b JDF-9876543 upstream/7.1.x-develop
+            git checkout -b add-xyz-quickstart upstream/7.1.x-develop
 7. Contribute new code or make changes to existing files. Make sure that you follow the [General Guidelines](#general-guidelines) below.
 
 8. To verify if your code followed the General Guidelines you can run [QS Tools](http://jboss-developer.github.io/maven-qstools-plugin/) on your project.
@@ -154,11 +154,11 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 * The `<artifactId>` in the quickstart `pom.xml` file should follow the template: `jboss-<target-product>-<quickstart-name>`. For example, the `<artifactId>` for the `greeter` quickstart in the EAP project is `jboss-greeter`. The `<artifactId>` for `errors` quickstart in the Fuse project is `jboss-fuse-errors`.
 
-* The JBoss developer Maven repository, which contains newly staged artifacts, is located at [jboss-developer.github.io](http://jboss-developer.github.io/temp-maven-repo/). See [Configure Maven](#configure-maven) below for instructions how to configure your settings to use this repository.
+* The JBoss developer Maven repository, which contains newly *staged* artifacts, is located at [jboss-developer.github.io](http://jboss-developer.github.io/temp-maven-repo/). See [Configure Maven](#configure-maven) below for instructions how to configure your settings to use this repository.
 
 * If you create a quickstart that uses a database table, make sure the name you use for the table is unique across all quickstarts. 
 
-* The project must follow the structure used by existing quickstarts such as [numberguess](https://github.com/jboss-developer/jboss-eap-quickstarts/tree/6.4.x/numberguess). A good starting point would be to copy the  `numberguess` project.
+* The project must follow the structure used by existing quickstarts such as [numberguess](https://github.com/jboss-developer/jboss-eap-quickstarts/tree/7.1.x-develop/numberguess). A good starting point would be to copy the `numberguess` project.
 
 * The sample project should be importable into JBoss Developer Studio/JBoss Tools and be deployable from there.
 
@@ -167,14 +167,14 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
  - Not inherit from another POM (no parent POM)
  - Maven POMs must use the Java EE spec BOM/POM imports
  - The POMs must be commented, with a comment each item in the POM
- - Import the various BOMs, either directly from a project, or from [JBoss BOMs](http://www.jboss.org/developer-materials/#!formats=jbossdeveloper_bom), to determine version numbers. You should aim to have no dependencies declared directly. If you do, work with the jdf team to get them added to a BOM.
- - Use the JBoss AS Maven Plugin to deploy the example
+ - Import the various BOMs, either directly from a project, or from [JBoss BOMs](http://www.jboss.org/developer-materials/#!formats=jbossdeveloper_bom&sys_type=jbossdeveloper_bom), to determine version numbers. You should aim to have no dependencies declared directly. If you do, work with the jdf team to get them added to a BOM.
+ - Use the WildFly Maven Plugin to deploy the example
 
 * The sample project must contain a `README.md` file using the `template/README.md` file as a guideline
 
 * Don't forget to update the `pom.xml` in the quickstart root directory. Add your quickstart to the 'modules' section.
 
-* The project must target Java 6
+* The project must target Java EE 7
 
  - CDI should be used as the programming model
  - Avoid using a web.xml if possible. Use faces-config.xml to activate JSF if needed.
@@ -278,107 +278,7 @@ _Note:_ Regardless of the method you choose to configure your Maven settings, yo
 
 ### Configure Maven on OpenShift
 
-If your quickstart needs a Maven repository other than the standard repository configured on OpenShift, you can use the following procedure to configure Maven.
-
-_Note:_ The following substitution variables are used in these instructions:
-
-* `CURRENT_PATH` is the path where you execute the commands. For example `home/jsmith/my-apps`.
-* `YOUR_APP_NAME` is your application name. For example `helloworld`.
-* `YOUR_ACCOUNT_NAME` is your account name on OpenShift. For example `jsmith`.
-* `APPLICATION_UUID` is the UUID generated by OpenShift for your application. For example `52864af85973ca430200006f`
-    
-
-1. When you create your OpenShift application using the `rhc app create -a <app-name> -t jbosseap-6` command, you see messages similar to the following:
-
-       Your application 'YOUR_APP_NAME' is now available.
-
-          URL:        http://YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com/
-          SSH to:     APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com
-          Git remote: ssh://APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com/~/git/YOUR_APP_NAME.git/
-          Cloned to:  /CURRENT_PATH/YOUR_APP_NAME
-
-   Make note of the `SSH to` URL that is returned. You will need that URL later to copy files to your OpenShift application. 
-2. Create a Maven settings file that contains profiles for the repositories you need to test your quickstart. 
-    * For example, if your application needs to use the temporary developer repository, you should add the following `<profile>` and `<active-profile>`:
-    
-            <profile>
-                <id>jboss-developer-repository</id>
-                <repositories>
-                    <repository>
-                        <id>jboss-developer-repository</id>
-                        <url>http://jboss-developer.github.io/temp-maven-repo/</url>
-                        <releases>
-                           <enabled>true</enabled>
-                        </releases>
-                        <snapshots>
-                          <enabled>false</enabled>
-                        </snapshots>
-                    </repository>
-                </repositories>
-                <pluginRepositories>
-                    <pluginRepository>
-                        <id>jboss-developer-plugin-repository</id>
-                        <url>http://jboss-developer.github.io/temp-maven-repo/</url>
-                        <releases>
-                          <enabled>true</enabled>
-                        </releases>
-                        <snapshots>
-                          <enabled>false</enabled>
-                        </snapshots>
-                    </pluginRepository>
-                </pluginRepositories>
-            </profile>
-            
-            <activeProfile>jboss-developer-repository</activeProfile>
-    * If it needs to use a local repository, you must upload the repository to OpenShift `file:///${HOME}/app-root/data/` directory, and specify the URL in the `settings.xml` file relative to that location. You must use the `${HOME}` environment variable in the URL. For example:
-    
-            <profile>
-                <id>jboss-6.4.0.GA-repository</id>
-                <repositories>
-                    <repository>
-                        <id>jboss-6.4.0.GA-repository</id>
-                        <url>file:///${HOME}/app-root/data/jboss-eap-6.4.0.GA-maven-repository/</url>
-                        <releases>
-                           <enabled>true</enabled>
-                        </releases>
-                        <snapshots>
-                          <enabled>false</enabled>
-                        </snapshots>
-                    </repository>
-                </repositories>
-                <pluginRepositories>
-                    <pluginRepository>
-                        <id>jboss-6.4.0.GA-repository</id>
-                        <url>file:///${HOME}/app-root/data/jboss-eap-6.4.0.GA-maven-repository/</url>
-                        <releases>
-                          <enabled>true</enabled>
-                        </releases>
-                        <snapshots>
-                          <enabled>false</enabled>
-                        </snapshots>
-                    </pluginRepository>
-                </pluginRepositories>
-            </profile>
-            
-            <activeProfile>jboss-6.4.0.GA-repository</activeProfile>
-3. Upload your `settings.xml` file to the OpenShift application `app-root/data/` directory using the 'SSH to' URL displayed when you created the application. For example:
-
-        $ scp <SETTINGS_DIRECTORY>/settings.xml APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com:app-root/data
-4. If you specified a local Maven repository, upload the zip file to the OpenShift application `app-root/data/` directory using the 'SSH to' URL displayed when you created the application. For example:
-
-        $ scp <MAVEN_ZIP_DIRECTORY>/jboss-eap-6.4.0.GA-maven-repository.zip  APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com:app-root/data
-    Wait until the upload completes before performing the next step. This takes a very long time!! When the upload process is complete, SSH into the same URL and unzip the Maven repository:
-    
-        $ ssh APPLICATION_UUID@YOUR_APP_NAME-YOUR_ACCOUNT_NAME.rhcloud.com
-        cd app-root/data
-        unzip jboss-eap-6.4.0.GA-maven-repository.zip 
-5. To direct Maven to use the uploaded `settings.xml` file, create a file in the `.openshift/action_hooks/` directory named `pre_build_jbosseap`, containing this line:
-
-        export MAVEN_ARGS="clean package -Popenshift -s ${OPENSHIFT_DATA_DIR}settings.xml -DskipTests"
-6. Use `git add` to add the above file, along with the updated `src/` and `pom.xml` files to GitHub.
-
-        $ git add src/ pom.xml .openshift/action_hooks/pre_build_jbosseap
-7. Issue the `git commit` and `git push` in the usual manner.
+_Note:_ This section will be updated to use Openshift V3
 
 ### License Information and Contributor Agreement
 
@@ -580,7 +480,7 @@ The following instructions are based on information in this blog: <http://blog.n
 6. Checkout a branch to work in.
 
         git fetch upstream
-        git checkout -b merge-xyz-quickstart upstream/6.4.x-develop 
+        git checkout -b merge-xyz-quickstart upstream/7.1.x-develop 
 
 7. Merge the patches into the destination directory.
 
@@ -594,7 +494,7 @@ The following instructions are based on information in this blog: <http://blog.n
 9. Issue a pull to the upstream repository.
 
 
-Request jboss.org and JBoss Central Update to the Latest Release
+Request JBoss Central and jboss.org Update to the Latest Release
 -----------------------------------------------------------------
 
 The following instructions are based on information : <https://github.com/jboss-developer/www.jboss.org/blob/master/CONTRIBUTING.md#updating-developer-materials-versions/>
@@ -604,8 +504,6 @@ The following instructions are based on information : <https://github.com/jboss-
 2. Open a JIRA for the Red Hat Developer (RHD) project asking them to update JBoss Central and jboss.org sites to point to the latest tagged release:
 
         https://issues.jboss.org/secure/RHD/CreateIssue.jspa
-
-
 
 
 
