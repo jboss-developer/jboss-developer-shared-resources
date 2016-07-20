@@ -7,6 +7,9 @@ This document contains information targeted for developers who want to contribut
 * [Join the Mailing list](#join-the-mailing-list): Sign up for the JBoss developer mailing list.
 * [Contribute a Quickstart](#contribute-a-quickstart): Find out how to contribute a quickstart.
 * [Create a Quickstart Cheat Sheet](#create-a-quickstart-cheat-sheet): See how to create a 'cheat sheet' for your quickstart.
+* [Copy a Quickstart to Another Repository and Preserve Its History](#copy-a-quickstart-to-another-repository-and-preserve-its-history): Copy a quickstart from another location and preserve the commit history.
+* [Set Up Your Environment to Build the README.html Files](#set-up-your-environment-to-build-the-readmehtml-files): Build HTML versions of the README.md files.
+* [Request JBoss Central and jboss.org Update to the Latest Release](#request-jboss-central-and-jbossorg-update-to-the-latest-release): Request updates to JBoss Central.
 
 Join the Mailing list
 ---------------------
@@ -205,32 +208,6 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
     If appropriate for the technology the application should expose RESTful endpoints following the example of the original kitchensink quickstart.  This should also include the RESTful links in the member table.
     
-### Setup your environment
-
-The quickstart README.md files are converted to HTML using markdown. We recommend using redcarpet, as that is what GitHub uses, but you can use any markdown tool really.
-
-There are two scripts, `dist/github-flavored-markdown.rb`, that will convert an individual file, and `dist/release-utils.sh -m`, that will convert all the files.
-
-To setup the environment you need to follow these steps.
-
-1. Install Ruby *1.9.X*
-
-    For RHEL you can use this [spec](https://github.com/lnxchk/ruby-1.9.3-rpm)
-    
-    In general, you're better off not relying on your OSs ruby install, they are often quite broken.
-
-2. Install Ruby GEMs
-
-        gem install nokogiri pygments.rb redcarpet fileutils
-
-3. Install Python Eggs
-
-    You'll need python eggs installed, which often isn't available on OS installs of python. Google to find out how to install it
-
-4. Install pygments
-
-            sudo easy_install pygments
-
 ### Configure Maven
 
 _Note:_ Maven 3.2.2 introduced a bug that breaks resolution of the JBoss EAP BOM dependencies because it ignores additional repositories during artifact resolution. For more information about this bug, see <https://jira.codehaus.org/browse/MNG-5663>. Make sure to use Maven 3.2.3 or later.
@@ -447,6 +424,7 @@ You can find additional help about cheat sheets at the following locations:
 * [Max's cheat sheet example](https://github.com/maxandersen/cheatsheet-helloworld)
 
 
+
 Copy a Quickstart to Another Repository and Preserve Its History
 -----------------------------------------------------------------
 
@@ -492,6 +470,68 @@ The following instructions are based on information in this blog: <http://blog.n
    * Verify that the commit history is included. 
    
 9. Issue a pull to the upstream repository.
+
+Set Up Your Environment to Build the README.html Files
+-----------------------------------------------------------------
+
+The quickstart README.md files are converted to HTML using markdown. We recommend using redcarpet, as that is what GitHub uses, but you can use any markdown tool really.
+
+There are two scripts, `dist/github-flavored-markdown.rb`, that will convert an individual file, and `dist/release-utils.sh -m`, that will convert all the files. This script also builds a table in the root README.html file that lists and describes all of the quickstarts.
+
+To setup the environment you need to follow these steps.
+
+1. These scripts require the following packages. Install them if you do not already have them.
+
+        sudo dnf install ImageMagick
+        sudo dnf install ImageMagick-devel
+
+2. If you have not yet done so, install Ruby Version Manager (RVM). 
+
+    * Follow the instructions here to install RVM: https://rvm.io/rvm/install
+   
+    * Add the following line to your `~/.bash_profile`: 
+
+            source ~/.profile 
+
+    * Add the following lines to your `~/.bashrc` file:
+   
+            export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+            [[ -s "~/.rvm/scripts/rvm" ]] && source "~/.rvm/sripts/rvm" # Load RVM into a shell session *as a function*
+
+3. Install Ruby and use the installation. 
+
+    * To list the available rubies:
+   
+            rvm list known
+        
+    * To install ruby-2.3.0
+
+            rvm install 2.3.0
+
+    * Use this version
+   
+            rvm use 2.3.0
+        
+4. Create and use a gemset for the GitHub Markdown
+
+        rvm gemset create githubmarkdown
+        rvm gemset use githubmarkdown
+
+5. Install the gems needed for the script
+
+        gem install redcarpet
+        gem install nokogiri
+        gem install pygments.rb
+        gem install fileutils
+
+6. To build the files, be sure to use this version of ruby with this gemset.
+
+        rvm use 2.3.0
+        rvm gemset use githubmarkdown
+   
+   Then run the following command from the root directory of the quickstarts.
+    
+        dist/release-utils.sh -m
 
 
 Request JBoss Central and jboss.org Update to the Latest Release
