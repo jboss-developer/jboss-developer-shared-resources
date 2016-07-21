@@ -8,8 +8,8 @@ This document contains information targeted for developers who want to contribut
 * [Contribute a Quickstart](#contribute-a-quickstart): Find out how to contribute a quickstart.
 * [Create a Quickstart Cheat Sheet](#create-a-quickstart-cheat-sheet): See how to create a 'cheat sheet' for your quickstart.
 * [Copy a Quickstart to Another Repository and Preserve Its History](#copy-a-quickstart-to-another-repository-and-preserve-its-history): Copy a quickstart from another location and preserve the commit history.
-* [Set Up Your Environment to Build the README.html Files](#set-up-your-environment-to-build-the-readmehtml-files): Build HTML versions of the README.md files.
-* [Request JBoss Central and jboss.org Update to the Latest Release](#request-jboss-central-and-jbossorg-update-to-the-latest-release): Request updates to JBoss Central.
+* [Administrative Tasks](#administrative-tasks): Administrative tasks such as keeping the development and product branches synchronized,  building the README.html files, and updating JBoss Central and jboss.org.
+
 
 Join the Mailing list
 ---------------------
@@ -471,8 +471,81 @@ The following instructions are based on information in this blog: <http://blog.n
    
 9. Issue a pull to the upstream repository.
 
-Set Up Your Environment to Build the README.html Files
------------------------------------------------------------------
+
+Administrative Tasks
+---------------------
+
+### Create a Product Branch from the Development Branch
+
+During the initial development phase of the product, generally all updates are only done to the current development branch, for example, `7.1.x-devel`. However, when it is close to time to begin doing product builds, we need to create a new product branch from the development branch to use to build the product quickstarts.
+
+These are the steps to create the new product branch.
+
+1. Update the existing '7.1.x-devel' branch to make sure it is current.
+
+    a. Update the <version> in the `pom.xml` files to use `7.1.0-SNAPSHOT`.
+
+            <version>7.1.0-SNAPSHOT</version>
+
+    c. Change the `7.0` references to `7.1` in the `guide/KitchensinkQuickstart.asciidoc` file.
+
+    d. Commit these changes to the `7.1.x-devel` branch so it is using the correct versions.
+
+2. Create the new product branch from the `7.1.x-devel` branch.
+
+    a. Checkout out a new topic branch from the updated `upstream/7.1.x-devel` branch and name it by removing the `-devel`.
+
+            git fetch upstream
+            git checkout -b 7.1.x upstream/7.1.x-devel
+
+    b. Edit the  .gitignore file to remove the `README.html` entry.  Use `git add` to add the modified file.
+
+    c. Build the README.html files.
+
+            dist/release-utils.sh -m
+
+    d. Add the README.html files to the branch using `git add`.
+
+    e. Commit the changes and push the new branch upstream.
+
+            git push upstream HEAD:7.1.x
+
+3. Update the new product branch to use the correct jboss.spec.javaee.7.0 version and commit and push the changes to upstream/7.1.x.
+
+        Replace: <version.jboss.spec.javaee.7.0>1.0.3.Final</version.jboss.spec.javaee.7.0>
+        With:    <version.jboss.spec.javaee.7.0>1.0.3.Final-redhat-4</version.jboss.spec.javaee.7.0>
+
+
+### Managing the Development and Product Branches
+
+Once you have created the product branch, you must apply all fixes to both branches. Use the following procedure to update the branches.
+
+1. Check out a topic branch from the upstream development branch.
+
+        git fetch upstream
+        git checkout -b JBEAP-1234 upstream/7.1.x-develop
+        
+2. Make the fixes and push the commit to the `7.1.x-devel` branch.
+   
+3. Check out a topic branch from the upstream development branch.
+
+        git fetch upstream
+        git checkout -b JBEAP-1234-7.1.x upstream/7.1.x
+        
+4. Find the commit number in the `-devel` branch and cherry-pick the fix to the `7.1.x` branch.
+
+        git cherry-pick <commit-number>
+
+5. If the fix affects any `README.md` files, you must rebuild the HTML files by running the following command from the root directory of the quickstarts.
+    
+        dist/release-utils.sh -m
+
+   Add any changed `README.html` files and add them to the commit.
+
+6. Push the changes to the `7.1.x` branch.
+
+
+### Set Up Your Environment to Build the README.html Files
 
 The quickstart README.md files are converted to HTML using markdown. We recommend using redcarpet, as that is what GitHub uses, but you can use any markdown tool really.
 
@@ -534,8 +607,7 @@ To setup the environment you need to follow these steps.
         dist/release-utils.sh -m
 
 
-Request JBoss Central and jboss.org Update to the Latest Release
------------------------------------------------------------------
+### Request JBoss Central and jboss.org Update to the Latest Release
 
 The following instructions are based on information : <https://github.com/jboss-developer/www.jboss.org/blob/master/CONTRIBUTING.md#updating-developer-materials-versions/>
 
