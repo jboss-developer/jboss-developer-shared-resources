@@ -61,16 +61,19 @@ Arquillian's managed container adapter starts the container for you and requires
    * Open the `src/test/resources/arquillian.xml` file located in the quickstart directory.
    * Find the configuration for the JBoss container. It should look like this:
 
-            <!-- Example configuration for a managed/remote JBoss EAP instance -->
+            <!-- Example configuration for a managed JBoss EAP instance -->
             <container qualifier="jboss" default="true">
-                <!-- If you want to use the JBOSS_HOME environment variable, just delete the jbossHome property -->
-                <!--<configuration> -->
-                <!--<property name="jbossHome">/path/to/jboss/as</property> -->
-                <!--</configuration> -->
-            </container>           
-   * Uncomment the `configuration` element, find the `jbossHome` property, and replace the "/path/to/jboss/as" value with the actual path to your JBoss EAP server. For example:
+                <!-- By default, Arquillian will use the JBOSS_HOME environment variable to find the JBoss EAP installation.  
+                     If you prefer not to define the JBOSS_HOME environment variable, alternatively you can uncomment the 
+                     following `jbossHome` property and replace EAP_HOME with the path to your JBoss EAP installation. -->
+                <!--<configuration> 
+                    <property name="jbossHome">EAP_HOME</property> 
+                </configuration> -->
+            </container>
+
+   * Uncomment the `configuration` element, find the `jbossHome` property, and replace the "EAP_HOME" value with the actual path to your JBoss EAP server. For example:
     
-            <!-- Example configuration for a managed/remote JBoss EAP instance -->
+            <!-- Example configuration for a remote JBoss EAP instance -->
             <container qualifier="jboss" default="true">
                 <configuration>
                     property name="jbossHome">/home/myusername/EAP/jboss-eap-x.x/</property>
