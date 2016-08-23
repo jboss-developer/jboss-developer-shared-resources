@@ -20,7 +20,11 @@ If you have not yet done so, you must first configure your OpenShift environment
     * Test the `oc` command by typing the following command in a terminal.
 
            $ oc version
-
+           
+4. Log in to your OpenShift instance as `openshift-dev` by typing the following command in the terminal.
+    
+           $ oc login 10.1.2.2:8443 -u openshift-dev -p devel
+    
 You are now ready to follow the quickstart instructions configure your project to deploy to OpenShift. 
 
 
