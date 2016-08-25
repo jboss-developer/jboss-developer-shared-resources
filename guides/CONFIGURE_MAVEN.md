@@ -3,14 +3,14 @@ Configure Maven to Build and Deploy the Quickstarts
 
 Summary: The artifacts and dependencies needed to build and deploy applications to Red Hat JBoss Enterprise Application Platform 6 are hosted in public repositories. You must configure Maven to use these repositories before you build and deploy the quickstarts. How you do this depends on whether you plan to use JBoss Developer Studio or Maven command line to build and deploy your applications. Both methods are described below.
 
-* [Configure Maven - For Use with Command Line](#configure-maven-for-use-with-command-line): Follow these instructions if you plan to build and deploy the quickstarts using Maven command line tools.
-* [Configure Maven - For Use with JBoss Developer Studio](#configure-maven-for-use-with-jboss-developer-studio): Follow these instructions if you plan to build and deploy the quickstarts using JBoss Developer Studio.
+* [Configure Maven - For Use with Command Line](#configure-maven---for-use-with-command-line): Follow these instructions if you plan to build and deploy the quickstarts using Maven command line tools.
+* [Configure Maven - For Use with JBoss Developer Studio](#configure-maven---for-use-with-jboss-developer-studio): Follow these instructions if you plan to build and deploy the quickstarts using JBoss Developer Studio.
 
 Some common profiles are defined and may be used in some quickstart POM files. These profiles are described here: [Use of Maven Profiles in POM Files](#use-of-maven-profiles-in-pom-files)
 
 For more information about Maven, see the [Maven Guide](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Development_Guide/index.html#chap-Maven_Guide "Maven Guide") chapter in the _Development Guide_ for Red Hat JBoss Enterprise Application Platform.
 
-For more information about how to configure Maven for use with the quickstarts, see [Configure Maven](https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html-single/Getting_Started_Guide/index.html#sect-Configure_Maven "Configure Maven") in the _Getting Started Guide_ for Red Hat JBoss Enterprise Application Platform.
+For more information about how to configure Maven for use with the quickstarts, see [Configure Maven](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Getting_Started_Guide/index.html#sect-Configure_Maven "Configure Maven") in the _Getting Started Guide_ for Red Hat JBoss Enterprise Application Platform.
 
 
 Configure Maven - For Use With Command Line
