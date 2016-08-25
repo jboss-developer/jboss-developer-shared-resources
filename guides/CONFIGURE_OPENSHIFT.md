@@ -1,9 +1,10 @@
 Configure Your OpenShift Environment
 ===============
 If you have not yet done so, you must first configure your OpenShift environment to run the JBoss EAP quickstarts by following these instructions. Choose one of the following:
+
 1. [Locally - Container Development Kit](#install_cdk)
 2. [Locally - on Docker enabled machines you can use the oc binary tool to run Openshift cluster on your computer](#install_oc)
-3. [Public cloud - Openshift Public]()
+3. [Public cloud - Openshift Public](#public)
 
 ### General information
 1. Review the [Red Hat xPaaS EAP Image](https://access.redhat.com/documentation/en/red-hat-xpaas/version-0/red-hat-xpaas-eap-image/) documentation for information about developing with the Red Hat Enterprise Application Platform Image.
@@ -42,14 +43,13 @@ After successful startup login credentials get printed in the terminal.
 
 3. The `oc` tool has also logged you in as the `developer` user.
 
-### <a name="public"></a>OpenShift Public
+### <a name="public"></a>Instructions for using OpenShift Public
 1. [Register](https://api.preview.openshift.com) for the OpenShift Public offering.
 2. Once you receive your login information via email go to the OpenShift Public [console](https://console.preview.openshift.com/console/).
 3. Click the question mark icon in the right upper corner of the console and select `Command Line Tools`
 4. Review your login token and run the `oc login --token=...` command.
 
 ### <a name="install_xpaas"></a> Prepare the EAP 7 xPaaS environment
-
 1. Create a new OpenShift [project](https://docs.openshift.com/enterprise/latest/architecture/core_concepts/projects_and_users.html#projects) called `sample-project`.
 
         $ oc new-project sample-project
