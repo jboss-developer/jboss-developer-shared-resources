@@ -27,12 +27,12 @@ If you have not yet done so, you must first configure your OpenShift environment
 
 5. Create the quickstart project.
 
-        $ oc new-project sample-project
+        $ oc new-project quickstart-project
 
 6. Install the JBoss EAP xPaaS image by pasting the following text into a terminal.
 
 
-        cat <<EOF | oc create -n sample-project -f -
+        cat <<EOF | oc create -n quickstart-project -f -
         ---
           apiVersion: v1
           kind: ImageStream
@@ -44,7 +44,7 @@ If you have not yet done so, you must first configure your OpenShift environment
 
 7. Install the PostgreSQL image by pasting the following text into a terminal.
 
-        cat <<EOF | oc create -n sample-project -f -
+        cat <<EOF | oc create -n quickstart-project -f -
         ---
           apiVersion: v1
           kind: ImageStream
@@ -56,7 +56,7 @@ If you have not yet done so, you must first configure your OpenShift environment
 
 8. Install the `eap70-postgresql-s2i` Template by typing the following two commands in a terminal.
 
-        $ oc create -n sample-project -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/secrets/eap7-app-secret.json
+        $ oc create -n quickstart-project -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/secrets/eap7-app-secret.json
         $ oc create  -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/eap/eap70-postgresql-s2i.json
 
 You are now ready to follow the quickstart instructions to configure your project to deploy to OpenShift. 
