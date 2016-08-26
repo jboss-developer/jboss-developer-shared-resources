@@ -29,10 +29,16 @@ Before you begin, be sure to review the [Red Hat xPaaS EAP Image](https://access
 
 You can choose to configure and run OpenShift using any of the following methods.
 
-* You can run OpenShift locally using the [Container Development Kit](#use_cdk)
-* You can run Openshift locally on Docker enabled machines using the [JBoss EAP Docker Image](#use_docker)
 * You can use the [Public Cloud - Openshift Public](#use_public)
+* You can run OpenShift locally using the [Container Development Kit](#use_cdk)
+* You can run Openshift [locally on Docker enabled machines](#use_docker) using the OpenShift Client tools.
 
+#### <a name="use_public"></a>Use the OpenShift Public Cloud
+
+1. [Register](https://api.preview.openshift.com) for the OpenShift Public offering.
+2. When you receive your login information by email, go to the OpenShift Public [console](https://console.preview.openshift.com/console/).
+3. Click the question mark (?) icon in the right upper corner of the console and select `Command Line Tools`.
+4. Review your login token and run the `oc login --token=...` command.
 
 #### <a name="use_cdk"></a>Use the Container Development Kit to Run OpenShift Locally
 
@@ -47,11 +53,11 @@ You can choose to configure and run OpenShift using any of the following methods
 
         $ oc login 10.1.2.2:8443 -u openshift-dev -p devel
 
-#### <a name="use_docker"></a>Use the JBoss EAP Docker Image
+#### <a name="use_docker"></a>Run OpenShift Locally on a Docker Enabled Machine
 
 1. If you have not yet done so, install and configure Docker on your machine. For instructions, see [Install Docker Engine](https://docs.docker.com/engine/installation/).
-2. Install and configure the JBoss EAP Docker image. See [Using the Red Hat JBoss Enterprise Application Platform Docker Image](https://access.redhat.com/documentation/en/red-hat-jboss-enterprise-application-platform/version-7.0/container-guide/).
-3. Use the OpenShift Client `oc` binary tool to start the OpenShift cluster.
+
+2. Use the OpenShift Client `oc` binary tool to start the OpenShift cluster.
 
         $ oc cluster up
 
@@ -72,13 +78,6 @@ You can choose to configure and run OpenShift using any of the following methods
           oc login -u system:admin
 
 5.  For more information about this tool, see the [OpenShift CLI Reference](https://docs.openshift.com/enterprise/latest/cli_reference/index.html).
-
-#### <a name="use_public"></a>Use the OpenShift Public Cloud
-
-1. [Register](https://api.preview.openshift.com) for the OpenShift Public offering.
-2. When you receive your login information by email, go to the OpenShift Public [console](https://console.preview.openshift.com/console/).
-3. Click the question mark (?) icon in the right upper corner of the console and select `Command Line Tools`.
-4. Review your login token and run the `oc login --token=...` command.
 
 ### <a name="install_required_images_templates"></a>Install the Required Images and Templates
 
