@@ -10,7 +10,7 @@ Before you begin, be sure to review the [Red Hat xPaaS EAP Image](https://access
 * [Download and Configure the OpenShift Client Tools](#install_client_tools)
 * [Configure Your OpenShift Environment](#configure_openshift)
 * [Install the Required Images and Templates](#install_required_images_templates)
-* [Deploy the Quickstart to OpenShift](#install_required_images_templates)
+* [Deploy the Quickstart to OpenShift](#deploy_the_quickstart_to_openshift)
 * [Access the Running Application](#access_the_running_application)
 
 
