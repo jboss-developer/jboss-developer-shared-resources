@@ -1,4 +1,4 @@
-Configure OpenShift to Run the JBoss EAP 7 Quickstarts
+Deploy the JBoss EAP 7 Quickstarts to OpenShift
 ===============
 
 If you have not yet done so, you must first configure your OpenShift environment to run the JBoss EAP quickstarts by following these instructions.
