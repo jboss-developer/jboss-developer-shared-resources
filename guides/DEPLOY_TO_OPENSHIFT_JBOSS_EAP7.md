@@ -9,7 +9,9 @@ Before you begin, be sure to review the [Red Hat xPaaS EAP Image](https://access
 
 * [Download and Configure the OpenShift Client Tools](#install_client_tools)
 * [Configure Your OpenShift Environment](#configure_openshift)
-* [Install the Required Images and Templates](#install_required_images_templates)
+* [Create Your Project and Install the Required Images](#create_your_project_and_install_required_images)
+* [Create the Service Account](#create_the_service_account)
+* [Create the Secrets](#create_the_secrets)
 * [Deploy the Quickstart to OpenShift](#deploy_the_quickstart_to_openshift)
 * [Access the Running Application](#access_the_running_application)
 
@@ -79,7 +81,7 @@ You can choose to configure and run OpenShift using any of the following methods
 
 5.  For more information about this tool, see the [OpenShift CLI Reference](https://docs.openshift.com/enterprise/latest/cli_reference/index.html).
 
-### <a name="install_required_images_templates"></a>Install the Required Images and Templates
+### <a name="create_your_project_and_install_required_images"></a>Create Your Project and Install the Required Images
 
 1. Create a new OpenShift [project](https://docs.openshift.com/enterprise/latest/architecture/core_concepts/projects_and_users.html#projects) project named `quickstart-project`.
 
@@ -115,20 +117,24 @@ You can choose to configure and run OpenShift using any of the following methods
             dockerImageRepository: registry.access.redhat.com/openshift3/postgresql-92-rhel7
         EOF
 
-    c. Install the `eap70-postgresql-s2i` template by typing the following command in a terminal.
+### <a name="create_the_service_account"></a>Create the Service Account
+
+Install the `eap70-postgresql-s2i` template by typing the following command in a terminal.
 
         $ oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/eap/eap70-postgresql-s2i.json
 
-3. OpenShift provides support for distributing secrets, such as SSL certificates, among running containers. Import a self-signed certificate that will be used for encrypting HTTPS/TLS traffic. Create a certificate to be imported by JBoss EAP during the startup process b typing the following command in a terminal.
+### <a name="create_the_secrets"></a>Create the Secrets
+
+OpenShift provides support for distributing secrets, such as SSL certificates, among running containers. Import a self-signed certificate that will be used for encrypting HTTPS/TLS traffic. Create a certificate to be imported by JBoss EAP during the startup process b typing the following command in a terminal.
 
         $ oc create -n quickstart-project -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/secrets/eap7-app-secret.json
 
-      _IMPORTANT: This self-signed, [base64 encoded certificate](https://github.com/jboss-openshift/application-templates/blob/ose-v1.3.3/secrets/eap7-app-secret.json#L35) was created using the  [Oracle keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html). It is meant to demonstrate how to use a certificate stored in a Java keystore and is not secure!_
+_IMPORTANT: This self-signed, [base64 encoded certificate](https://github.com/jboss-openshift/application-templates/blob/ose-v1.3.3/secrets/eap7-app-secret.json#L35) was created using the  [Oracle keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html). It is meant to demonstrate how to use a certificate stored in a Java keystore and is not secure!_
 
-
-You are now ready to follow the quickstart instructions to configure and deploy your project to OpenShift.
 
 ### <a name="deploy_the_quickstart_to_openshift"></a>Deploy the Quickstart to OpenShift
+
+You are now ready to follow the quickstart instructions to configure and deploy your project to OpenShift.
 
 1. Be sure you are still logged in to the OpenShift instance.
 
