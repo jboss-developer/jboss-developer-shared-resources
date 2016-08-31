@@ -119,7 +119,7 @@ You are now ready to follow the quickstart instructions to configure and deploy 
    * Use the `oc process` command.
 
             oc process -v \
-            SOURCE_REPOSITORY_URL=QUICKSTART_HOME,\
+            SOURCE_REPOSITORY_URL=https://github.com/jboss-developer/jboss-eap-quickstarts,\
             SOURCE_REPOSITORY_REF=7.1.x-develop,\
             CONTEXT_DIR=QUICKSTART_NAME,\
             DB_JNDI=java:jboss/datasources/QUICKSTART_DS,\
@@ -133,7 +133,7 @@ You are now ready to follow the quickstart instructions to configure and deploy 
    * Use the `oc new-app` command.
 
             oc new-app --template=eap70-postgresql-s2i -p \
-            SOURCE_REPOSITORY_URL=QUICKSTART_HOME,\
+            SOURCE_REPOSITORY_URL=https://github.com/jboss-developer/jboss-eap-quickstarts,\
             SOURCE_REPOSITORY_REF=7.1.x-develop,\
             CONTEXT_DIR=QUICKSTART_NAME,\
             DB_JNDI=java:jboss/datasources/QUICKSTART_DS,\
