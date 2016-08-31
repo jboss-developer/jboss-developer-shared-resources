@@ -9,9 +9,11 @@ Before you begin, be sure to review the [Red Hat xPaaS EAP Image](https://access
 
 * [Download and Configure the OpenShift Client Tools](#install_client_tools)
 * [Configure Your OpenShift Environment](#configure_openshift)
-* [Create Your Project and Install the Required Images](#create_your_project_and_install_required_images)
-* [Create the Service Account](#create_the_service_account)
-* [Create the Secrets](#create_the_secrets)
+* [Create Your OpenShift Project](#create_your_project)
+* [Install the Required Images](#install_the_required_images)
+* [Create the PostgreSQL Template for Local OpenShift Instances](#create_the_eap70-postgresql-s2i_template)
+* [Create the HTTPS Template  for Local OpenShift Instances](#create_the_https-s2i_template)
+* [Create the Secrets Template for Your Project](#create_the_secrets)
 * [Deploy the Quickstart to OpenShift](#deploy_the_quickstart_to_openshift)
 * [Access the Running Application](#access_the_running_application)
 
@@ -45,7 +47,6 @@ You can choose to configure and run OpenShift using any of the following methods
 
 #### <a name="use_cdk"></a>Use the Container Development Kit to Run OpenShift Locally
 
-
 1. Install and configure the Container Development Kit (CDK).
 
   * Download the [Container Development Kit](http://developers.redhat.com/products/cdk/download/).
@@ -57,19 +58,21 @@ You can choose to configure and run OpenShift using any of the following methods
         $ oc login 10.1.2.2:8443 -u openshift-dev -p devel
 
 
-### <a name="create_your_project_and_install_required_images"></a>Create Your Project and Install the Required Images
+### <a name="create_your_project"></a>Create Your OpenShift Project
 
-1. Create a new OpenShift [project](https://docs.openshift.com/enterprise/latest/architecture/core_concepts/projects_and_users.html#projects) project named `quickstart-project`.
+Create a new OpenShift [project](https://docs.openshift.com/enterprise/latest/architecture/core_concepts/projects_and_users.html#projects) project named `quickstart-project`.
 
-        $ oc new-project quickstart-project
+      $ oc new-project quickstart-project
 
-    _NOTE: You can review the existing projects using the following command._
+_NOTE: You can review the existing projects using the following command._
 
-        $ oc get project
+      $ oc get project
 
-2. If you are using a local OpenShift instance, you must install the JBoss EAP xPaaS image, the PostgreSQL image, and the `eap70-postgresql-s2i` template. If you are using OpenShift Public, skip to the next step.
+### <a name="install_the_required_images"></a>Install the Required Images
 
-    a. Install the JBoss EAP xPaaS image by copying and pasting the following text into a terminal.
+If you are using a local OpenShift instance, you must install the JBoss EAP xPaaS image, the PostgreSQL image. If you are using OpenShift Public, you can skip this section.
+
+1. Install the JBoss EAP xPaaS image by copying and pasting the following text into a terminal.
 
         cat <<EOF | oc create -n quickstart-project -f -
         ---
@@ -81,7 +84,7 @@ You can choose to configure and run OpenShift using any of the following methods
             dockerImageRepository: registry.access.redhat.com/jboss-eap-7/eap70-openshift
         EOF
 
-    b. Install the PostgreSQL image by copying and pasting the following text into a terminal. If you're using OpenShift Public, you can skip this step.
+2. Install the PostgreSQL image by copying and pasting the following text into a terminal. If you're using OpenShift Public, you can skip this step.
 
         cat <<EOF | oc create -n quickstart-project -f -
         ---
@@ -93,13 +96,23 @@ You can choose to configure and run OpenShift using any of the following methods
             dockerImageRepository: registry.access.redhat.com/openshift3/postgresql-92-rhel7
         EOF
 
-### <a name="create_the_service_account"></a>Create the Service Account
+### <a name="create_the_eap70-postgresql-s2i_template"></a>Create the PostgreSQL Template for Local OpenShift Instances
 
-Install the `eap70-postgresql-s2i` template by typing the following command in a terminal.
+If you are using a local OpenShift instance, you must create the application template for JBoss EAP 7 PostgreSQL applications. If you are using OpenShift Public, you can skip this section.
 
-        $ oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/eap/eap70-postgresql-s2i.json
+To create this template, type the following command in a terminal.
 
-### <a name="create_the_secrets"></a>Create the Secrets
+      $ oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/eap/eap70-postgresql-s2i.json
+
+### <a name="create_the_https-s2i_template"></a>Create the HTTPS Template  for Local OpenShift Instances
+
+If you are using a local OpenShift instance, you must create the HTTPS  template for JBoss EAP 7 applications. If you are using OpenShift Public, you can skip this section.
+
+To create this template, type the following command in a terminal.
+
+        $ oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.3.3/eap/eap70-https-s2i.json
+
+### <a name="create_the_secrets"></a>Create the Secrets Template for Your Project
 
 OpenShift provides support for distributing secrets, such as SSL certificates, among running containers. Import a self-signed certificate that will be used for encrypting HTTPS/TLS traffic. Create a certificate to be imported by JBoss EAP during the startup process b typing the following command in a terminal.
 
