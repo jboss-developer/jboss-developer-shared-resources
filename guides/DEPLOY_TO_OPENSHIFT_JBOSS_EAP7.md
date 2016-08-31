@@ -27,13 +27,14 @@ Before you begin, be sure to review the [Red Hat xPaaS EAP Image](https://access
 
           $ oc version
 
+4.  For more information about this tool, see the [OpenShift CLI Reference](https://docs.openshift.com/enterprise/latest/cli_reference/index.html).
+
 ### <a name="configure_openshift"></a>Configure Your OpenShift Environment
 
 You can choose to configure and run OpenShift using any of the following methods.
 
 * You can use the [Public Cloud - Openshift Public](#use_public)
 * You can run OpenShift locally using the [Container Development Kit](#use_cdk)
-* You can run Openshift [locally on Docker enabled machines](#use_docker) using the OpenShift Client tools.
 
 #### <a name="use_public"></a>Use the OpenShift Public Cloud
 
@@ -55,31 +56,6 @@ You can choose to configure and run OpenShift using any of the following methods
 
         $ oc login 10.1.2.2:8443 -u openshift-dev -p devel
 
-#### <a name="use_docker"></a>Run OpenShift Locally on a Docker Enabled Machine
-
-1. If you have not yet done so, install and configure Docker on your machine. For instructions, see [Install Docker Engine](https://docs.docker.com/engine/installation/).
-
-2. Use the OpenShift Client `oc` binary tool to start the OpenShift cluster.
-
-        $ oc cluster up
-
-    _NOTE: You can use the following command to print usage information for the command._
-
-        $ oc cluster up --help
-
-4. Upon successful startup, web console address and the login credentials are printed to the terminal and the `oc` tool automatically logs you in as the `developer` user. You should see something similar to the following.
-
-          The server is accessible via web console at:
-          https://10.192.209.178:8443
-
-          You are logged in as:
-          User:     developer
-          Password: developer
-
-          To login as administrator:
-          oc login -u system:admin
-
-5.  For more information about this tool, see the [OpenShift CLI Reference](https://docs.openshift.com/enterprise/latest/cli_reference/index.html).
 
 ### <a name="create_your_project_and_install_required_images"></a>Create Your Project and Install the Required Images
 
@@ -142,37 +118,37 @@ You are now ready to follow the quickstart instructions to configure and deploy 
 
    * Use the `oc process` command.
 
-          oc process -v \
-          SOURCE_REPOSITORY_URL=QUICKSTART_HOME,\
-          SOURCE_REPOSITORY_REF=7.1.x-develop,\
-          CONTEXT_DIR=QUICKSTART_NAME,\
-          DB_JNDI=java:jboss/datasources/QUICKSTART_DS,\
-          DB_DATABASE=USERS,\
-          HTTPS_NAME=jboss,\
-          HTTPS_PASSWORD=mykeystorepass,\
-          JGROUPS_ENCRYPT_NAME=secret-key,\
-          JGROUPS_ENCRYPT_PASSWORD=password,\
-          IMAGE_STREAM_NAMESPACE=quickstart-project eap70-postgresql-s2i | oc create -f -
+            oc process -v \
+            SOURCE_REPOSITORY_URL=QUICKSTART_HOME,\
+            SOURCE_REPOSITORY_REF=7.1.x-develop,\
+            CONTEXT_DIR=QUICKSTART_NAME,\
+            DB_JNDI=java:jboss/datasources/QUICKSTART_DS,\
+            DB_DATABASE=USERS,\
+            HTTPS_NAME=jboss,\
+            HTTPS_PASSWORD=mykeystorepass,\
+            JGROUPS_ENCRYPT_NAME=secret-key,\
+            JGROUPS_ENCRYPT_PASSWORD=password,\
+            IMAGE_STREAM_NAMESPACE=quickstart-project eap70-postgresql-s2i | oc create -f -
 
    * Use the `oc new-app` command.
 
-        oc new-app --template=eap70-postgresql-s2i -p \
-        SOURCE_REPOSITORY_URL=QUICKSTART_HOME,\
-        SOURCE_REPOSITORY_REF=7.1.x-develop,\
-        CONTEXT_DIR=QUICKSTART_NAME,\
-        DB_JNDI=java:jboss/datasources/QUICKSTART_DS,\
-        DB_DATABASE=USERS,\
-        HTTPS_NAME=jboss,\
-        HTTPS_PASSWORD=mykeystorepass,\
-        JGROUPS_ENCRYPT_NAME=secret-key,\
-        JGROUPS_ENCRYPT_PASSWORD=password,\
-        IMAGE_STREAM_NAMESPACE=quickstart-project
+            oc new-app --template=eap70-postgresql-s2i -p \
+            SOURCE_REPOSITORY_URL=QUICKSTART_HOME,\
+            SOURCE_REPOSITORY_REF=7.1.x-develop,\
+            CONTEXT_DIR=QUICKSTART_NAME,\
+            DB_JNDI=java:jboss/datasources/QUICKSTART_DS,\
+            DB_DATABASE=USERS,\
+            HTTPS_NAME=jboss,\
+            HTTPS_PASSWORD=mykeystorepass,\
+            JGROUPS_ENCRYPT_NAME=secret-key,\
+            JGROUPS_ENCRYPT_PASSWORD=password,\
+            IMAGE_STREAM_NAMESPACE=quickstart-project
 
 3. Wait for the build to finish. Check the status and view the logs using the following commands.
 
    * View the status of the containers.
 
-          $ oc get pods -w
+            $ oc get pods -w
 
   * View the build logs. Replace `POD_NAME` with the name of the pod that displays in the previous command. In most cases, it is something similar to `eap-app-1-build` or `eap-app-1-06s0v`.
 
@@ -209,7 +185,7 @@ You can access the application by using the OpenShift web console or by finding 
 
 1. Type the following command in a terminal.
 
-    $ oc get route
+        $ oc get route
 
 2. You should see something like the following.
 
@@ -220,4 +196,4 @@ You can access the application by using the OpenShift web console or by finding 
 
 3. Copy the service address for the `secure-eap-app`, prefix it with `https://`, and paste it into a browser, for example:
 
-    https://secure-eap-app-sample-project.router.default.svc.cluster.local
+      https://secure-eap-app-sample-project.router.default.svc.cluster.local
