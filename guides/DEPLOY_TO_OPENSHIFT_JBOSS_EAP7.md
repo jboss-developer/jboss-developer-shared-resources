@@ -114,35 +114,63 @@ You are now ready to follow the quickstart instructions to configure and deploy 
 
 1. Be sure you are still logged in to the OpenShift instance.
 
-2. Create and deploy the quickstart to the OpenShift instance using one of the following methods. Be sure to replace `QUICKSTART_HOME`. `QUICKSTART_NAME`, and  `QUICKSTART_DS` with the values provided in the quickstart instructions.
+2. Create and deploy the quickstart to the OpenShift instance using either the `oc process` or `oc new-app` command. Be sure to replace `QUICKSTART_HOME`. `QUICKSTART_NAME`, and  `QUICKSTART_DS` with the values provided in the quickstart instructions.
 
    * Use the `oc process` command.
 
-            oc process -v \
-            SOURCE_REPOSITORY_URL=https://github.com/jboss-developer/jboss-eap-quickstarts,\
-            SOURCE_REPOSITORY_REF=7.1.x-develop,\
-            CONTEXT_DIR=QUICKSTART_NAME,\
-            DB_JNDI=java:jboss/datasources/QUICKSTART_DS,\
-            DB_DATABASE=USERS,\
-            HTTPS_NAME=jboss,\
-            HTTPS_PASSWORD=mykeystorepass,\
-            JGROUPS_ENCRYPT_NAME=secret-key,\
-            JGROUPS_ENCRYPT_PASSWORD=password,\
-            IMAGE_STREAM_NAMESPACE=quickstart-project eap70-postgresql-s2i | oc create -f -
+      * If the quickstart uses a data source, use the following command.
+
+              oc process -v \
+              SOURCE_REPOSITORY_URL=https://github.com/jboss-developer/jboss-eap-quickstarts,\
+              SOURCE_REPOSITORY_REF=7.1.x-develop,\
+              CONTEXT_DIR=QUICKSTART_NAME,\
+              DB_JNDI=java:jboss/datasources/QUICKSTART_DS,\
+              DB_DATABASE=USERS,\
+              HTTPS_NAME=jboss,\
+              HTTPS_PASSWORD=mykeystorepass,\
+              JGROUPS_ENCRYPT_NAME=secret-key,\
+              JGROUPS_ENCRYPT_PASSWORD=password,\
+              IMAGE_STREAM_NAMESPACE=quickstart-project eap70-postgresql-s2i | oc create -f -
+
+      * If the quickstart does not use a data source, you can omit the `DB_JNDI` and `DB_DATABASE` arguments and use the following command.
+
+              oc process -v \
+              SOURCE_REPOSITORY_URL=https://github.com/jboss-developer/jboss-eap-quickstarts,\
+              SOURCE_REPOSITORY_REF=7.1.x-develop,\
+              CONTEXT_DIR=QUICKSTART_NAME,\
+              HTTPS_NAME=jboss,\
+              HTTPS_PASSWORD=mykeystorepass,\
+              JGROUPS_ENCRYPT_NAME=secret-key,\
+              JGROUPS_ENCRYPT_PASSWORD=password,\
+              IMAGE_STREAM_NAMESPACE=quickstart-project eap70-postgresql-s2i | oc create -f -
 
    * Use the `oc new-app` command.
 
-            oc new-app --template=eap70-postgresql-s2i -p \
-            SOURCE_REPOSITORY_URL=https://github.com/jboss-developer/jboss-eap-quickstarts,\
-            SOURCE_REPOSITORY_REF=7.1.x-develop,\
-            CONTEXT_DIR=QUICKSTART_NAME,\
-            DB_JNDI=java:jboss/datasources/QUICKSTART_DS,\
-            DB_DATABASE=USERS,\
-            HTTPS_NAME=jboss,\
-            HTTPS_PASSWORD=mykeystorepass,\
-            JGROUPS_ENCRYPT_NAME=secret-key,\
-            JGROUPS_ENCRYPT_PASSWORD=password,\
-            IMAGE_STREAM_NAMESPACE=quickstart-project
+      * If the quickstart uses a data source, use the following command.
+
+              oc new-app --template=eap70-postgresql-s2i -p \
+              SOURCE_REPOSITORY_URL=https://github.com/jboss-developer/jboss-eap-quickstarts,\
+              SOURCE_REPOSITORY_REF=7.1.x-develop,\
+              CONTEXT_DIR=QUICKSTART_NAME,\
+              DB_JNDI=java:jboss/datasources/QUICKSTART_DS,\
+              DB_DATABASE=USERS,\
+              HTTPS_NAME=jboss,\
+              HTTPS_PASSWORD=mykeystorepass,\
+              JGROUPS_ENCRYPT_NAME=secret-key,\
+              JGROUPS_ENCRYPT_PASSWORD=password,\
+              IMAGE_STREAM_NAMESPACE=quickstart-project
+
+      * If the quickstart does not use a data source, you can omit the `DB_JNDI` and `DB_DATABASE` arguments and use the following command.
+
+              oc new-app --template=eap70-postgresql-s2i -p \
+              SOURCE_REPOSITORY_URL=https://github.com/jboss-developer/jboss-eap-quickstarts,\
+              SOURCE_REPOSITORY_REF=7.1.x-develop,\
+              CONTEXT_DIR=QUICKSTART_NAME,\
+              HTTPS_NAME=jboss,\
+              HTTPS_PASSWORD=mykeystorepass,\
+              JGROUPS_ENCRYPT_NAME=secret-key,\
+              JGROUPS_ENCRYPT_PASSWORD=password,\
+              IMAGE_STREAM_NAMESPACE=quickstart-project
 
 3. Wait for the build to finish. Check the status and view the logs using the following commands.
 
