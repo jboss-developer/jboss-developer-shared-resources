@@ -7,12 +7,16 @@ For information on how to configure Maven and Red Hat JBoss Developer Studio for
 
 See [Get Started](http://www.jboss.org/get-started/ "Get Started") on the JBoss Developer web site for additional information.
 
-Special Instructions
+Important Special Instructions
 ------------
 
-_IMPORTANT: Be sure to follow the instructions in the quickstart `README.md` file to add any required application users or make the appropriate server configuration changes._
+1. Your quickstart project folder must be located outside of your ID workspace. If your quickstart project folder is located within the IDE workspace when you import it into Red Hat JBoss Developer Studio, the IDE generates an invalid project name and an invalid WAR archive name. Be sure your quickstart project folder is located outside the IDE workspace before you begin!
 
-More complex quickstarts may require special instructions to run properly in JBoss Developer Studio. This section describes some of these special situations.
+2. Be sure to follow the instructions in the quickstart `README.md` file to add any required application users or make the appropriate server configuration changes.
+
+3. More complex quickstarts may require special instructions to run properly in JBoss Developer Studio. This document describes some of these special situations.
+
+4. If you see errors or warnings when you import or run a quickstart, see the list of [Known Issues for JBoss EAP Quickstarts](#known-issues-for-jboss-eap-quickstarts) below for an explanation.
 
 ### Quickstarts Containing an EAR
 
@@ -67,7 +71,7 @@ You may see one or more of the following errors or warnings when you import quic
 
     This error occurs if endorsed directories are defined in the `maven-compiler-plugin` configuration of the quickstart POM file. To resolve the error, right-click on error in the JBoss Developer Studio `Problems` window and choose `Quick Fix`. This opens a window with the fix `Run 'mvn process-sources' to execute dependency:copy` selected. Click `Finish` to resolve the error. For more information, see [JBoss Maven Integration](http://docs.jboss.org/tools/whatsnew/maven/maven-news-3.3.0.CR1.html).
 
-* **Maven pom Loading Problem: Overriding managed version 1.0.2.Final for wildfly-maven-plugin	pom.xml.**
+* **Maven pom Loading Problem: Overriding managed version 1.0.2.Final for wildfly-maven-plugin pom.xml.**
 
     You can ignore this m2e warning. It can occur in child projects where the dependency versions are defined in the parent POM file. For more information, see [Bug 346725 - "Overriding managed version" in pom.xml should not be a warning severity ](https://bugs.eclipse.org/bugs/show_bug.cgi?id=346725).
 
