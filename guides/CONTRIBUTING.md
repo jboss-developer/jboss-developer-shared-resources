@@ -55,7 +55,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
    For example:
 
         git clone https://github.com/YOUR_USER_NAME/jboss-eap-quickstarts.git
-3. Change to the newly created directory, for example 
+3. Change to the newly created directory, for example
 
         cd jboss-eap-quickstarts/
 4. Add the remote `upstream` repository so you can fetch any changes to the original forked repository.
@@ -64,13 +64,13 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 5. Get the latest files from the `upstream` repository.
 
         git fetch upstream
-6. Create a local topic branch to work with your new quickstart, features, changes, or fixes. 
+6. Create a local topic branch to work with your new quickstart, features, changes, or fixes.
 
    * _IMPORTANT:_ Always work with the current developer branch of the quickstart repository. The is the branch that automatically displays in the dropdown when you browse to product quickstart directory, for example: <https://github.com/jboss-developer/jboss-eap-quickstarts>
    * Checkout the latest source code from the current `-develop` branch into your own branch using the following syntax:
-   
-            git checkout -b  <topic-branch-name> upstream/<current-development-branch> 
-   * If you are fixing a Bugzilla or JIRA, it is a good practice to use the number in the branch name. For new quickstarts or other fixes, try to use a good description for the branch name. 
+
+            git checkout -b  <topic-branch-name> upstream/<current-development-branch>
+   * If you are fixing a Bugzilla or JIRA, it is a good practice to use the number in the branch name. For new quickstarts or other fixes, try to use a good description for the branch name.
    * The following are examples of Git checkout commands:
 
             git checkout -b Bz-98765432 upstream/7.1.x-develop
@@ -80,7 +80,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 8. To verify if your code followed the General Guidelines you can run [QS Tools](http://jboss-developer.github.io/maven-qstools-plugin/) on your project.
    * To run QS Tools, go to your quickstart project root and execute:
-   
+
            mvn -U org.jboss.maven.plugins:maven-qstools-plugin:check
    This will generate a report on `QUICKSTART_HOME/target/site/qschecker.html`. Review the report to determine if your quickstart project violates any item in the *General Guidelines*.
 
@@ -90,7 +90,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 10. Use the `git add` command to add new or changed file contents to the staging area.
    * If you create a new quickstart, you can add files using the subfolder and file names. The following is an example of new quickstart folders and files you may want to stage:
-   
+
             git add src/
             git add pom.xml
             git add README.md
@@ -101,7 +101,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 11. Use the git status command to view the status of the files in the directory and in the staging area and ensure that all modified files are properly staged:
 
         git status        
-12. Commit your changes to your local topic branch. 
+12. Commit your changes to your local topic branch.
 
         git commit -m 'Description of change...'
 13. Update your branch with any changes made upstream since you started.
@@ -109,16 +109,16 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
         git fetch upstream
    * Apply those changes to your branch
-   
+
         git rebase upstream/<current-development-branch>
-   * If anyone has commited changes to files that you have also changed, you may see conflicts. 
+   * If anyone has commited changes to files that you have also changed, you may see conflicts.
    Resolve the conflicted files, add them using `git add`, and continue the rebase:
-   
+
         git add <conflicted-file-name>
         git rebase --continue
    * If there were conflicts, it is a good idea to test your changes again to make they still work.
-        
-14. Push your local topic branch to your GitHub forked repository. This will create a branch on your Git fork repository with the same name as your local topic branch name. 
+
+14. Push your local topic branch to your GitHub forked repository. This will create a branch on your Git fork repository with the same name as your local topic branch name.
 
         git push origin HEAD            
    _Note:_ The above command assumes your remote repository is named 'origin'. You can verify your forked remote repository name using the command `git remote -v`.
@@ -140,7 +140,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 * The quickstart directory structure should follow standard Java project rules:
 
- - All directories and packages containing Java source files should be placed in a `src/main/java/` directory, 
+ - All directories and packages containing Java source files should be placed in a `src/main/java/` directory,
  - All Java source files should use package names.
  - Index pages, JSF, and HTML files should be placed in a `src/main/webapp/` directory.
  - Any `beans.xml`, `faces-config.xml`, and other related configuration files should be placed in a `src/main/webapp/WEB-INF/` directory.
@@ -157,9 +157,16 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 * The `<artifactId>` in the quickstart `pom.xml` file should follow the template: `jboss-<target-product>-<quickstart-name>`. For example, the `<artifactId>` for the `greeter` quickstart in the EAP project is `jboss-greeter`. The `<artifactId>` for `errors` quickstart in the Fuse project is `jboss-fuse-errors`.
 
-* The JBoss developer Maven repository, which contains newly *staged* artifacts, is located at [jboss-developer.github.io](http://jboss-developer.github.io/temp-maven-repo/). See [Configure Maven](#configure-maven) below for instructions how to configure your settings to use this repository.
+* The quickstart POM files now include `<repositories/>` and `<pluginRepositories/>` elements to make it easier for developers to build the quickstarts without requiring additional Maven configuration. Each quickstart `pom.xml` file contains an entry for the following repositories.
 
-* If you create a quickstart that uses a database table, make sure the name you use for the table is unique across all quickstarts. 
+    | **Repository ID** | **Repository URL** | **Repository Description ** |
+    |:-----------|:-----------|:-----------|
+    | jboss-enterprise-maven-repository| https://maven.repository.redhat.com/ga/ | The JBoss EAP product repository |
+    | jboss-developer-staging-repository | http://jboss-developer.github.io/temp-maven-repo/ | The JBoss developer staging repository, which only contains staged artifacts |
+
+    See the [`template/pom.xml`](https://github.com/jboss-developer/jboss-eap-quickstarts/blob/7.1.x-develop/template/pom.xml#L48) file for an example of how to configure the `<repositories/>` and `<pluginRepositories/>` elements in a quickstart `pom.xml` file.
+
+* If you create a quickstart that uses a database table, make sure the name you use for the table is unique across all quickstarts.
 
 * The project must follow the structure used by existing quickstarts such as [numberguess](https://github.com/jboss-developer/jboss-eap-quickstarts/tree/7.1.x-develop/numberguess). A good starting point would be to copy the `numberguess` project.
 
@@ -207,68 +214,19 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
        * This should be below any EAP link areas.
 
     If appropriate for the technology the application should expose RESTful endpoints following the example of the original kitchensink quickstart.  This should also include the RESTful links in the member table.
-    
-### Configure Maven
-
-_Note:_ Maven 3.2.2 introduced a bug that breaks resolution of the JBoss EAP BOM dependencies because it ignores additional repositories during artifact resolution. For more information about this bug, see <https://jira.codehaus.org/browse/MNG-5663>. Make sure to use Maven 3.2.3 or later.
-
-If you are working with quickstarts currently under development in the current development branch, you need access to artifacts currently under development. The JBoss developer Maven repository, which contains newly staged artifacts, is located at [jboss-developer.github.io](http://jboss-developer.github.io/temp-maven-repo/).
-
-To access these artifacts, do one of the following:
-
-  * You can simply copy the `contributor-settings.xml` located in the root of the quickstart directory to your `${user.home}/.m2/` and rename it to `settings.xml`. 
-  
-  * Or, assuming you followed the instructions to [Configure Maven to Build and Deploy the Quickstarts](CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts), you can manually edit the settings and copy the following profile to your `settings.xml` file.
-
-        <profile>
-            <id>jboss-developer-repository</id>
-            <repositories>
-                <repository>
-                    <id>jboss-developer-repository</id>
-                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
-                    <releases>
-                       <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                      <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>jboss-developer-plugin-repository</id>
-                    <url>http://jboss-developer.github.io/temp-maven-repo/</url>
-                    <releases>
-                      <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                      <enabled>false</enabled>
-                    </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
-        </profile>
-
-      Then add `<activeProfile>jboss-developer-repository</activeProfile>` to the `<activeProfiles>` section of the file.
-
-_Note:_ Regardless of the method you choose to configure your Maven settings, you should also delete the existing `${user.home}/.m2/repository/`.
-
-
-### Configure Maven on OpenShift
-
-_Note:_ This section will be updated to use Openshift V3
 
 ### License Information and Contributor Agreement
 
-  JBoss Developer Framework is licensed under the Apache License 2.0, as we believe it is one of the most permissive Open Source license. This allows developers to easily make use of the code samples in JBoss Developer Framework. 
+  JBoss Developer Framework is licensed under the Apache License 2.0, as we believe it is one of the most permissive Open Source license. This allows developers to easily make use of the code samples in JBoss Developer Framework.
 
   There is no need to sign a contributor agreement to contribute to JBoss Developer Framework. You just need to explicitly license any contribution under the AL 2.0. If you add any new files to JBoss Developer Framework, make sure to add the correct header.
 
-#### Java,  Javascript and CSS files 
+#### Java,  Javascript and CSS files
 
-      /** 
+      /**
        * JBoss, Home of Professional Open Source
        * Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
-       * contributors by the @authors tag. See the copyright.txt in the 
+       * contributors by the @authors tag. See the copyright.txt in the
        * distribution for a full listing of individual contributors.
        *
        * Licensed under the Apache License, Version 2.0 (the "License");
@@ -287,7 +245,7 @@ _Note:_ This section will be updated to use Openshift V3
       <!--
        JBoss, Home of Professional Open Source
        Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
-       contributors by the @authors tag. See the copyright.txt in the 
+       contributors by the @authors tag. See the copyright.txt in the
        distribution for a full listing of individual contributors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
@@ -305,7 +263,7 @@ _Note:_ This section will be updated to use Openshift V3
 
        # JBoss, Home of Professional Open Source
        # Copyright 2013, Red Hat, Inc. and/or its affiliates, and individual
-       # contributors by the @authors tag. See the copyright.txt in the 
+       # contributors by the @authors tag. See the copyright.txt in the
        # distribution for a full listing of individual contributors.
        #
        # Licensed under the Apache License, Version 2.0 (the "License");
@@ -355,14 +313,14 @@ _Note:_ This section will be updated to use Openshift V3
       See the License for the specific language governing permissions and
       limitations under the License.
       --%>
-      
+
 
 Create a Quickstart Cheat Sheet
 -------------------------------
 
 ### Purpose of the Cheat Sheets
 
-- Cheat sheets function as a tutorial and provide a step by step guide through a quickstart. 
+- Cheat sheets function as a tutorial and provide a step by step guide through a quickstart.
 - They provide a way to step through and explain the code in an interactive way.
 - They can provide an in-depth analysis of specific sections of code.
 
@@ -383,18 +341,18 @@ _Note:_ Be sure your project folder is located outside of the Eclipse workspace 
     3.  Select the quickstart folder, give it a name 'cheatsheet.xml', and choose `Simple Cheat Sheet`.
     4.  Click `Finish`. When it prompts you to open the cheatsheet for the quickstart project, click `Yes`.
 3.  Populate the cheatsheet with useful information to help a user understand the quickstart.
-    1.  Expand the `Title` in the content section on the left. 
+    1.  Expand the `Title` in the content section on the left.
     2.  Select the `Title` field and modify it to something useful, for example: `helloworld`
     3.  Select the `intro` field and add introduction text to the `Body`, for example: `This quickstart demonstrates the use of CDI 1.0 and Servlet 3.0. It is a simple application that can be used to verify the JBoss EAP server is configured and running correctly.`
-    4.  Select `item`, then under `Command`, click `browse` and select 'Get current project' under `Uncategorized`. This adds the following XML to the cheat sheet: 
-    
-            <command 
-            required="true" 
+    4.  Select `item`, then under `Command`, click `browse` and select 'Get current project' under `Uncategorized`. This adds the following XML to the cheat sheet:
+
+            <command
+            required="true"
             returns="currentProject"
             serialization="org.jboss.tools.project.examples.cheatsheet.getProjectForCheatsheet"/>
     This command allows you to use the variable `${currentProject}` instead of a hard-coded path name and ensures your cheat sheet will work regardless of the project location.
-         
-    5.  Add an `item` for each file or class you want to describe. 
+
+    5.  Add an `item` for each file or class you want to describe.
         *  This is dependent on the quickstart features you plan to demonstrate.
         *  Provide a good description.
         *  Add subitems to describe code sections and provide the line numbers that are referenced.
@@ -430,7 +388,7 @@ Copy a Quickstart to Another Repository and Preserve Its History
 
 The following instructions are based on information in this blog: <http://blog.neutrino.es/2012/git-copy-a-file-or-directory-from-another-repository-preserving-history/>
 
-1. Navigate to the parent directory of the quickstart you want to move. 
+1. Navigate to the parent directory of the quickstart you want to move.
 
         cd ~/jboss-sandbox-quickstarts
 
@@ -458,17 +416,17 @@ The following instructions are based on information in this blog: <http://blog.n
 6. Checkout a branch to work in.
 
         git fetch upstream
-        git checkout -b merge-xyz-quickstart upstream/7.1.x-develop 
+        git checkout -b merge-xyz-quickstart upstream/7.1.x-develop
 
 7. Merge the patches into the destination directory.
 
         git am ~/temp/qsPatchFolder/*.patch
 
-8. Push the changes to your own Git. 
+8. Push the changes to your own Git.
 
    * Verify that the target quickstarts directory now contains the `xyz-quickstart` folder and files.
-   * Verify that the commit history is included. 
-   
+   * Verify that the commit history is included.
+
 9. Issue a pull to the upstream repository.
 
 
@@ -524,20 +482,20 @@ Once you have created the product branch, you must apply all fixes to both branc
 
         git fetch upstream
         git checkout -b JBEAP-1234 upstream/7.1.x-develop
-        
+
 2. Make the fixes and push the commit to the `7.1.x-devel` branch.
-   
+
 3. Check out a topic branch from the upstream development branch.
 
         git fetch upstream
         git checkout -b JBEAP-1234-7.1.x upstream/7.1.x
-        
+
 4. Find the commit number in the `-devel` branch and cherry-pick the fix to the `7.1.x` branch.
 
         git cherry-pick <commit-number>
 
 5. If the fix affects any `README.md` files, you must rebuild the HTML files by running the following command from the root directory of the quickstarts.
-    
+
         dist/release-utils.sh -m
 
    Add any changed `README.html` files and add them to the commit.
@@ -558,33 +516,33 @@ To setup the environment you need to follow these steps.
         sudo dnf install ImageMagick
         sudo dnf install ImageMagick-devel
 
-2. If you have not yet done so, install Ruby Version Manager (RVM). 
+2. If you have not yet done so, install Ruby Version Manager (RVM).
 
     * Follow the instructions here to install RVM: https://rvm.io/rvm/install
-   
-    * Add the following line to your `~/.bash_profile`: 
 
-            source ~/.profile 
+    * Add the following line to your `~/.bash_profile`:
+
+            source ~/.profile
 
     * Add the following lines to your `~/.bashrc` file:
-   
+
             export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
             [[ -s "~/.rvm/scripts/rvm" ]] && source "~/.rvm/sripts/rvm" # Load RVM into a shell session *as a function*
 
-3. Install Ruby and use the installation. 
+3. Install Ruby and use the installation.
 
     * To list the available rubies:
-   
+
             rvm list known
-        
+
     * To install ruby-2.3.0
 
             rvm install 2.3.0
 
     * Use this version
-   
+
             rvm use 2.3.0
-        
+
 4. Create and use a gemset for the GitHub Markdown
 
         rvm gemset create githubmarkdown
@@ -601,9 +559,9 @@ To setup the environment you need to follow these steps.
 
         rvm use 2.3.0
         rvm gemset use githubmarkdown
-   
+
    Then run the following command from the root directory of the quickstarts.
-    
+
         dist/release-utils.sh -m
 
 
@@ -616,6 +574,3 @@ The following instructions are based on information : <https://github.com/jboss-
 2. Open a JIRA for the Red Hat Developer (RHD) project asking them to update JBoss Central and jboss.org sites to point to the latest tagged release:
 
         https://issues.jboss.org/secure/RHD/CreateIssue.jspa
-
-
-
