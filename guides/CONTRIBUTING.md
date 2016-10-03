@@ -157,7 +157,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 * The `<artifactId>` in the quickstart `pom.xml` file should follow the template: `jboss-<target-product>-<quickstart-name>`. For example, the `<artifactId>` for the `greeter` quickstart in the EAP project is `jboss-greeter`. The `<artifactId>` for `errors` quickstart in the Fuse project is `jboss-fuse-errors`.
 
-* The quickstart POM files now include `<repositories/>` and `<pluginRepositories/>` elements to make it easier for developers to build the quickstarts without requiring additional Maven configuration. Each quickstart `pom.xml` file contains an entry for the following repositories.
+* The quickstart POM files now include `<repositories/>` and `<pluginRepositories/>` elements to make it easier for developers to build the quickstarts without requiring additional Maven configuration. Each quickstart `pom.xml` file contains entries for the following repositories.
 
     | **Repository ID** | **Repository URL** | **Repository Description ** |
     |:-----------|:-----------|:-----------|
