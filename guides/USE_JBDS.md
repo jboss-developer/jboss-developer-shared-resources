@@ -10,7 +10,7 @@ See [Get Started](http://www.jboss.org/get-started/ "Get Started") on the JBoss 
 Important Special Instructions
 ------------
 
-1. Your quickstart project folder must be located outside of your ID workspace. If your quickstart project folder is located within the IDE workspace when you import it into Red Hat JBoss Developer Studio, the IDE generates an invalid project name and an invalid WAR archive name. Be sure your quickstart project folder is located outside the IDE workspace before you begin!
+1. Your quickstart project folder must be located outside of your IDE workspace. If your quickstart project folder is located within the IDE workspace when you import it into Red Hat JBoss Developer Studio, the IDE generates an invalid project name and an invalid WAR archive name. Be sure your quickstart project folder is located outside the IDE workspace before you begin!
 
 2. Be sure to follow the instructions in the quickstart `README.md` file to add any required application users or make the appropriate server configuration changes.
 
