@@ -155,7 +155,7 @@ Create a Database User
 Add the PostgreSQL Module to the Red Hat JBoss Enterprise Application Platform Server
 -------------------------------------------------
 
-1. Create the following directory structure: `EAP7_HOME/modules/system/layers/base/org/postgresql/main`
+1. Create the following directory structure: `EAP7_HOME/modules/org/postgresql/main`
 2. Download the  `JDBC41` version of JBDC driver from <http://jdbc.postgresql.org/download.html> and save it into the directory you created in the previous step. It should be named something like `postgresql-9.4-1102.jdbc41.jar`.
 3. In the same directory, create a file named module.xml. Copy the following contents into the file, replacing the "####" in the JAR name with the revision that matches the downloaded JAR name.
 
@@ -202,7 +202,6 @@ You should see the following result when you run the script:
 
         #1 /subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
         The batch executed successfully.
-        {"outcome" => "success"}
 
 #### Review the PostgreSQL Changes to the Server Configuration
 
