@@ -35,14 +35,13 @@ To contribute to the quickstarts, fork the quickstart repository to your own Git
 
 If you don't have the GitHub client (`git`), get it from: <http://git-scm.com/>
 
-This document details the steps needed to contribute to the JBoss EAP quickstarts. For other quickstarts, you need to replace the GitHub repository URL with the correct repository location.
+This document details the steps needed to contribute to the JBoss EAP / WildFly quickstarts. For other quickstarts, you need to replace the GitHub repository URL with the correct repository location.
 
 1. Fork the quickstart repository for the appropriate product. This creates the project in your own Git. The following table lists the product quickstart repository URLs and the resulting GitHub URL created by the fork.
 
     | **Product Repository URL** | **Forked Repository URL** |
     |:-----------|:-----------|
-    | https://github.com/jboss-developer/jboss-eap-quickstarts | https://github.com/YOUR_USER_NAME/jboss-eap-quickstarts.git |
-    | https://github.com/jboss-developer/jboss-wfk-quickstarts | https://github.com/YOUR_USER_NAME/jboss-wfk-quickstarts.git |
+    | https://github.com/wildfly/quickstart | https://github.com/YOUR_USER_NAME/quickstart.git |
     | https://github.com/jboss-developer/jboss-brms-quickstarts | https://github.com/YOUR_USER_NAME/jboss-brms-quickstarts.git |
     | https://github.com/jboss-developer/jboss-jdg-quickstarts | https://github.com/YOUR_USER_NAME/jboss-jdg-quickstarts.git |
     | https://github.com/jboss-developer/jboss-mobile-quickstarts | https://github.com/YOUR_USER_NAME/jboss-mobile-quickstarts.git |
@@ -51,31 +50,31 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
     | https://github.com/jboss-developer/jboss-portal-quickstarts | https://github.com/YOUR_USER_NAME/jboss-portal-quickstarts.git |
     | https://github.com/jboss-developer/jboss-sandbox-quickstarts | https://github.com/YOUR_USER_NAME/jboss-sandbox-quickstarts.git |
 
-2. Clone your forked repository. This creates and populates a directory. for example `jboss-eap-quickstart/` on your local file system with the default remote repository name 'origin'.
+2. Clone your forked repository. This creates and populates a directory. for example `quickstart/` on your local file system with the default remote repository name 'origin'.
    For example:
 
-        git clone https://github.com/YOUR_USER_NAME/jboss-eap-quickstarts.git
+        git clone https://github.com/YOUR_USER_NAME/quickstart.git
 3. Change to the newly created directory, for example
 
-        cd jboss-eap-quickstarts/
+        cd quickstart/
 4. Add the remote `upstream` repository so you can fetch any changes to the original forked repository.
 
-        git remote add upstream https://github.com/jboss-developer/jboss-eap-quickstarts.git
+        git remote add upstream https://github.com/wildfly/quickstart.git
 5. Get the latest files from the `upstream` repository.
 
         git fetch upstream
 6. Create a local topic branch to work with your new quickstart, features, changes, or fixes.
 
-   * _IMPORTANT:_ Always work with the current developer branch of the quickstart repository. The is the branch that automatically displays in the dropdown when you browse to product quickstart directory, for example: <https://github.com/jboss-developer/jboss-eap-quickstarts>
+   * _IMPORTANT:_ Always work with the current developer branch of the quickstart repository. The is the branch that automatically displays in the dropdown when you browse to product quickstart directory, for example: <https://github.com/wildfly/quickstart>
    * Checkout the latest source code from the current `-develop` branch into your own branch using the following syntax:
 
             git checkout -b  <topic-branch-name> upstream/<current-development-branch>
    * If you are fixing a Bugzilla or JIRA, it is a good practice to use the number in the branch name. For new quickstarts or other fixes, try to use a good description for the branch name.
    * The following are examples of Git checkout commands:
 
-            git checkout -b Bz-98765432 upstream/7.1.x-develop
-            git checkout -b JDF-9876543 upstream/7.1.x-develop
-            git checkout -b add-xyz-quickstart upstream/7.1.x-develop
+            git checkout -b Bz-98765432 upstream/11.x
+            git checkout -b JDF-9876543 upstream/11.x
+            git checkout -b add-xyz-quickstart upstream/11.x
 7. Contribute new code or make changes to existing files. Make sure that you follow the [General Guidelines](#general-guidelines) below.
 
 8. To verify if your code followed the General Guidelines you can run [QS Tools](http://jboss-developer.github.io/maven-qstools-plugin/) on your project.
@@ -136,7 +135,7 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
 * The quickstart project or folder name should match the quickstart name. Each sample project should have a unique name, allowing easy identification by users and developers.
 
-* The quickstart project or folder name should be located in the root directory of the product quickstarts repository and should not be nested under other quickstarts or folders. For example, if you create quickstart "foo" for the JBoss EAP quickstarts, it should appear here: `YOUR_PATH/jboss-eap-quickstarts/foo`.
+* The quickstart project or folder name should be located in the root directory of the product quickstarts repository and should not be nested under other quickstarts or folders. For example, if you create quickstart "foo" for the JBoss EAP quickstarts, it should appear here: `YOUR_PATH/quickstart/foo`.
 
 * The quickstart directory structure should follow standard Java project rules:
 
@@ -164,11 +163,11 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
     | jboss-enterprise-maven-repository| https://maven.repository.redhat.com/ga/ | The JBoss EAP product repository |
     | jboss-developer-staging-repository | http://jboss-developer.github.io/temp-maven-repo/ | The JBoss developer staging repository, which only contains staged artifacts |
 
-    See the [`template/pom.xml`](https://github.com/jboss-developer/jboss-eap-quickstarts/blob/7.1.x-develop/template/pom.xml#L48) file for an example of how to configure the `<repositories/>` and `<pluginRepositories/>` elements in a quickstart `pom.xml` file.
+    See the [`template/pom.xml`](https://github.com/wildfly/quickstart/blob/11.x/template/pom.xml#L48) file for an example of how to configure the `<repositories/>` and `<pluginRepositories/>` elements in a quickstart `pom.xml` file.
 
 * If you create a quickstart that uses a database table, make sure the name you use for the table is unique across all quickstarts.
 
-* The project must follow the structure used by existing quickstarts such as [numberguess](https://github.com/jboss-developer/jboss-eap-quickstarts/tree/7.1.x-develop/numberguess). A good starting point would be to copy the `numberguess` project.
+* The project must follow the structure used by existing quickstarts such as [numberguess](https://github.com/wildfly/quickstart/tree/11.x/numberguess). A good starting point would be to copy the `numberguess` project.
 
 * The sample project should be importable into JBoss Developer Studio/JBoss Tools and be deployable from there.
 
@@ -206,12 +205,12 @@ This document details the steps needed to contribute to the JBoss EAP quickstart
 
   * Follow the primary layout, style, and graphics of the original.
 
-  * Projects can have 3-4 lines directly under the EAP banner in the middle section to describe what makes this variant different.
+  * Projects can have 3-4 lines directly under the JBoss EAP banner in the middle section to describe what makes this variant different.
      * How projects use that space is up to them, but options include plain text, bullet points, etc....
 
   * Projects can have their logo in the left side of the banner.
     * The sidebar area can contain a section with links to the related projects, wiki, tutorials, etc...
-       * This should be below any EAP link areas.
+       * This should be below any JBoss EAP link areas.
 
     If appropriate for the technology the application should expose RESTful endpoints following the example of the original kitchensink quickstart.  This should also include the RESTful links in the member table.
 
@@ -411,12 +410,12 @@ The following instructions are based on information in this blog: <http://blog.n
 
 5. Navigate to quickstarts parent directory where you want to move the quickstart.
 
-        cd ~/jboss-eap-quickstarts
+        cd ~/quickstart
 
 6. Checkout a branch to work in.
 
         git fetch upstream
-        git checkout -b merge-xyz-quickstart upstream/7.1.x-develop
+        git checkout -b merge-xyz-quickstart upstream/11.x
 
 7. Merge the patches into the destination directory.
 
@@ -435,11 +434,11 @@ Administrative Tasks
 
 ### Create a Product Branch from the Development Branch
 
-During the initial development phase of the product, generally all updates are only done to the current development branch, for example, `7.1.x-devel`. However, when it is close to time to begin doing product builds, we need to create a new product branch from the development branch to use to build the product quickstarts.
+During the initial development phase of the product, generally all updates are only done to the current development branch, for example, `11.x`. However, when it is close to time to begin doing product builds, we need to create a new product branch from the development branch to use to build the product quickstarts.
 
 These are the steps to create the new product branch.
 
-1. Update the existing '7.1.x-devel' branch to make sure it is current.
+1. Update the existing '7.1.x-develop' branch to make sure it is current.
 
     a. Update the <version> in the `pom.xml` files to use `7.1.0-SNAPSHOT`.
 
@@ -447,14 +446,14 @@ These are the steps to create the new product branch.
 
     c. Change the `7.0` references to `7.1` in the `guide/KitchensinkQuickstart.asciidoc` file.
 
-    d. Commit these changes to the `7.1.x-devel` branch so it is using the correct versions.
+    d. Commit these changes to the `7.1.x-develop` branch so it is using the correct versions.
 
-2. Create the new product branch from the `7.1.x-devel` branch.
+2. Create the new product branch from the `7.1.x-develop` branch.
 
-    a. Checkout out a new topic branch from the updated `upstream/7.1.x-devel` branch and name it by removing the `-devel`.
+    a. Checkout out a new topic branch from the updated `upstream/7.1.x-develop` branch and name it by removing the `-develop`.
 
             git fetch upstream
-            git checkout -b 7.1.x upstream/7.1.x-devel
+            git checkout -b 7.1.x upstream/7.1.x-develop
 
     b. Edit the  .gitignore file to remove the `README.html` entry.  Use `git add` to add the modified file.
 
@@ -478,12 +477,12 @@ These are the steps to create the new product branch.
 
 Once you have created the product branch, you must apply all fixes to both branches. Use the following procedure to update the branches.
 
-1. Check out a topic branch from the upstream development branch.
+1. Check out a topic branch from the current upstream development branch.
 
         git fetch upstream
-        git checkout -b JBEAP-1234 upstream/7.1.x-develop
+        git checkout -b JBEAP-1234 upstream/11.x
 
-2. Make the fixes and push the commit to the `7.1.x-devel` branch.
+2. Make the fixes and push the commit to the `7.1.x-develop` branch.
 
 3. Check out a topic branch from the upstream development branch.
 
