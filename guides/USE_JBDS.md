@@ -1,16 +1,20 @@
-Use Red Hat JBoss Developer Studio or Eclipse to Run the Quickstarts
-============================================================
+# Use Red Hat JBoss Developer Studio or Eclipse to Run the Quickstarts
 
-You can also deploy many of the quickstarts and run the Arquillian tests from Eclipse using JBoss tools. However, EJB Client currently has limited support in the Eclipse Web Tools Platform (WTP). For that reason, some quickstarts that ship with Red Hat JBoss Enterprise Application Platform are not supported in Red Hat JBoss Developer Studio.
+You can also deploy many of the quickstarts and run the Arquillian tests from Eclipse using JBoss tools. However, the EJB Client currently has limited support in the Eclipse Web Tools Platform (WTP). For that reason, some quickstarts that ship with Red Hat JBoss Enterprise Application Platform are not supported in Red Hat JBoss Developer Studio.
 
-For information on how to configure Maven and Red Hat JBoss Developer Studio for use with the quickstarts, see the _Getting Started Guide_ in the [Product Documentation](https://access.redhat.com/documentation/en/jboss-enterprise-application-platform/) for Red Hat JBoss Enterprise Application Platform.
+See [Setting Up the Development Environment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/development_guide/#setting_up_the_development_environment) in the _Development Guide_ for JBoss EAP for information about how to download and install  JBoss Developer Studio and how to add the JBoss EAP server to the configuration.
+
+For information about how to configure Maven and  JBoss Developer Studio for use with the quickstarts, see [Configure Maven for Use with Red Hat JBoss Developer Studio](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/development_guide/#configure_maven_for_use_with_red_hat_jboss_developer_studio_) in the _Development Guide_ for JBoss EAP.
+
+For information about how to deploy and run the quickstarts and to run the Arquillian tests in JBoss Developer Studio, see [Run the Quickstarts in JBoss Developer Studio](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/development_guide/#run_the_quickstarts_in_red_hat_jboss_developer_studio) in the _Development Guide_ for JBoss EAP.
+
+For instructions to run the Arquillian tests using the Maven command line, see [Run the Arquillian Tests](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/RUN_ARQUILLIAN_TESTS.md#run-the-arquillian-tests).
 
 See [Get Started](http://www.jboss.org/get-started/ "Get Started") on the JBoss Developer web site for additional information.
 
-Important Special Instructions
-------------
+## Important Special Instructions
 
-1. Your quickstart project folder must be located outside of your IDE workspace. If your quickstart project folder is located within the IDE workspace when you import it into Red Hat JBoss Developer Studio, the IDE generates an invalid project name and an invalid WAR archive name. Be sure your quickstart project folder is located outside the IDE workspace before you begin!
+1. Your quickstart project folder must be located outside of your IDE workspace. If your quickstart project folder is located within the IDE workspace when you import it into JBoss Developer Studio, the IDE generates an invalid project name and an invalid WAR archive name. Be sure your quickstart project folder is located outside the IDE workspace before you begin!
 
 2. Be sure to follow the instructions in the quickstart `README.md` file to add any required application users or make the appropriate server configuration changes.
 
@@ -49,7 +53,7 @@ To deploy a quickstart that consists of multiple projects containing interdepend
 Known Issues for JBoss EAP Quickstarts
 ------------
 
-You may see one or more of the following errors or warnings when you import quickstart projects into Red Hat JBoss Developer Studio.
+You may see one or more of the following errors or warnings when you import quickstart projects into JBoss Developer Studio.
 
 * **JRE System Library Problem: Build path specifies execution environment JavaSE-1.6. There are no JREs installed in the workspace that are strictly compatible with this environment.**
 
