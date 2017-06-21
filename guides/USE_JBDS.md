@@ -1,6 +1,21 @@
 # Use Red Hat JBoss Developer Studio or Eclipse to Run the Quickstarts
 
-You can also deploy many of the quickstarts and run the Arquillian tests from Eclipse using JBoss tools. However, the EJB Client currently has limited support in the Eclipse Web Tools Platform (WTP). For that reason, some quickstarts that ship with Red Hat JBoss Enterprise Application Platform are not supported in Red Hat JBoss Developer Studio.
+
+You can deploy many of the quickstarts and run the Arquillian tests from Eclipse using JBoss tools. However, the EJB Client currently has limited support in the Eclipse Web Tools Platform (WTP). For that reason, some quickstarts that ship with Red Hat JBoss Enterprise Application Platform are not supported in Red Hat JBoss Developer Studio.
+
+This guide includes the following information.
+
+* [Where to Find Information](#where-to-find-information)
+* [Important Special Instructions](#important-special-instructions)
+* [Deploying Quickstarts and Running the Arquillian Tests](#deploying-quickstarts-and-running-the-arquillian-tests)
+    * [Deploy a Quickstart WAR Project](#deploy-a-quickstart-war-project)
+    * [Deploy a Quickstart EAR Project](#deploy-a-quickstart-ear-project)
+    * [Deploy a Quickstart Containing Server and Java Client Projects](#deploy-a-quickstart-containing-server-and-java-client-projects)
+    * [Deploy a Quickstart Consisting of Multiple Interdependent Projects](#deploy-a-quickstart-consisting-of-multiple-interdependent-projects)
+    * [Run a Quickstart's Arquillian Tests](#run-a-quickstarts-arquillian-tests)
+* [Known Issues for JBoss EAP Quickstarts](#known-issues-for-jboss-eap-quickstarts)
+
+## Where to Find Information
 
 See [Setting Up the Development Environment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/development_guide/#setting_up_the_development_environment) in the _Development Guide_ for JBoss EAP for information about how to download and install  JBoss Developer Studio and how to add the JBoss EAP server to the configuration.
 
@@ -10,7 +25,7 @@ For information about how to deploy and run the quickstarts and to run the Arqui
 
 For instructions to run the Arquillian tests using the Maven command line, see [Run the Arquillian Tests](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/RUN_ARQUILLIAN_TESTS.md#run-the-arquillian-tests).
 
-See [Get Started](http://www.jboss.org/get-started/ "Get Started") on the JBoss Developer web site for additional information.
+See [Red Hat JBoss Developer Studio](https://developers.redhat.com/products/devstudio/overview/ "Get Started") on the Red Hat Developer Program web site for additional information.
 
 ## Important Special Instructions
 
@@ -22,7 +37,17 @@ See [Get Started](http://www.jboss.org/get-started/ "Get Started") on the JBoss 
 
 4. If you see errors or warnings when you import or run a quickstart, see the list of [Known Issues for JBoss EAP Quickstarts](#known-issues-for-jboss-eap-quickstarts) below for an explanation.
 
-### Quickstarts Containing an EAR
+## Deploying Quickstarts and Running the Arquillian Tests
+
+### Deploy a Quickstart WAR Project
+
+For WAR projects, you simply deploy the project.
+
+1. Right-click on the project, and choose `Run As` --> `Run on Server`.
+2. Choose the server and click `Finish`.
+3. This starts the server, deploys the application, and opens a browser window that accesses the running application.
+
+### Deploy a Quickstart EAR Project
 
 For EAR projects, you simply deploy the EAR subproject. The subproject name is usually appended with "-ear-ear".
 
@@ -30,7 +55,7 @@ For EAR projects, you simply deploy the EAR subproject. The subproject name is u
 2. Choose the server and click `Finish`.
 3. This starts the server, deploys the application, and opens a browser window that accesses the running application.
 
-### Quickstarts Containing a Server and Java Client
+### Deploy a Quickstart Containing Server and Java Client Projects
 
 You must deploy the server project before running the client. More detailed instructions be found in the `shopping-cart` quickstart.
 
@@ -39,7 +64,7 @@ You must deploy the server project before running the client. More detailed inst
 3. Right-click on the Java client project and choose `Run As` --> `Java Application`. In the `Select Java Application` window, choose the client class and click `OK`.
 4. The client output displays in the `Console` window.
 
-### Quickstarts Consisting of Multiple Interdependent Projects
+### Deploy a Quickstart Consisting of Multiple Interdependent Projects
 
 To deploy a quickstart that consists of multiple projects containing interdependencies on each other without opening a browser and running the application, use the following steps. More detailed instructions be found in the `inter-app` quickstart.
 
@@ -49,9 +74,15 @@ To deploy a quickstart that consists of multiple projects containing interdepend
    * `Batch` mode: In the `Servers` tab, right-click on the server and choose `Add and Remove`. If the quickstart projects are the only projects in the list, click `Add All`. Otherwise, use multi-select to select them and click `Add`. Then click `Finish`.
 3. Right-click on the individual projects and choose `Run As` --> `Run on Server`. A browser window appears that accesses the running application.
 
+### Run a Quickstart's Arquillian Tests
 
-Known Issues for JBoss EAP Quickstarts
-------------
+You can run the Arquillian tests that are included with many of the quickstarts by following the steps below. See [Run the Arquillian Tests](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/RUN_ARQUILLIAN_TESTS.md#run-the-arquillian-tests) for more information about Arquillian tests.
+
+1. In the `Servers` tab, right-click on the JBoss EAP server and choose `Start`.
+2. Right-click on the quickstart project in the `Project Explorer` tab and choose `Run As` -> `Maven Build`.
+3. Enter `clean verify -Parq-wildfly-remote` in the `Goals` input field and click `Run`.
+
+## Known Issues for JBoss EAP Quickstarts
 
 You may see one or more of the following errors or warnings when you import quickstart projects into JBoss Developer Studio.
 
