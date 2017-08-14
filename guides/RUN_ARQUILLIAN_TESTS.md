@@ -42,7 +42,7 @@ Arquillian's remote container adapter expects a Red Hat JBoss Enterprise Applica
 
    * For JBoss EAP 7.x, this is the `arq-wildfly-remote` profile, so you type the following command:
 
-            mvn clean verify -Parq-wildfly-remote
+            mvn clean verify -Parq-remote
 
 
 _Note:_ See the individual quickstart README file for any additional requirements.
@@ -89,6 +89,6 @@ Arquillian's managed container adapter starts the container for you and requires
 
    * For JBoss EAP 7.x, this is the `arq-wildfly-managed` profile, so you type the following command:
 
-            mvn clean verify -Parq-wildfly-managed
+            mvn clean verify -Parq-managed
 
 _Note:_ See the individual quickstart README file for any additional requirements.
