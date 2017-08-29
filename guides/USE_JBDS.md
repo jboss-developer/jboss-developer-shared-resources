@@ -76,11 +76,11 @@ To deploy a quickstart that consists of multiple projects containing interdepend
 
 ### Run a Quickstart's Arquillian Tests
 
-You can run the Arquillian tests that are included with many of the quickstarts by following the steps below. See [Run the Arquillian Tests](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/RUN_ARQUILLIAN_TESTS.md#run-the-arquillian-tests) for more information about Arquillian tests.
+You can run the Arquillian tests that are included with many of the JBoss EAP 7.1 quickstarts by following the steps below. See [Run the Arquillian Tests](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/RUN_ARQUILLIAN_TESTS.md#run-the-arquillian-tests) for more complete information about running the Arquillian tests and for instructions for older versions of the quickstarts.
 
 1. In the `Servers` tab, right-click on the JBoss EAP server and choose `Start`.
 2. Right-click on the quickstart project in the `Project Explorer` tab and choose `Run As` -> `Maven Build`.
-3. Enter `clean verify -Parq-wildfly-remote` in the `Goals` input field and click `Run`.
+3. Enter `clean verify -Parq-remote` in the `Goals` input field and click `Run`.
 
 ## Known Issues for JBoss EAP Quickstarts
 
