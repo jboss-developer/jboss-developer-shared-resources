@@ -37,25 +37,28 @@ See [Red Hat JBoss Developer Studio](https://developers.redhat.com/products/devs
 
 4. If you see errors or warnings when you import or run a quickstart, see the list of [Known Issues for JBoss EAP Quickstarts](#known-issues-for-jboss-eap-quickstarts) below for an explanation.
 
-## Deploying Quickstarts and Running the Arquillian Tests
+## Deploying and Undeploying Quickstarts and Running the Arquillian Tests
 
-### Deploy a Quickstart WAR Project
+### Deploy and Undeploy a Quickstart WAR Project
 
 For WAR projects, you simply deploy the project.
 
 1. Right-click on the project, and choose `Run As` --> `Run on Server`.
 2. Choose the server and click `Finish`.
 3. This starts the server, deploys the application, and opens a browser window that accesses the running application.
+4. To undeploy the project, right-click on the project and choose `Run As` --> `Maven build`. Enter `wildfly:undeploy` for the `Goals` and click `Run`.
 
-### Deploy a Quickstart EAR Project
+
+### Deploy and Undeploy a Quickstart EAR Project
 
 For EAR projects, you simply deploy the EAR subproject. The subproject name is usually appended with "-ear-ear".
 
 1. Right-click on the EAR subproject, and choose `Run As` --> `Run on Server`.
 2. Choose the server and click `Finish`.
 3. This starts the server, deploys the application, and opens a browser window that accesses the running application.
+4. To undeploy the project, right-click on the EAR subproject and choose `Run As` --> `Maven build`. Enter `wildfly:undeploy` for the `Goals` and click `Run`.
 
-### Deploy a Quickstart Containing Server and Java Client Projects
+### Deploy and Undeploy a Quickstart Containing Server and Java Client Projects
 
 You must deploy the server project before running the client. More detailed instructions be found in the `shopping-cart` quickstart.
 
@@ -63,8 +66,9 @@ You must deploy the server project before running the client. More detailed inst
 2. Right-click on the server project and choose `Run As` --> `Run on Server`.
 3. Right-click on the Java client project and choose `Run As` --> `Java Application`. In the `Select Java Application` window, choose the client class and click `OK`.
 4. The client output displays in the `Console` window.
+5. To undeploy the project, right-click on the server subproject and choose `Run As` --> `Maven build`. Enter `wildfly:undeploy` for the `Goals` and click `Run`.
 
-### Deploy a Quickstart Consisting of Multiple Interdependent Projects
+### Deploy and Undeploy a Quickstart Consisting of Multiple Interdependent Projects
 
 To deploy a quickstart that consists of multiple projects containing interdependencies on each other without opening a browser and running the application, use the following steps. More detailed instructions be found in the `inter-app` quickstart.
 
@@ -73,6 +77,8 @@ To deploy a quickstart that consists of multiple projects containing interdepend
    * `Drag and Drop` mode: Click to multi-select the projects, then drag and drop them on the running JBoss EAP server. This deploys the projects to the server without opening the browser.
    * `Batch` mode: In the `Servers` tab, right-click on the server and choose `Add and Remove`. If the quickstart projects are the only projects in the list, click `Add All`. Otherwise, use multi-select to select them and click `Add`. Then click `Finish`.
 3. Right-click on the individual projects and choose `Run As` --> `Run on Server`. A browser window appears that accesses the running application.
+4. To undeploy the projects, right-click on the subprojects in the reverse order of how they were deployed, and choose `Run As` --> `Maven build`. Enter `wildfly:undeploy` for the `Goals` and click `Run`.
+
 
 ### Run a Quickstart's Arquillian Tests
 
