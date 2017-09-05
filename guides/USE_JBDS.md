@@ -7,11 +7,11 @@ This guide includes the following information.
 
 * [Where to Find Information](#where-to-find-information)
 * [Important Special Instructions](#important-special-instructions)
-* [Deploying Quickstarts and Running the Arquillian Tests](#deploying-quickstarts-and-running-the-arquillian-tests)
-    * [Deploy a Quickstart WAR Project](#deploy-a-quickstart-war-project)
-    * [Deploy a Quickstart EAR Project](#deploy-a-quickstart-ear-project)
-    * [Deploy a Quickstart Containing Server and Java Client Projects](#deploy-a-quickstart-containing-server-and-java-client-projects)
-    * [Deploy a Quickstart Consisting of Multiple Interdependent Projects](#deploy-a-quickstart-consisting-of-multiple-interdependent-projects)
+* [Deploying and Undeploying Quickstarts and Running the Arquillian Tests](#deploying-and-undeploying-quickstarts-and-running-the-arquillian-tests)
+    * [Deploy and Undeploy a Quickstart WAR Project](#deploy-and-undeploy-a-quickstart-war-project)
+    * [Deploy and Undeploy a Quickstart EAR Project](#deploy-and-undeploy-a-quickstart-ear-project)
+    * [Deploy and Undeploy a Quickstart Containing Server and Java Client Projects](#deploy-and-undeploy-a-quickstart-containing-server-and-java-client-projects)
+    * [Deploy and Undeploy a Quickstart Consisting of Multiple Interdependent Projects](#deploy-and-undeploy-a-quickstart-consisting-of-multiple-interdependent-projects)
     * [Run a Quickstart's Arquillian Tests](#run-a-quickstarts-arquillian-tests)
 * [Known Issues for JBoss EAP Quickstarts](#known-issues-for-jboss-eap-quickstarts)
 
