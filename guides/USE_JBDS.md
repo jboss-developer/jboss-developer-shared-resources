@@ -62,11 +62,10 @@ For EAR projects, you simply deploy the EAR subproject. The subproject name is u
 
 You must deploy the server project before running the client. More detailed instructions be found in the `shopping-cart` quickstart.
 
-1. In the `Servers` tab, right-click on the JBoss EAP server and choose `Start`.
-2. Right-click on the server project and choose `Run As` --> `Run on Server`.
-3. Right-click on the Java client project and choose `Run As` --> `Java Application`. In the `Select Java Application` window, choose the client class and click `OK`.
-4. The client output displays in the `Console` window.
-5. To undeploy the project, right-click on the server subproject and choose `Run As` --> `Maven build`. Enter `wildfly:undeploy` for the `Goals` and click `Run`.
+1. Right-click on the server project and choose `Run As` --> `Run on Server`.
+2. Right-click on the Java client project and choose `Run As` --> `Java Application`. In the `Select Java Application` window, choose the client class and click `OK`.
+3. The client output displays in the `Console` window.
+4. To undeploy the project, right-click on the server subproject and choose `Run As` --> `Maven build`. Enter `wildfly:undeploy` for the `Goals` and click `Run`.
 
 ### Deploy and Undeploy a Quickstart Consisting of Multiple Interdependent Projects
 
