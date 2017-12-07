@@ -8,7 +8,7 @@ The artifacts and dependencies needed to build and deploy applications to Red Ha
 
 You can skip these instructions if you meet one of the following criteria:
 
-* You plan to use Maven command line and have already installed Maven 3.1.1 or later. In this case, you should already be configured to build and deploy the quickstarts. If you installed Maven 3.2.2, you must update to Maven 3.2.3 or later. The reasons are described later under [Download and Install Maven](#download-and-install-maven).
+* You plan to use Maven command line and have already installed Maven 3.2.0 or later. In this case, you should already be configured to build and deploy the quickstarts.
 * You plan to use Red Hat JBoss Developer Studio (8 or above) to build and deploy the quickstarts. These IDEs embed Maven 3.2.1 so you do not need to install it separately. If you plan to use JBoss Developer Studio 7.1.1, you must download and install a newer version of Maven and replace the embedded version of Maven.
 
 Some common profiles are defined and may be used in some quickstart POM files. These profiles are described here: [Use of Maven Profiles in POM Files](#use-of-maven-profiles-in-pom-files)
@@ -16,12 +16,10 @@ Some common profiles are defined and may be used in some quickstart POM files. T
 Download and Install Maven
 --------------------------
 
-If you have not yet done so, you must download and install Maven.
+If you have not yet done so, you must download and install Maven 3.2.0 or later.
 
 1. Go to [Apache Maven Project - Download Maven](http://maven.apache.org/download.html) and download the latest distribution for your operating system.
 2. See the Maven documentation for information on how to download and install Apache Maven for your operating system.
-
-_Note:_ Maven 3.2.2 introduced a bug that breaks resolution of the JBoss EAP BOM dependencies because it ignores additional repositories during artifact resolution. For more information about this bug, see <https://jira.codehaus.org/browse/MNG-5663>. Be sure to use Maven 3.2.3 or later.
            
 
 Configure the IDE to Use the Updated Maven
