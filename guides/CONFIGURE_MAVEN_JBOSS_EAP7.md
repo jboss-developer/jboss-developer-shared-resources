@@ -9,33 +9,18 @@ The artifacts and dependencies needed to build and deploy applications to Red Ha
 You can skip these instructions if you meet one of the following criteria:
 
 * You plan to use Maven command line and have already installed Maven 3.2.0 or later. In this case, you should already be configured to build and deploy the quickstarts.
-* You plan to use Red Hat JBoss Developer Studio (8 or above) to build and deploy the quickstarts. These IDEs embed Maven 3.2.1 so you do not need to install it separately. If you plan to use JBoss Developer Studio 7.1.1, you must download and install a newer version of Maven and replace the embedded version of Maven.
+* You plan to use Red Hat JBoss Developer Studio 9.1 or later to build and deploy the quickstarts. These IDEs embed Maven 3.2.1 so you do not need to install it separately.
 
 Some common profiles are defined and may be used in some quickstart POM files. These profiles are described here: [Use of Maven Profiles in POM Files](#use-of-maven-profiles-in-pom-files)
 
 Download and Install Maven
 --------------------------
 
-If you have not yet done so, you must download and install Maven 3.2.0 or later.
+If you plan to use the command line and have not yet done so, you must download and install Maven 3.2.0 or later.
 
 1. Go to [Apache Maven Project - Download Maven](http://maven.apache.org/download.html) and download the latest distribution for your operating system.
 2. See the Maven documentation for information on how to download and install Apache Maven for your operating system.
            
-
-Configure the IDE to Use the Updated Maven
---------------------------
-
-If you plan to use JBoss Developer Studio 7.1.1, follow this procedure to replace the embedded 3.0.4 version of Maven with the 3.2.3 or later version installed in the previous section.
-
- 
-Maven is distributed with JBoss Developer Studio, so it is not necessary to install it separately. However, you must configure Maven for use by the Java EE Web Project wizard for deployments to Red Hat JBoss Enterprise Application Platform 7.
-
-1. From the menu, choose `Window` --> `Preferences`.
-2. Expand `Maven` and click on `Installations`.
-3. Uncheck `Embedded (3.0.4/1.4.0.20130531-2315)`
-4. Click `Add` and navigate to your Maven install directory. Select it and click `OK`.
-5. Be sure the new external Maven installation is checked and click `OK` to return to JBoss Developer Studio.
-
 
 Use of Maven Profiles in POM Files
 ----------------------------------
