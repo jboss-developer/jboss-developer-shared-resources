@@ -20,7 +20,8 @@ If you plan to use the command line and have not yet done so, you must download 
 
 1. Go to [Apache Maven Project - Download Maven](http://maven.apache.org/download.html) and download the latest distribution for your operating system.
 2. See the Maven documentation for information on how to download and install Apache Maven for your operating system.
-           
+ 
+_IMPORTANT_: There is a known issue with the checkstyle plugin for Maven versions 3.2.1 through 3.3.3 that results in build failure if you attempt to build all of the quicktarts using the `mvn -DskipTests=true install` command. You can disable the checkstyle plugin by adding the `-Dcheckstyle.skip=true` argument on the command line, for example: `mvn -DskipTests=true install -Dcheckstyle.skip=true`. The checkstyle plugin is not an issue if you run with Maven 3.3.9 or later. For more information, see [JBEAP-13943](https://issues.jboss.org/browse/JBEAP-13943).
 
 Use of Maven Profiles in POM Files
 ----------------------------------
