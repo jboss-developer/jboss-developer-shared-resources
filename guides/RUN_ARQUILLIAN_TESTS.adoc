@@ -1,0 +1,123 @@
+[[run_the_arquillian_tests]]
+= Run the Arquillian Tests
+
+
+Arquillian is a testing platform that makes it easy to create automated integration, functional, and acceptance tests for your project. Some quickstarts provide Arquillian tests to demonstrate how write tests for your project using Red Hat JBoss Enterprise Application Platform. Because Arquillian tests an application on a real server, these tests are configured to be skipped by default.
+
+There are two ways you can run Arquillian tests:
+
+* xref:test_the_quickstart_on_a_remote_jboss_eap_server[Test the Quickstart on a Remote JBoss EAP Server]: You must start the server yourself and run the tests against a remote server.
+* xref:test_the_quickstart_on_a_managed_jboss_eap_server[Test the Quickstart on a Managed JBoss EAP Server]: You must not start the server and instead let Arquillian manage the server lifecycle during the testing.
+
+The individual quickstart `README` file should tell you what to expect in the console output and the server log when you run the tests.
+
+NOTE: The JBoss EAP 7 quickstarts include the repository in the project POM files and do not require you to configure your Maven settings.
+
+[[test_the_quickstart_on_a_remote_jboss_eap_server]]
+== Test the Quickstart on a Remote JBoss EAP Server
+
+Arquillian's remote container adapter expects a JBoss EAP server instance to be already started prior to the test execution.
+
+. You must start the JBoss EAP server as described in the quickstart `README` file.
+
+. If you run the tests against a JBoss EAP server running on a machine other than `localhost`, you must configure the following properties in the `src/test/resources/arquillian.xml` file:
++
+[source,xml,options="nowrap"]
+----
+<container qualifier="jboss" default="true">
+    <configuration>
+        <property name="managementAddress">myhost.example.com</property>
+        <property name="managementPort">9999</property>
+        <property name="username">customAdminUser</property>
+        <property name="password">myPassword</property>
+    </configuration>
+</container>
+----
+
+. Run the `test` goal with the correct profile activated.
+
+* For JBoss EAP 6.x, this is the `arq-jbossas-remote` profile, so you type the following command:
++
+[source,options="nowrap"]
+----
+$ mvn clean test -Parq-jbossas-remote
+----
+* For JBoss EAP 7.0, this is the `arq-wildfly-remote` profile, so you type the following command:
++
+[source,options="nowrap"]
+----
+$ mvn clean test -Parq-wildfly-remote
+----
+* For JBoss EAP 7.1, this is the `arq-remote` profile, so you type the following command:
++
+[source,options="nowrap"]
+----
+$ mvn clean verify -Parq-remote
+----
+
+NOTE: See the individual quickstart `README` files for any additional requirements.
+
+[[test_the_quickstart_on_a_managed_jboss_eap_server]]
+== Test the Quickstart on a Managed JBoss EAP Server
+
+Arquillian's managed container adapter starts the container for you and requires that your JBoss EAP server is not running.
+
+. You must first let Arquillian know where to find the JBoss EAP server directory.
+
+* The simplest approach is to set the `__JBOSS_HOME__` environment variable to the full path to your JBoss EAP server directory, for example:
++
+[source,options="nowrap"]
+----
+$ export JBOSS_HOME=/home/myusername/EAP/jboss-eap-x.x/
+----
+* Alternatively, you can set the path in the `jbossHome` property in the quickstarts's Arquillian configuration file as follows.
+
+.. Open the `src/test/resources/arquillian.xml` file located in the quickstart directory.
+.. Find the configuration for the JBoss container. It should look like this:
++
+[source,xml,options="nowrap"]
+----
+<!-- Example configuration for a managed JBoss EAP instance -->
+<container qualifier="jboss" default="true">
+    <!-- By default, Arquillian will use the JBOSS_HOME environment variable to find the JBoss EAP installation.
+         If you prefer not to define the JBOSS_HOME environment variable, alternatively you can uncomment the
+         following `jbossHome` property and replace EAP_HOME with the path to your JBoss EAP installation. -->
+    <!--<configuration>
+        <property name="jbossHome">EAP_HOME</property>
+    </configuration> -->
+</container>
+----
+.. Uncomment the `configuration` element, find the `jbossHome` property, and replace the "EAP_HOME" value with the actual path to your JBoss EAP server. For example:
++
+[source,xml,options="nowrap"]
+----
+<!-- Example configuration for a remote JBoss EAP instance -->
+<container qualifier="jboss" default="true">
+    <configuration>
+        property name="jbossHome">/home/myusername/EAP/jboss-eap-x.x/</property>
+    </configuration>
+</container>
+----
+
+. Run the `test` goal with the correct profile activated.
+
+* For JBoss EAP 6.x, this is the `arq-jbossas-managed` profile, so you type the following command:
++
+[source,options="nowrap"]
+----
+$ mvn clean test -Parq-jbossas-managed
+----
+* For JBoss EAP 7.0, this is the `arq-wildfly-managed` profile, so you type the following command:
++
+[source,options="nowrap"]
+----
+$ mvn clean test -Parq-wildfly-managed
+----
+* For JBoss EAP 7.1, this is the `arq-managed` profile, so you type the following command:
++
+[source,options="nowrap"]
+----
+$ mvn clean verify -Parq-managed
+----
+
+NOTE: See the individual quickstart `README` files for any additional requirements.

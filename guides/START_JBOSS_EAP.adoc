@@ -1,0 +1,79 @@
+[[start_the_eap_server]]
+= Start the Red Hat JBoss Enterprise Application Platform Server
+
+Before you deploy a quickstart using the Maven command line tool, in most cases you need a running Red Hat JBoss Enterprise Application Platform server. A few of the Arquillian tests do not require a running server. This will be noted in the `README` file for that quickstart.
+
+The JBoss EAP server can be started the following ways.
+
+* xref:start_the_default_jboss_eap_server[Start the Default JBoss EAP Server]: This is the default configuration. It defines minimal subsystems and services.
+* xref:start_the_jboss_eap_server_with_the_full_profile[Start the JBoss EAP Server with the Full Profile]: This profile configures many of the commonly used subsystems and services.
+* xref:start_the_jboss_eap_server_with_custom_configuration_options[Start the JBoss EAP Server with Custom Configuration Options]: Custom configuration parameters can be specified on the command line when starting the server.
+
+The README for each quickstart specifies which configuration is required to run the example.
+
+A few xref:examples_of_commands_to_start_the_jboss_eap_server[examples of commands to start the JBoss EAP server] are displayed at the end of this guide.
+
+NOTE: See link:USE_OF_EAP_HOME.adoc[Use of EAP_HOME] for information about the JBoss EAP installation path.
+
+[[start_the_default_jboss_eap_server]]
+== Start the Default JBoss EAP Server
+
+To start the default JBoss EAP server:
+
+. Open a terminal and navigate to the root of the JBoss EAP server directory.
+. The following shows the command to start the JBoss EAP server:
+
+* For Linux: `$ __EAP_HOME__/bin/standalone.sh`
+* For Windows: `> __EAP_HOME__\bin\standalone.bat`
+
+[[start_the_jboss_eap_server_with_the_full_profile]]
+== Start the JBoss EAP Server with the Full Profile
+
+To start JBoss EAP with the full profile:
+
+. Open a terminal and navigate to the root of the JBoss EAP server directory.
+. The following shows the command to start the JBoss EAP server with the full profile:
+
+* For Linux: `$ __EAP_HOME__/bin/standalone.sh -c standalone-full.xml`
+* For Windows: `> __EAP_HOME__\bin\standalone.bat -c standalone-full.xml`
+
+[[start_the_jboss_eap_server_with_custom_configuration_options]]
+== Start the JBoss EAP Server with Custom Configuration Options
+
+To start JBoss EAP with custom configuration options:
+
+. Open a terminal and navigate to the root of the JBoss EAP server directory.
+. The following shows the command to start the JBoss EAP server. Replace `__CUSTOM_OPTIONS__` with the custom optional parameters specified in the quickstart `README` file.
+
+* For Linux: `$ __EAP_HOME__/bin/standalone.sh __CUSTOM_OPTIONS__`
+* For Windows: `> __EAP_HOME__\bin\standalone.bat __CUSTOM_OPTIONS__`
+
+[[examples_of_commands_to_start_the_jboss_eap_server]]
+== Examples of Commands to Start the JBoss EAP Server
+
+The following are a few examples of how to start the server with custom options:
+
+* Start the default server with a port offset of `100`:
++
+[source,subs="+quotes",options="nowrap"]
+----
+$ __EAP_HOME__/bin/standalone.sh -Djboss.socket.binding.port-offset=100
+----
+* Start the server with the OSGI configuration option:
++
+[source,subs="+quotes",options="nowrap"]
+----
+$ __EAP_HOME__/bin/standalone.sh  -c standalone-osgi.xml
+----
+* Start the server with the XTS subsystem enabled:
++
+[source,subs="+quotes",options="nowrap"]
+----
+$ __EAP_HOME__/bin/standalone.sh --server-config=../../docs/examples/configs/standalone-xts.xml
+----
+* Start the JBoss EAP server with the `full profile`, giving it the unique node ID `node1`:
++
+[source,subs="+quotes",options="nowrap"]
+----
+$ __EAP_HOME__/bin/standalone.sh -c standalone-full.xml -Djboss.tx.node.id=node1
+----
