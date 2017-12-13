@@ -1,0 +1,24 @@
+[[use_of_product_home_and_jboss_home_variables]]
+= Use of EAP_HOME and JBOSS_HOME Variables
+
+:ProductVersion: 7.1.0
+:ProductInstallFolderZip: jboss-eap-7.1
+:ProductInstallFolderInstaller: EAP-7.1.0
+
+The developer guides and quickstart `README` files use the *replaceable* value `__EAP_HOME__` to denote the path to the Red Hat JBoss Enterprise Application Platform 7 installation. When you encounter this value in a `README` file or guide, be sure to replace it with the actual path to your JBoss EAP 7 installation.
+
+*  If you installed JBoss EAP using the ZIP install method, the install directory is the `{ProductInstallFolderZip}` directory where you extracted the ZIP archive.
+
+* If you installed JBoss EAP using the RPM install method, the install directory is `/opt/rh/eap7/root/usr/share/wildfly/`.
+
+* If you used the installer to install JBoss EAP, the default path for `__EAP_HOME__` is `${user.home}/{ProductInstallFolderInstaller}`.
+
+** For Red Hat Enterprise Linux, Solaris, and HP-UX: `/home/__USER_NAME__/{ProductInstallFolderInstaller}/`
+** For Microsoft Windows: `C:\Users{backslash}__USER_NAME__{backslash}{ProductInstallFolderInstaller}\`
+
+* If you used the JBoss Developer Studio installer to install and configure the JBoss EAP Server, the default path for `__EAP_HOME__` is `${user.home}/jbdevstudio/runtimes/jboss-eap`.
+
+** For Linux: /home/__USER_NAME__/jbdevstudio/runtimes/jboss-eap/
+** For Windows: `C:\Users{backslash}__USER_NAME__\jbdevstudio\runtimes\jboss-eap` or `C:\Documents and Settings{backslash}__USER_NAME__\jbdevstudio\runtimes\jboss-eap\`
+
+The `JBOSS_HOME` *environment* variable, which is used in scripts, continues to work as it has in the past.

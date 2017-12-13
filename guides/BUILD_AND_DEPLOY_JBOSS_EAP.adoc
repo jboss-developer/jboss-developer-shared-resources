@@ -1,0 +1,95 @@
+[[build_and_deploy_eap]]
+= Build and Deploy the Quickstarts to JBoss EAP
+
+This document describes the basic steps to build, deploy, and undeploy the quickstarts. See the `README` file in each individual quickstart folder for specific details and information on how to run and access the example.
+
+The commands in this document use the *replaceable* value `__EAP_HOME__` to denote the path to the Red Hat JBoss Enterprise Application Platform 7 installation. When you encounter this value in a README file or guide, be sure to replace it with the actual path to your JBoss EAP installation. See link:USE_OF_EAP_HOME.adoc#use_of_product_home_and_jboss_home_variables[Use of EAP_HOME and JBOSS_HOME Variables] for more information about the installation path.
+
+See link:CONFIGURE_MAVEN_JBOSS_EAP.adoc#configure_maven_to_build_and_deploy_the_quickstarts[Configure Maven for JBoss EAP] to make sure you are configured correctly for testing the quickstarts.
+
+* xref:build_the_quickstart_archive[Build the Quickstart Archive]
+* xref:build_and_deploy_the_quickstart_archive[Build and Deploy the Quickstart Archive]
+* xref:undeploy_the_quickstart_archive[Undeploy the Quickstart Archive]
+* xref:verify_the_quickstarts_build_with_one_command[Verify the Quickstarts Build with One Command]
+* xref:undeploy_all_deployed_quickstarts_with_one_command[Undeploy All Deployed Quickstarts with One Command]
+
+[[build_the_quickstart_archive]]
+== Build the Quickstart Archive
+
+In most cases, you can use the following steps to build the application to test for compile errors or to view the contents of the archive. See the specific quickstart `README` file for complete details.
+
+. Open a terminal and navigate to the root directory of the quickstart you want to build.
+. Use this command if you only want to build the archive, but not deploy it:
++
+[source,options="nowrap"]
+----
+$ mvn clean install
+----
+
+[[build_and_deploy_the_quickstart_archive]]
+== Build and Deploy the Quickstart Archive
+
+In most cases, you can use the following steps to build and deploy the application. See the specific quickstart `README` file for complete details.
+
+. Make sure you start the JBoss EAP server as described in the quickstart README file.
+. Open a terminal and navigate to the root directory of the quickstart you want to run.
+. Use the following command to build and deploy the archive.
++
+[source,options="nowrap"]
+----
+$ mvn clean install wildfly:deploy
+----
+
+[[undeploy_the_quickstart_archive]]
+== Undeploy the Quickstart Archive
+
+Use the following command to undeploy the quickstart.
+
+[source,options="nowrap"]
+----
+$ mvn wildfly:undeploy
+----
+
+[[verify_the_quickstarts_build_with_one_command]]
+== Verify the Quickstarts Build with One Command
+
+You can verify the quickstarts build using one command. However, quickstarts that have complex dependencies must be skipped. For example, the `jax-rs-client` quickstart is a RESTEasy client that depends on the deployment of the `helloworld-rs` quickstart. The `pom.xml` file in the root directory of the quickstarts defines a `complex-dependencies` profile to exclude these quickstarts from the root build process. For more information, see link:CONFIGURE_MAVEN_JBOSS_EAP.adoc#use_of_maven_profiles_in_pom_files[Use of Maven Profiles in POM Files].
+
+To build the quickstarts:
+
+. Do not start the JBoss EAP server.
+. Open a terminal and navigate to the root directory of the quickstarts.
+. Use this command to build the quickstarts that do not have complex dependencies:
++
+[source,options="nowrap"]
+----
+$ mvn clean install '-Pdefault,!complex-dependencies'
+----
+
+[NOTE]
+====
+If you see a `java.lang.OutOfMemoryError: PermGen space` error when you run this command, increase the memory by typing the following command for your operating system, then try the above command again.
+[source,options="nowrap"]
+----
+For Linux:   export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
+For Windows: SET MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
+----
+====
+
+[[undeploy_all_deployed_quickstarts_with_one_command]]
+== Undeploy All Deployed Quickstarts with One Command
+
+To undeploy the quickstarts from the root of the quickstart folder, you must pass the argument `-fae` (fail at end) on the command line. This allows the command to continue past quickstarts that fail due to complex dependencies and quickstarts that only have Arquillian tests and do not deploy archives to the server.
+
+You can undeploy quickstarts using the following procedure:
+
+. Start the JBoss EAP server.
+. Open a terminal and navigate to the root directory of the quickstarts.
+. Use this command to undeploy any deployed quickstarts:
++
+[source,options="nowrap"]
+----
+$ mvn wildfly:undeploy -fae
+----
+
+To undeploy any quickstarts that fail due to complex dependencies, follow the undeploy procedure described in the quickstart's `README` file.
