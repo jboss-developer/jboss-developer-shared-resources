@@ -1,4 +1,5 @@
 [[configure_the_postgresql_database_for_use_with_the_quickstarts]]
+
 = Configure the PostgreSQL Database for Use with the Quickstarts
 
 [[configure_the_postgresql_database_summary]]

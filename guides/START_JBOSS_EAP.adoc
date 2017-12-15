@@ -1,4 +1,5 @@
-[[start_the_eap_server]]
+[[start_the_red_hat_jboss_enterprise_application_platform_server]]
+
 = Start the Red Hat JBoss Enterprise Application Platform Server
 
 Before you deploy a quickstart using the Maven command line tool, in most cases you need a running Red Hat JBoss Enterprise Application Platform server. A few of the Arquillian tests do not require a running server. This will be noted in the `README` file for that quickstart.

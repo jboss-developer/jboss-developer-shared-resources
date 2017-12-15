@@ -1,4 +1,5 @@
-[[build_and_deploy_eap]]
+[[build_and_deploy_the_quickstarts_to_jboss_eap]]
+
 = Build and Deploy the Quickstarts to JBoss EAP
 
 This document describes the basic steps to build, deploy, and undeploy the quickstarts. See the `README` file in each individual quickstart folder for specific details and information on how to run and access the example.

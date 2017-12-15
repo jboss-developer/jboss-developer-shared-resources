@@ -1,4 +1,5 @@
 [[jboss_developer_contributing_guide]]
+
 = JBoss Developer Contributing Guide
 
 This document contains information targeted for developers who want to contribute to Red Hat JBoss Enterprise Application Platform developer projects.
