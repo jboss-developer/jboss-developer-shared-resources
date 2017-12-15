@@ -1,4 +1,5 @@
 [[use_of_product_home_and_jboss_home_variables]]
+
 = Use of WILDFLY_HOME and JBOSS_HOME Variables
 
 :ProductVersion: 7.2.0

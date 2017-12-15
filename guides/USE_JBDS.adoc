@@ -1,4 +1,5 @@
 [[use_red_hat_jboss_developer_studio_or_eclipse_to_run_the_quickstarts]]
+
 = Use Red Hat JBoss Developer Studio or Eclipse to Run the Quickstarts
 
 You can deploy many of the quickstarts and run the Arquillian tests from Eclipse using JBoss tools. However, the EJB Client currently has limited support in the Eclipse Web Tools Platform (WTP). For that reason, some quickstarts that ship with Red Hat JBoss Enterprise Application Platform are not supported in Red Hat JBoss Developer Studio.

@@ -1,4 +1,5 @@
 [[configure_maven_to_build_and_deploy_the_quickstarts]]
+
 = Configure Maven to Build and Deploy the Quickstarts
 
 [[configure_maven_overview]]
