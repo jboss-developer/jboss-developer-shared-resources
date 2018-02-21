@@ -106,18 +106,7 @@ git checkout -b add-xyz-quickstart upstream/master
 ----
 . Contribute new code or make changes to existing files. Make sure that you follow the xref:general_guidelines[General Guidelines] below.
 
-. To verify if your code followed the general guidelines you can run http://jboss-developer.github.io/maven-qstools-plugin/[QS Tools] on your project.
-+
-To run QS Tools, go to your quickstart project root and execute:
-+
-[source,options="nowrap"]
-----
-mvn -U org.jboss.maven.plugins:maven-qstools-plugin:check
-----
-+
-This generates a report in `__QUICKSTART_HOME__/target/site/qschecker.html`. Review the report to determine if your quickstart project violates any item in the xref:general_guidelines[General Guidelines].
-
-. Test your changes in 2 ways.
+. Test your changes in 2 ways. Be sure to fix any checkstyle or build issues before you continue.
 * Run the Maven command line to build and deploy the quickstart.
 * Import the quickstart into Red Hat JBoss Developer Studio and make sure it builds and deploys with no errors or warnings.
 
