@@ -250,6 +250,12 @@ See the https://github.com/wildfly/quickstart/blob/11.x/pom.xml#L155[WildFly par
 
 * The sample project must contain a `README.adoc` file using the `template/README.adoc` file as a guideline.
 
+** Many common instructions are included in AsciiDoc files located in the https://github.com/wildfly/quickstart/tree/master/shared-doc[shared-doc/] folder of the quickstart repository. Include those files if they contain the correct instructions for your quickstart.
+** Be aware that some of these AsciiDoc include files require that you define a document attribute to determine how to generate the instructions.
+** The `template/README.adoc` file shows the basic table of contents layout.
+** When in doubt, try to find an existing quickstart that is similar to yours that you can use for guidance.
+** Be sure to xref:build_the_quickstart_readme_files[build the README.html file] from its AsciiDoc source to make sure it renders correctly.
+
 * Do not forget to add your quickstart to the `modules` section in the parent `pom.xml` file.
 
 * The project must target Java EE 7 or Java EE 8.
