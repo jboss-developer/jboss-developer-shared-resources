@@ -1,5 +1,4 @@
 [[start_the_red_hat_jboss_enterprise_application_platform_server]]
-
 = Start the Red Hat JBoss Enterprise Application Platform Server
 
 Before you deploy a quickstart using the Maven command line tool, in most cases you need a running Red Hat JBoss Enterprise Application Platform server. A few of the Arquillian tests do not require a running server. This will be noted in the `README` file for that quickstart.
@@ -14,7 +13,7 @@ The README for each quickstart specifies which configuration is required to run 
 
 A few xref:examples_of_commands_to_start_the_jboss_eap_server[examples of commands to start the JBoss EAP server] are displayed at the end of this guide.
 
-NOTE: See link:USE_OF_EAP_HOME.adoc[Use of EAP_HOME] for information about the JBoss EAP installation path.
+NOTE: See link:USE_OF_EAP_HOME.adoc[Use of __EAP_HOME__] for information about the JBoss EAP installation path.
 
 [[start_the_default_jboss_eap_server]]
 == Start the Default JBoss EAP Server

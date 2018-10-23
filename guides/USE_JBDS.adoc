@@ -1,8 +1,27 @@
+:ProductName: Red Hat JBoss Enterprise Application Platform
+:ProductShortName: JBoss EAP
+// Documentation publishing attributes
+:DocInfoProductNameURL: red_hat_jboss_enterprise_application_platform
+:DocInfoProductName: Red Hat JBoss Enterprise Application Platform
+:DocInfoProductNumber: 7.1
+// Links to JBoss EAP documentation
+:LinkDevelopmentGuide: https://access.redhat.com/documentation/en-us/{DocInfoProductNameURL}/{DocInfoProductNumber}/html-single/development_guide/
+:DevelopmentBookName: Development Guide
+:LinkGettingStartedGuide: https://access.redhat.com/documentation/en-us/{DocInfoProductNameURL}/{DocInfoProductNumber}/html-single/getting_started_guide/
+:GettingStartedBookName: Getting Started Guide
+// Links to Developer Studio info
+:JBDSProductName: Red Hat Developer Studio
+:JBDSVersion: 12.9
+:LinkJBDSInstall:  https://access.redhat.com/documentation/en-us/red_hat_developer_studio/{JBDSVersion}/html-single/installation_guide/
+:JBDSInstallBookName: Installation Guide
+:LinkJBDSGettingStarted: https://access.redhat.com/documentation/en-us/red_hat_developer_studio/{JBDSVersion}/html-single/getting_started_with_developer_studio_tools/
+:JBDSGettingStartedBookName: Getting Started with Developer Studio Tools
+
+
 [[use_red_hat_jboss_developer_studio_or_eclipse_to_run_the_quickstarts]]
+= Use {JBDSProductName} or Eclipse to Run the Quickstarts
 
-= Use Red Hat JBoss Developer Studio or Eclipse to Run the Quickstarts
-
-You can deploy many of the quickstarts and run the Arquillian tests from Eclipse using JBoss tools. However, the EJB Client currently has limited support in the Eclipse Web Tools Platform (WTP). For that reason, some quickstarts that ship with Red Hat JBoss Enterprise Application Platform are not supported in Red Hat JBoss Developer Studio.
+You can deploy many of the quickstarts and run the Arquillian tests from Eclipse using JBoss tools. However, the EJB Client currently has limited support in the Eclipse Web Tools Platform (WTP). For that reason, some quickstarts that ship with {ProductName} are not supported in {JBDSProductName}.
 
 This guide includes the following information.
 
@@ -19,25 +38,22 @@ This guide includes the following information.
 [[where_to_find_information]]
 == Where to Find Information
 
-See https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/development_guide/get_started_developing_applications#setting_up_the_development_environment[Setting Up the Development Environment] in the _Development Guide_ for JBoss EAP for information about how to download and install  JBoss Developer Studio and how to add the JBoss EAP server to the configuration.
+* For information about how to download and install {JBDSProductName}, see the link:{LinkJBDSInstall}[{JBDSInstallBookName}].
+* For information about how to configure {ProductShortName} within {JBDSProductName}, see link:{LinkJBDSGettingStarted}[{JBDSGettingStartedBookName}].
+* For information about how to configure Maven and {JBDSProductName} for use with the quickstarts, see link:{LinkDevelopmentGuide}#configure_maven_for_use_with_red_hat_jboss_developer_studio[Configure Maven for Use with {JBDSProductName}] in the _{DevelopmentBookName}_ for {ProductShortName}.
+* For information about how to import the quickstarts into {JBDSProductName}, and for examples of how to build and deploy a basic quickstart, see link:{LinkGettingStartedGuide}#using_the_quickstart_examples[Using the Quickstart Examples] in the _{GettingStartedBookName}_ for {ProductShortName}.
+* For instructions to run the Arquillian tests using the Maven command line, see link:RUN_ARQUILLIAN_TESTS.adoc#run_the_arquillian_tests[Run the Arquillian Tests].
 
-For information about how to configure Maven and  JBoss Developer Studio for use with the quickstarts, see https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/development_guide/using_maven_with_eap#configure_maven_for_use_with_red_hat_jboss_developer_studio[Configure Maven for Use with Red Hat JBoss Developer Studio] in the _Development Guide_ for JBoss EAP.
-
-For information about how to import the quickstarts into JBoss Developer Studio, and for examples of how to build and deploy a basic quickstart, see link:https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/getting_started_guide/developing_apps_using_jboss_eap#using_the_quickstart_examples[Using the Quickstart Examples] in the _Getting Started Guide_ for JBoss EAP.
-
-
-For instructions to run the Arquillian tests using the Maven command line, see link:RUN_ARQUILLIAN_TESTS.adoc#run_the_arquillian_tests[Run the Arquillian Tests].
-
-See https://developers.redhat.com/products/devstudio/overview/[Red Hat JBoss Developer Studio] on the Red Hat Developer Program web site for additional information.
+See https://developers.redhat.com/products/devstudio/overview/[{JBDSProductName}] on the Red Hat Developer Program web site for additional information.
 
 [[important_special_instructions]]
 == Important Special Instructions
 
-. Your quickstart project folder must be located outside of your IDE workspace. If your quickstart project folder is located within the IDE workspace when you import it into JBoss Developer Studio, the IDE generates an invalid project name and an invalid WAR archive name. Be sure your quickstart project folder is located outside the IDE workspace before you begin!
+. Your quickstart project folder must be located outside of your IDE workspace. If your quickstart project folder is located within the IDE workspace when you import it into {JBDSProductName}, the IDE generates an invalid project name and an invalid WAR archive name. Be sure your quickstart project folder is located outside the IDE workspace before you begin!
 
 . Be sure to follow the instructions in the quickstart `README.adoc` file to add any required application users or make the appropriate server configuration changes.
 
-. More complex quickstarts may require special instructions to run properly in JBoss Developer Studio. This document describes some of these special situations.
+. More complex quickstarts may require special instructions to run properly in {JBDSProductName}. This document describes some of these special situations.
 
 . If you see errors or warnings when you import or run a quickstart, see the list of xref:known_issues_for_jboss_eap_quickstarts[Known Issues for JBoss EAP Quickstarts] below for an explanation.
 
@@ -98,31 +114,55 @@ You can run the Arquillian tests that are included with many of the JBoss EAP 7.
 [[known_issues_for_jboss_eap_quickstarts]]
 == Known Issues for JBoss EAP Quickstarts
 
-You may see one or more of the following errors or warnings when you import quickstart projects into JBoss Developer Studio.
+You may see one or more of the following errors or warnings when you import quickstart projects into {JBDSProductName}.
 
-JRE System Library Problem: Build path specifies execution environment JavaSE-1.6. There are no JREs installed in the workspace that are strictly compatible with this environment.::
+EJB Problem: An EJB module must contain one or more enterprise beans.::
 
-The JBoss EAP 6 quickstarts demonstrate Java EE 6 features and are built on Java SE 6. JBoss Developer Studio requires Java 8 to run, but is still capable of launching runtimes with various versions of Java. You can ignore this warning, or you can install a JDK 6 on your machine and add it to the Eclipse Java Runtime Environment by choosing *Preferences* -> *Java* -> *Installed JREs*.
+Eclipse Web Tools Platform (WTP) can not deploy simple JARs to the JBoss EAP server. For this reason, quickstart subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
 
 JPA Problem: No connection specified for project. No database-specific validation will be performed.::
 
 If the quickstart project uses JPA to access a database, you will see the following warning when you import the project into Eclipse. You can ignore this warning as it only applies to the local connection in the Eclipse development environment and does not affect the JBoss EAP runtime deployment. To eliminate this warning, you must configure the database connection in the Eclipse project settings.
 
-Failed while installing JPA 2.0.   org.osgi.service.prefs.BackingStoreException: Resource '/__PROJECT_NAME__/__SUBPROJECT_NAME__/.settings' does not exist.::
+JPA Problem: Failed while installing JPA 2.0.   org.osgi.service.prefs.BackingStoreException: Resource '/__PROJECT_NAME__/__SUBPROJECT_NAME__/.settings' does not exist.::
 
 This error can occur with quickstart projects that are composed of multiple subprojects. This is a known issue. See https://bugs.eclipse.org/bugs/show_bug.cgi?id=459810.
 
+JPA Problem: Console configuration QUICKSTART_HOME does not exist. Hibernate specific validation and content assist will be limited.::
+
+This warning is intermittent and can occur with any quickstart project that uses Hibernate. This is a known issue. For more information, see https://issues.jboss.org/browse/JBIDE-17483.
+
+JRE System Library Problem: Build path specifies execution environment JavaSE-1.6. There are no JREs installed in the workspace that are strictly compatible with this environment.::
+
+The JBoss EAP 6 quickstarts demonstrate Java EE 6 features and are built on Java SE 6. {JBDSProductName} requires Java 8 to run, but is still capable of launching runtimes with various versions of Java. You can ignore this warning, or you can install a JDK 6 on your machine and add it to the Eclipse Java Runtime Environment by choosing *Preferences* -> *Java* -> *Installed JREs*.
+
+Knowledge Base Builder Problem: JBoss Tools Knowledge Base problem: Nature is not installed on required Java project `<project-name>`. Use Quick Fix to include artifacts declared in that project into Content Assistant and Validation.::
+
+Quickstarts that require Knowledge Base capabilities to be enabled on the project display this warning. To resolve it, right-click on the warning message in the in the {JBDSProductName} *Problems* window and choose *Quick Fix*. This opens a window with the fix *Enable Knowledge Base capabilities on project <project-name>* selected. Make sure all projects are selected and click *Finish* to resolve the warning.
+
 Maven Configuration Problem: Project configuration is not up-to-date with pom.xml. Run Maven->Update Project or use Quick Fix::
 
-This error can occur with quickstart projects that are composed of multiple subprojects. The import of a project on one thread may trigger Eclipse to refresh a project on another thread making the project state appear to be inconsistent. To resolve the errors, right-click on the parent project in JBoss Developer Studio and choose *Maven* -> *Update Project*. Make sure all the projects are selected and click *OK*. This should resolve the errors.
+This error can occur with quickstart projects that are composed of multiple subprojects. The import of a project on one thread may trigger Eclipse to refresh a project on another thread making the project state appear to be inconsistent. To resolve the errors, right-click on the parent project in {JBDSProductName} and choose *Maven* -> *Update Project*. Make sure all the projects are selected and click *OK*. This should resolve the errors.
 
 Maven Configuration Problem: Endorsed directory QUICKSTART_HOME/some-path/target/endorsed' is missing. You may need to a perform a Maven command line build in order to create it.::
 
-This error occurs if endorsed directories are defined in the `maven-compiler-plugin` configuration of the quickstart POM file. To resolve the error, right-click on error in the JBoss Developer Studio *Problems* window and choose *Quick Fix*. This opens a window with the fix `Run 'mvn process-sources' to execute dependency:copy` selected. Click *Finish* to resolve the error. For more information, see http://docs.jboss.org/tools/whatsnew/maven/maven-news-3.3.0.CR1.html[JBoss Maven Integration].
+This error occurs if endorsed directories are defined in the `maven-compiler-plugin` configuration of the quickstart POM file. To resolve the error, right-click on error in the {JBDSProductName} *Problems* window and choose *Quick Fix*. This opens a window with the fix `Run 'mvn process-sources' to execute dependency:copy` selected. Click *Finish* to resolve the error. For more information, see http://docs.jboss.org/tools/whatsnew/maven/maven-news-3.3.0.CR1.html[JBoss Maven Integration].
 
 Maven pom Loading Problem: Overriding managed version 1.0.2.Final for wildfly-maven-plugin pom.xml.::
 
 You can ignore this m2e warning. It can occur in child projects where the dependency versions are defined in the parent POM file. For more information, see https://bugs.eclipse.org/bugs/show_bug.cgi?id=346725[Bug 346725 - "Overriding managed version" in pom.xml should not be a warning severity ].
+
+WSDL Problem: WS-I: (AP2901) A description uses neither the WSDL MIME Binding as described in WSDL 1.1 Section 5 nor WSDL SOAP binding as described in WSDL 1.1 Section 3 on each of the wsdl:input or wsdl:output elements of a wsdl:binding.::
+
+You can ignore this error. This is a known Eclipse issue. See https://bugs.eclipse.org/bugs/show_bug.cgi?id=415786. To turn off WSDL validation in {JBDSProductName}, choose *Windows* -> *Preferences*, select *Validation*, find *WSDL Validator* in the list, and uncheck the *Manual* and *Build* selections.
+
+WSDL Problem: WS-I: (BP2402) The wsdl:binding element does not use a soapbind:binding element as defined in section "3 SOAP Binding." of the WSDL 1.1 specification.::
+
+You can ignore this error. This is a known Eclipse issue. See https://bugs.eclipse.org/bugs/show_bug.cgi?id=415786. To turn off WSDL validation in {JBDSProductName}, choose *Windows* -> *Preferences*, select *Validation*, find *WSDL Validator* in the list, and uncheck the *Manual* and *Build* selections.
+
+WSDL Problem: WS-I: A problem occured while running the WS-I WSDL conformance check: org.eclipse.wst.wsi.internal.analyzer.WSIAnalyzerException: The WS-I Test Assertion Document (TAD)document was either not found or could not be processed.The WSDLAnalyzer was unable to validate the given WSDL File.::
+
+This warning occurs when you import a quickstart that contains a WSDL file into {JBDSProductName}. You can ignore this warning. It is a known Eclipse issue. For more information, see https://bugs.eclipse.org/bugs/show_bug.cgi?id=535813.
 
 XML Problem: Referenced file contains errors (jar:file:PATH-TO-jbdevstudio/studio/plugins/org.jboss.tools.as.catalog_3.0.0.Final-v20141016-1911-B95.jar!/schema/xsd/jboss-ejb3-2_0.xsd).  For more information, right click on the message in the Problems View and select "Show Details..."::
 
@@ -144,22 +184,3 @@ XML Problem: cvc-complex-type.2.4.a: Invalid content was found starting with ele
 
 You can ignore this error. This is a known issue with the `jboss-ejb-container-interceptors_1_0.xsd` schema file. See https://issues.jboss.org/browse/WFLY-4365.
 
-WSDL Problem: WS-I: (AP2901) A description uses neither the WSDL MIME Binding as described in WSDL 1.1 Section 5 nor WSDL SOAP binding as described in WSDL 1.1 Section 3 on each of the wsdl:input or wsdl:output elements of a wsdl:binding.::
-
-You can ignore this error. This is a known Eclipse issue. See https://bugs.eclipse.org/bugs/show_bug.cgi?id=415786. To turn off WSDL validation in JBoss Developer Studio, choose *Windows* -> *Preferences*, select *Validation*, find *WSDL Validator* in the list, and uncheck the *Manual* and *Build* selections.
-
-WSDL Problem: WS-I: (BP2402) The wsdl:binding element does not use a soapbind:binding element as defined in section "3 SOAP Binding." of the WSDL 1.1 specification.::
-
-You can ignore this error. This is a known Eclipse issue. See https://bugs.eclipse.org/bugs/show_bug.cgi?id=415786. To turn off WSDL validation in JBoss Developer Studio, choose *Windows* -> *Preferences*, select *Validation*, find *WSDL Validator* in the list, and uncheck the *Manual* and *Build* selections.
-
-EJB Problem: An EJB module must contain one or more enterprise beans.::
-
-Eclipse Web Tools Platform (WTP) can not deploy simple JARs to the JBoss EAP server. For this reason, quickstart subprojects that would normally deploy shared artifacts as JARs deploy them instead as EJB JARs. You can ignore this warning.
-
-Knowledge Base Builder Problem: JBoss Tools Knowledge Base problem: Nature is not installed on required Java project `<project-name>`. Use Quick Fix to include artifacts declared in that project into Content Assistant and Validation.::
-
-Quickstarts that require Knowledge Base capabilities to be enabled on the project display this warning. To resolve it, right-click on the warning message in the in the JBoss Developer Studio *Problems* window and choose *Quick Fix*. This opens a window with the fix *Enable Knowledge Base capabilities on project <project-name>* selected. Make sure all projects are selected and click *Finish* to resolve the warning.
-
-JPA Problem: Console configuration QUICKSTART_HOME does not exist. Hibernate specific validation and content assist will be limited.::
-
-This warning is intermittent and can occur with any quickstart project that uses Hibernate. This is a known issue. For more information, see https://issues.jboss.org/browse/JBIDE-17483.

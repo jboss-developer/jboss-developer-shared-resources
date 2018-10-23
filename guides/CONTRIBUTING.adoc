@@ -1,5 +1,6 @@
-[[jboss_developer_contributing_guide]]
+:JBDSProductName: Red Hat Developer Studio
 
+[[jboss_developer_contributing_guide]]
 = JBoss Developer Contributing Guide
 
 This document contains information targeted for developers who want to contribute to Red Hat JBoss Enterprise Application Platform developer projects.
@@ -108,7 +109,7 @@ git checkout -b add-xyz-quickstart upstream/master
 
 . Test your changes in 2 ways. Be sure to fix any checkstyle or build issues before you continue.
 * Run the Maven command line to build and deploy the quickstart.
-* Import the quickstart into Red Hat JBoss Developer Studio and make sure it builds and deploys with no errors or warnings.
+* Import the quickstart into {JBDSProductName} and make sure it builds and deploys with no errors or warnings.
 
 . Use the `git add` command to add new or changed file contents to the staging area.
 * If you create a new quickstart, you can add files using the subfolder and file names. The following is an example of new quickstart folders and files you might want to stage:
@@ -238,7 +239,7 @@ See the https://github.com/wildfly/quickstart/blob/11.x/pom.xml#L155[WildFly par
 
 * The project must follow the structure used by existing quickstarts such as the `numberguess` quickstart. A good starting point would be to copy the https://github.com/wildfly/quickstart/tree/11.x/numberguess[`numberguess`] quickstart project.
 
-* You should be able to import the sample project into Red Hat JBoss Developer Studio/JBoss Tools and deploy it from there.
+* You should be able to import the sample project into {JBDSProductName}/JBoss Tools and deploy it from there.
 
 * Maven POM files must be used. No other build system is allowed unless the purpose of the quickstart is to show another build system in use. If using Maven it should:
 
@@ -266,7 +267,7 @@ See the https://github.com/wildfly/quickstart/blob/11.x/pom.xml#L155[WildFly par
 
 * If the quickstart persists to a database, you must use a unique datasource JNDI name and connection URL for the application and for any Arquillian tests that it provides. Do not use the JNDI name `java:jboss/datasources/ExampleDS`. Failure to use unique names can result in a `DuplicateServiceException` when more than one quickstart is deployed to the same server.
 
-* Be sure to test the quickstart in JBoss Developer Studio, which strictly enforces Java EE coding rules!
+* Be sure to test the quickstart in {JBDSProductName}, which strictly enforces Java EE coding rules!
 
 * If possible, create a cheat sheet for the quickstart to guide users and developers through the example. See xref:create_a_quickstart_cheat_sheet[Create a Quickstart Cheat Sheet] for more information.
 
@@ -418,7 +419,7 @@ You can create a cheat sheet using the Eclipse Wizard or you can copy and modify
 
 IMPORTANT: Be sure your project folder is located outside of the Eclipse workspace before you begin this process.
 
-. Import your quickstart into JBoss Developer Studio (JDBS)
+. Import your quickstart into {JBDSProductName}.
 .. From the menu, choose `File` --> `Import` --> `Maven` --> `Existing Maven Projects`, then click `Next`.
 .. Navigate to your quickstart, select it, then click `OK`.
 .. Click `Finish`.
@@ -467,7 +468,7 @@ This command allows you to use the variable `${currentProject}` instead of a har
 * Make sure you add the 'Get current project' command and use the replaceable `${currentProject}`  value to avoid hard-coding the project path. This ensures that if the quickstart folder is moved, the cheat sheet will work as expected.
 * Do not use the `<action>` tag if it can be avoided. It is more fragile than the `<command>` tag, which uses parameters names instead of indexes.
 * Try to highlight the most important features and code for the quickstart. Pay particular attention to areas that might confuse developers. Cheat sheets require that users execute or skip each step, so you don't want to bore developers with the code that has no impact on the purpose of the quickstart.
-* Make sure `<?xml version="1.0" encoding="UTF-8"?>` is the first line in the `.cheatsheet.xml` file, before the license information. This enables the cheat sheet to open automatically when you import the project into JBoss Developer Studio.
+* Make sure `<?xml version="1.0" encoding="UTF-8"?>` is the first line in the `.cheatsheet.xml` file, before the license information. This enables the cheat sheet to open automatically when you import the project into {JBDSProductName}.
 
 [[create_a_quickstart_cheat_sheet_find_help]]
 === Find Quickstart Cheatsheet Help
