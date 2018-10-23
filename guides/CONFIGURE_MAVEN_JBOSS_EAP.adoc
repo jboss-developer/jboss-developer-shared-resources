@@ -1,5 +1,6 @@
-[[configure_maven_to_build_and_deploy_the_quickstarts]]
+:JBDSProductName: Red Hat Developer Studio
 
+[[configure_maven_to_build_and_deploy_the_quickstarts]]
 = Configure Maven to Build and Deploy the Quickstarts
 
 [[configure_maven_overview]]
@@ -10,7 +11,7 @@ The artifacts and dependencies needed to build and deploy applications to Red Ha
 You can skip these instructions if you meet one of the following criteria:
 
 * You plan to use Maven command line and have already installed Maven 3.2.0 or later. In this case, you should already be configured to build and deploy the quickstarts.
-* You plan to use Red Hat JBoss Developer Studio 9.1 or later to build and deploy the quickstarts. These IDEs embed Maven 3.2.1 so you do not need to install it separately.
+* You plan to use {JBDSProductName} 9.1 or later to build and deploy the quickstarts. These IDEs embed Maven 3.2.1 so you do not need to install it separately.
 
 Some common profiles are defined and can be used in some quickstart POM files. These profiles are described in xref:use_of_maven_profiles_in_pom_files[Use of Maven Profiles in POM Files].
 

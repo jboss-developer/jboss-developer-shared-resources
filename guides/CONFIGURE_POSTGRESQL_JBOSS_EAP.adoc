@@ -28,7 +28,7 @@ Add PostgreSQL to the JBoss EAP server configuration.
 +
 When you are done testing, remove PostgreSQL from the server configuration.
 
-NOTE: See link:USE_OF_EAP_HOME.adoc[Use of EAP_HOME and JBOSS_HOME Variables] for information about the JBoss EAP installation path.
+NOTE: See link:USE_OF_EAP_HOME.adoc[Use of __EAP_HOME__] for information about the JBoss EAP installation path.
 
 [[download_and_install_postgresql]]
 == Download and Install PostgreSQL
