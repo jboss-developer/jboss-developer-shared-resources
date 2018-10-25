@@ -7,9 +7,10 @@ This document contains information targeted for developers who want to contribut
 
 * xref:join_the_mailing_list[Join the Mailing list]: Sign up for the JBoss developer mailing list.
 * xref:contribute_a_quickstart[Contribute a Quickstart]: Find out how to contribute a quickstart.
+* xref:create_a_quickstart_readme_file[Create a Quickstart `README.adoc` File]: Instructions on how to create a well structured and useful `README.adoc` file.
+* xref:build_the_quickstart_readme_files[Build the README.html Files]: Build the README HTML file from its AsciiDoc source.
 * xref:create_a_quickstart_cheat_sheet[Create a Quickstart Cheat Sheet]: Learn how to create a `cheat sheet` for your quickstart.
 * xref:copy_a_quickstart_to_another_repository_and_preserve_its_history[Copy a Quickstart to Another Repository and Preserve Its History]: Copy a quickstart from another location and preserve the commit history.
-* xref:build_the_quickstart_readme_files[Build the README.html Files]: Build the README HTML file from its AsciiDoc source.
 
 [[join_the_mailing_list]]
 == Join the Mailing list
@@ -402,6 +403,30 @@ limitations under the License.
 --%>
 ----
 
+[[create_a_quickstart_readme_file]]
+== Create a Quickstart README File
+
+The quickstart `README.adoc` file must follow a strict format that is consistent across all of the quickstarts. This not only looks more professional, it also makes it much easier for developers to try out the quickstarts.
+
+A template for creating a `README.adoc` file for a new quickstart is located in the https://github.com/wildfly/quickstart/tree/master/template[template] folder of the WildFly and JBoss EAP quickstarts. It includes instructions for creating the required metadata as well as the content.
+
+The quickstart `shared-doc` folder contains files with instructions for common procedures that you can include in your project's `README.adoc` file. Some of these procedures can be customized by defining document attributes.
+
+The easiest approach to get started with a new README file is to copy the `README.adoc` file for a quickstart that uses similar instructions, and then edit the file for the new quickstart. Be sure to xref:build_the_quickstart_readme_files[build the README.html file] to verify that the `README.adoc` file is formatted and renders correctly.
+
+[[build_the_quickstart_readme_files]]
+== Build the README.html Files
+
+To build the quickstart `README.html` file from the source `README.adoc` file, navigate to the quickstart directory and run the following command.
+
+[source]
+----
+$ mvn clean generate-resources -Pdocs
+----
+
+NOTE: You can build all of the quickstart README files by running the command in the root folder of the quickstarts.
+
+
 [[create_a_quickstart_cheat_sheet]]
 == Create a Quickstart Cheat Sheet
 
@@ -548,14 +573,3 @@ $ git am ~/temp/qsPatchFolder/*.patch
 
 . Issue a pull to the upstream repository, verify it is correct, and merge.
 
-[[build_the_quickstart_readme_files]]
-== Build the README.html Files
-
-To build the quickstart `README.html` file from the source `README.adoc` file, navigate to the quickstart directory and run the following command.
-
-[source]
-----
-$ mvn clean generate-resources -Pdocs
-----
-
-NOTE: You can build all of the quickstarts by running the command in the root folder of the quickstarts.
