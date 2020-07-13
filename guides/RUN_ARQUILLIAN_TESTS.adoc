@@ -49,7 +49,7 @@ $ mvn clean test -Parq-jbossas-remote
 ----
 $ mvn clean test -Parq-wildfly-remote
 ----
-* For JBoss EAP 7.1, this is the `arq-remote` profile, so you type the following command:
+* For JBoss EAP 7.3, this is the `arq-remote` profile, so you type the following command:
 +
 [source,options="nowrap"]
 ----
@@ -114,7 +114,7 @@ $ mvn clean test -Parq-jbossas-managed
 ----
 $ mvn clean test -Parq-wildfly-managed
 ----
-* For JBoss EAP 7.1, this is the `arq-managed` profile, so you type the following command:
+* For JBoss EAP 7.3, this is the `arq-managed` profile, so you type the following command:
 +
 [source,options="nowrap"]
 ----

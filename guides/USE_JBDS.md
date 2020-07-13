@@ -1,7 +1,7 @@
-# Use Red Hat JBoss Developer Studio or Eclipse to Run the Quickstarts
+# Use Red Hat Red Hat CodeReady Studio or Eclipse to Run the Quickstarts
 
 
-You can deploy many of the quickstarts and run the Arquillian tests from Eclipse using JBoss tools. However, the EJB Client currently has limited support in the Eclipse Web Tools Platform (WTP). For that reason, some quickstarts that ship with Red Hat JBoss Enterprise Application Platform are not supported in Red Hat JBoss Developer Studio.
+You can deploy many of the quickstarts and run the Arquillian tests from Eclipse using JBoss tools. However, the EJB Client currently has limited support in the Eclipse Web Tools Platform (WTP). For that reason, some quickstarts that ship with Red Hat JBoss Enterprise Application Platform are not supported in Red Hat CodeReady Studio.
 
 This guide includes the following information.
 
@@ -17,23 +17,23 @@ This guide includes the following information.
 
 ## Where to Find Information
 
-See [Setting Up the Development Environment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/development_guide/#setting_up_the_development_environment) in the _Development Guide_ for JBoss EAP for information about how to download and install  JBoss Developer Studio and how to add the JBoss EAP server to the configuration.
+See [Setting Up the Development Environment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/#setting_up_the_development_environment) in the _Development Guide_ for JBoss EAP for information about how to download and install  Red Hat CodeReady Studio and how to add the JBoss EAP server to the configuration.
 
-For information about how to configure Maven and  JBoss Developer Studio for use with the quickstarts, see [Configure Maven for Use with Red Hat JBoss Developer Studio](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/development_guide/#configure_maven_for_use_with_red_hat_jboss_developer_studio_) in the _Development Guide_ for JBoss EAP.
+For information about how to configure Maven and  Red Hat CodeReady Studio for use with the quickstarts, see [Configure Maven for Use with Red Hat Red Hat CodeReady Studio](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/#configure_maven_for_use_with_red_hat_jboss_developer_studio) in the _Development Guide_ for JBoss EAP.
 
-For information about how to deploy and run the quickstarts and to run the Arquillian tests in JBoss Developer Studio, see [Run the Quickstarts in JBoss Developer Studio](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/development_guide/#run_the_quickstarts_in_red_hat_jboss_developer_studio) in the _Development Guide_ for JBoss EAP.
+For information about how to deploy and run the quickstarts and to run the Arquillian tests in Red Hat CodeReady Studio, see [Run the Quickstarts in Red Hat CodeReady Studio](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/getting_started_guide/index#using_the_quickstart_examples) in the _Getting Started Guide_ for JBoss EAP.
 
 For instructions to run the Arquillian tests using the Maven command line, see [Run the Arquillian Tests](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/RUN_ARQUILLIAN_TESTS.md#run-the-arquillian-tests).
 
-See [Red Hat JBoss Developer Studio](https://developers.redhat.com/products/devstudio/overview/ "Get Started") on the Red Hat Developer Program web site for additional information.
+See [Red Hat Red Hat CodeReady Studio](https://developers.redhat.com/products/codeready-studio/overview/ "Get Started") on the Red Hat Developer Program website for additional information.
 
 ## Important Special Instructions
 
-1. Your quickstart project folder must be located outside of your IDE workspace. If your quickstart project folder is located within the IDE workspace when you import it into JBoss Developer Studio, the IDE generates an invalid project name and an invalid WAR archive name. Be sure your quickstart project folder is located outside the IDE workspace before you begin!
+1. Your quickstart project folder must be located outside of your IDE workspace. If your quickstart project folder is located within the IDE workspace when you import it into Red Hat CodeReady Studio, the IDE generates an invalid project name and an invalid WAR archive name. Be sure your quickstart project folder is located outside the IDE workspace before you begin!
 
 2. Be sure to follow the instructions in the quickstart `README.md` file to add any required application users or make the appropriate server configuration changes.
 
-3. More complex quickstarts may require special instructions to run properly in JBoss Developer Studio. This document describes some of these special situations.
+3. More complex quickstarts may require special instructions to run properly in Red Hat CodeReady Studio. This document describes some of these special situations.
 
 4. If you see errors or warnings when you import or run a quickstart, see the list of [Known Issues for JBoss EAP Quickstarts](#known-issues-for-jboss-eap-quickstarts) below for an explanation.
 
@@ -81,7 +81,7 @@ To deploy a quickstart that consists of multiple projects containing interdepend
 
 ### Run a Quickstart's Arquillian Tests
 
-You can run the Arquillian tests that are included with many of the JBoss EAP 7.1 quickstarts by following the steps below. See [Run the Arquillian Tests](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/RUN_ARQUILLIAN_TESTS.md#run-the-arquillian-tests) for more complete information about running the Arquillian tests and for instructions for older versions of the quickstarts.
+You can run the Arquillian tests that are included with many of the JBoss EAP 7.3 quickstarts by following the steps below. See [Run the Arquillian Tests](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/RUN_ARQUILLIAN_TESTS.md#run-the-arquillian-tests) for more complete information about running the Arquillian tests and for instructions for older versions of the quickstarts.
 
 1. In the `Servers` tab, right-click on the JBoss EAP server and choose `Start`.
 2. Right-click on the quickstart project in the `Project Explorer` tab and choose `Run As` -> `Maven Build`.
@@ -89,11 +89,11 @@ You can run the Arquillian tests that are included with many of the JBoss EAP 7.
 
 ## Known Issues for JBoss EAP Quickstarts
 
-You may see one or more of the following errors or warnings when you import quickstart projects into JBoss Developer Studio.
+You may see one or more of the following errors or warnings when you import quickstart projects into Red Hat CodeReady Studio.
 
 * **JRE System Library Problem: Build path specifies execution environment JavaSE-1.6. There are no JREs installed in the workspace that are strictly compatible with this environment.**
 
-    The JBoss EAP 6 quickstarts demonstrate Java EE 6 features and are built on Java SE 6. JBoss Developer Studio requires Java 8 to run, but is still capable of launching runtimes with various versions of Java. You can ignore this warning, or you can install a JDK 6 on your machine and add it to the Eclipse Java Runtime Environment by choosing `Preferences` --> `Java` --> `Installed JREs`.
+    The JBoss EAP 6 quickstarts demonstrate Java EE 6 features and are built on Java SE 6. Red Hat CodeReady Studio requires Java 8 to run, but is still capable of launching runtimes with various versions of Java. You can ignore this warning, or you can install a JDK 6 on your machine and add it to the Eclipse Java Runtime Environment by choosing `Preferences` --> `Java` --> `Installed JREs`.
 
 * **JPA Problem: No connection specified for project. No database-specific validation will be performed.**
 
@@ -105,11 +105,11 @@ You may see one or more of the following errors or warnings when you import quic
 
 * **Maven Configuration Problem: Project configuration is not up-to-date with pom.xml. Run Maven->Update Project or use Quick Fix.**
 
-      This error can occur with quickstart projects that are composed of multiple subprojects. The import of a project on one thread may trigger Eclipse to refresh a project on another thread making the project state appear to be inconsistent. To resolve the errors, right-click on the parent project in JBoss Developer Studio and choose `Maven` --> `Update Project`. Make sure all the projects are selected and click `OK`. This should resolve the errors.
+      This error can occur with quickstart projects that are composed of multiple subprojects. The import of a project on one thread may trigger Eclipse to refresh a project on another thread making the project state appear to be inconsistent. To resolve the errors, right-click on the parent project in Red Hat CodeReady Studio and choose `Maven` --> `Update Project`. Make sure all the projects are selected and click `OK`. This should resolve the errors.
 
 * **Maven Configuration Problem: Endorsed directory QUICKSTART_HOME/some-path/target/endorsed' is missing. You may need to a perform a Maven command line build in order to create it.**
 
-    This error occurs if endorsed directories are defined in the `maven-compiler-plugin` configuration of the quickstart POM file. To resolve the error, right-click on error in the JBoss Developer Studio `Problems` window and choose `Quick Fix`. This opens a window with the fix `Run 'mvn process-sources' to execute dependency:copy` selected. Click `Finish` to resolve the error. For more information, see [JBoss Maven Integration](http://docs.jboss.org/tools/whatsnew/maven/maven-news-3.3.0.CR1.html).
+    This error occurs if endorsed directories are defined in the `maven-compiler-plugin` configuration of the quickstart POM file. To resolve the error, right-click on error in the Red Hat CodeReady Studio `Problems` window and choose `Quick Fix`. This opens a window with the fix `Run 'mvn process-sources' to execute dependency:copy` selected. Click `Finish` to resolve the error. For more information, see [JBoss Maven Integration](http://docs.jboss.org/tools/whatsnew/maven/maven-news-3.3.0.CR1.html).
 
 * **Maven pom Loading Problem: Overriding managed version 1.0.2.Final for wildfly-maven-plugin pom.xml.**
 
@@ -137,11 +137,11 @@ You may see one or more of the following errors or warnings when you import quic
 
 * **WSDL Problem: WS-I: (AP2901) A description uses neither the WSDL MIME Binding as described in WSDL 1.1 Section 5 nor WSDL SOAP binding as described in WSDL 1.1 Section 3 on each of the wsdl:input or wsdl:output elements of a wsdl:binding.**
 
-    You can ignore this error. This is a known Eclipse issue. See <https://bugs.eclipse.org/bugs/show_bug.cgi?id=415786>. To turn off WSDL validation in JBoss Developer Studio, choose `Windows` --> `Preferences`, select `Validation`, find `WSDL Validator` in the list, and uncheck the `Manual` and `Build` selections.
+    You can ignore this error. This is a known Eclipse issue. See <https://bugs.eclipse.org/bugs/show_bug.cgi?id=415786>. To turn off WSDL validation in Red Hat CodeReady Studio, choose `Windows` --> `Preferences`, select `Validation`, find `WSDL Validator` in the list, and uncheck the `Manual` and `Build` selections.
 
 * **WSDL Problem: WS-I: (BP2402) The wsdl:binding element does not use a soapbind:binding element as defined in section "3 SOAP Binding." of the WSDL 1.1 specification.**
 
-    You can ignore this error. This is a known Eclipse issue. See <https://bugs.eclipse.org/bugs/show_bug.cgi?id=415786>. To turn off WSDL validation in JBoss Developer Studio, choose `Windows` --> `Preferences`, select `Validation`, find `WSDL Validator` in the list, and uncheck the `Manual` and `Build` selections.
+    You can ignore this error. This is a known Eclipse issue. See <https://bugs.eclipse.org/bugs/show_bug.cgi?id=415786>. To turn off WSDL validation in Red Hat CodeReady Studio, choose `Windows` --> `Preferences`, select `Validation`, find `WSDL Validator` in the list, and uncheck the `Manual` and `Build` selections.
 
 * **EJB Problem: An EJB module must contain one or more enterprise beans.**
 
@@ -149,7 +149,7 @@ You may see one or more of the following errors or warnings when you import quic
 
 * **Knowledge Base Builder Problem: JBoss Tools Knowledge Base problem: Nature is not installed on required Java project `<project-name>`. Use Quick Fix to include artifacts declared in that project into Content Assistant and Validation.**
 
-     Quickstarts that require Knowledge Base capabilities to be enabled on the project display this warning. To resolve it, right-click on the warning message in the in the JBoss Developer Studio `Problems` window and choose `Quick Fix`. This opens a window with the fix `Enable Knowledge Base capabilities on project <project-name>` selected. Make sure all projects are selected and click `Finish` to resolve the warning.
+     Quickstarts that require Knowledge Base capabilities to be enabled on the project display this warning. To resolve it, right-click on the warning message in the in the Red Hat CodeReady Studio `Problems` window and choose `Quick Fix`. This opens a window with the fix `Enable Knowledge Base capabilities on project <project-name>` selected. Make sure all projects are selected and click `Finish` to resolve the warning.
 
 * **JPA Problem: Console configuration QUICKSTART_HOME does not exist. Hibernate specific validation and content assist will be limited.**
 

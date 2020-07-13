@@ -3,19 +3,19 @@
 // Documentation publishing attributes
 :DocInfoProductNameURL: red_hat_jboss_enterprise_application_platform
 :DocInfoProductName: Red Hat JBoss Enterprise Application Platform
-:DocInfoProductNumber: 7.1
+:DocInfoProductNumber: 7.3
 // Links to JBoss EAP documentation
 :LinkDevelopmentGuide: https://access.redhat.com/documentation/en-us/{DocInfoProductNameURL}/{DocInfoProductNumber}/html-single/development_guide/
 :DevelopmentBookName: Development Guide
 :LinkGettingStartedGuide: https://access.redhat.com/documentation/en-us/{DocInfoProductNameURL}/{DocInfoProductNumber}/html-single/getting_started_guide/
 :GettingStartedBookName: Getting Started Guide
 // Links to Developer Studio info
-:JBDSProductName: Red Hat Developer Studio
-:JBDSVersion: 12.9
-:LinkJBDSInstall:  https://access.redhat.com/documentation/en-us/red_hat_developer_studio/{JBDSVersion}/html-single/installation_guide/
+:JBDSProductName: Red Hat CodeReady Studio
+:JBDSVersion: 12.15
+:LinkJBDSInstall:  https://access.redhat.com/documentation/en-us/red_hat_codeready_studio/{JBDSVersion}/html-single/installation_guide/
 :JBDSInstallBookName: Installation Guide
-:LinkJBDSGettingStarted: https://access.redhat.com/documentation/en-us/red_hat_developer_studio/{JBDSVersion}/html-single/getting_started_with_developer_studio_tools/
-:JBDSGettingStartedBookName: Getting Started with Developer Studio Tools
+:LinkJBDSGettingStarted: https://access.redhat.com/documentation/en-us/red_hat_codeready_studio/{JBDSVersion}/html-single/getting_started_with_codeready_studio_tools/
+:JBDSGettingStartedBookName: Getting Started with CodeReady Studio Tools
 
 
 [[use_red_hat_jboss_developer_studio_or_eclipse_to_run_the_quickstarts]]
@@ -44,7 +44,7 @@ This guide includes the following information.
 * For information about how to import the quickstarts into {JBDSProductName}, and for examples of how to build and deploy a basic quickstart, see link:{LinkGettingStartedGuide}#using_the_quickstart_examples[Using the Quickstart Examples] in the _{GettingStartedBookName}_ for {ProductShortName}.
 * For instructions to run the Arquillian tests using the Maven command line, see link:RUN_ARQUILLIAN_TESTS.adoc#run_the_arquillian_tests[Run the Arquillian Tests].
 
-See https://developers.redhat.com/products/devstudio/overview/[{JBDSProductName}] on the Red Hat Developer Program web site for additional information.
+See https://developers.redhat.com/products/codeready-studio/overview[{JBDSProductName}] on the Red Hat Developer Program website for additional information.
 
 [[important_special_instructions]]
 == Important Special Instructions
@@ -105,7 +105,7 @@ To deploy a quickstart that consists of multiple projects containing interdepend
 [[run_a_quickstarts_arquillian_tests]]
 === Run a Quickstart's Arquillian Tests
 
-You can run the Arquillian tests that are included with many of the JBoss EAP 7.1 quickstarts by following the steps below. See link:RUN_ARQUILLIAN_TESTS.adoc#run_the_arquillian_tests[Run the Arquillian Tests] for more complete information about running the Arquillian tests and for instructions for older versions of the quickstarts.
+You can run the Arquillian tests that are included with many of the JBoss EAP {DocInfoProductNumber} quickstarts by following the steps below. See link:RUN_ARQUILLIAN_TESTS.adoc#run_the_arquillian_tests[Run the Arquillian Tests] for more complete information about running the Arquillian tests and for instructions for older versions of the quickstarts.
 
 . In the *Servers* tab, right-click on the JBoss EAP server and choose *Start*.
 . Right-click on the quickstart project in the *Project Explorer* tab and choose *Run As* -> *Maven build*.
