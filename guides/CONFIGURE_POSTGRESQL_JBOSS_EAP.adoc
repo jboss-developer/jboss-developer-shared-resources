@@ -256,7 +256,7 @@ $ psql -h 127.0.0.1 -U sa __QUICKSTART_DATABASE_NAME__
 
 . Create the following directory structure: `__EAP_HOME__/modules/org/postgresql/main`
 
-. Download the `JDBC41` version of JBDC driver from http://jdbc.postgresql.org/download.html and save it into the directory you created in the previous step. It should be named something like `postgresql-42.1.4.jre7.jar`.
+. Download the `JDBC41` version of JBDC driver from http://jdbc.postgresql.org/download and save it into the directory you created in the previous step. It should be named something like `postgresql-42.1.4.jre7.jar`.
 . In the same directory, create a file named `module.xml`. Copy the following contents into the file, replacing the JAR name with the revision that matches the downloaded JAR name.
 +
 [source,xml,options="nowrap"]
